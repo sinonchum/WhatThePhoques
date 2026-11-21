@@ -1,0 +1,3 @@
+# Keep submission and response archives byte-identical to the checkpoint.
+*.csv -text
+*.jsonl -text

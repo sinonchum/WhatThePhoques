@@ -2,7 +2,43 @@
 
 目标是用同一批题比较 33 个端点，输出 `endpoint,family,model`。家族分占 10%，同一真实家族内的模型身份分占 90%。水印、系统提示和解码变化保持模型身份；量化配置或 LoRA 变化会改变身份。[官方题面](../docs/tasks/Model_Equality_Testing.pdf)
 
-## 这条流水线怎么做决定
+## 接手当前版本
+
+第二轮提交使用 33 个正式端点各 20 条回答，共 660 条。2026-11-21 巴黎时间 19:35，官方回执记录的公开分为 **0.10**，当时排名 **6 / 20**。这份提交得到了 3 个候选家族、13 个候选模型身份。正式端点的身份尚无公开真值。[提交 CSV](checkpoint/submission.csv) · [官方回执快照](checkpoint/receipt.json)
+
+在仓库根目录运行以下命令，可以用缓存重新生成当时实际上传的 CSV。离线运行使用 Python 3.9–3.12，依赖版本保存在 [requirements.txt](requirements.txt)。
+
+```bash
+python3 -m venv .venv
+. .venv/bin/activate
+python -m pip install -r task2/requirements.txt
+python task2/variant_rank.py --answers task2/checkpoint/formal.jsonl --families task2/checkpoint/families.csv --out task2/runs/reproduced.csv
+cmp task2/runs/reproduced.csv task2/checkpoint/submission.csv
+```
+
+[variant_rank.py](variant_rank.py) 在给定家族内逐题比较回答格式、选项复述和解释顺序，结合偏差大小和该题内的相对排名，再合并核心组、拆出偏差较高的端点。当前采用上三分之一的经验切分。[家族表](checkpoint/families.csv) 来自首轮回答的经验规则：q03 回复超过一个词归入 G3，其余按 q07 整数的绝对值小于 10 或至少 10 分入 G1 或 G2。可以单独替换家族表，比较两个阶段各自带来的变化。
+
+### 新算法如何对照
+
+[练习缓存](checkpoint/practice.jsonl) 有 9 个端点 × 30 题 × 3 次重复，配套[公开标签](checkpoint/practice_answers.csv)。[正式缓存](checkpoint/formal.jsonl) 有 660 条无标签回答。公开分是对一份提交的整体反馈。训练或选阈值时请区分练习真值与正式预测。
+
+把新算法放在 `task2/my_solver.py`，实现 `predict(rows)`，返回字典 `{匿名端点: 模型组标签}`。每次重放会打乱端点名与行序，从五类题各抽两道，每个端点每题抽一条回答。使用相同种子可以逐次对照，过线定义为练习 **model MCC 严格大于 0.65**，目标为至少 1434 / 2048 次过线。
+
+```bash
+python task2/replay.py --solver variant_rank --seed 731029
+python task2/replay.py --solver variant_rank --seed 519883
+python task2/replay.py --solver variant_rank --seed 519883 --protocol fixed-hard
+# 将 --solver 换成 my_solver 可评估自己的实现
+```
+
+| 抽样协议（每组 2048 次） | 种子 731029 | 种子 519883 |
+|---|---:|---:|
+| 五类题分层抽十题，过线次数 | 1547（75.5%） | 1538（75.1%） |
+| 固定另一组十道开发题，过线次数 | 831（40.6%） | 880（43.0%） |
+
+两组种子都使用同样的 9 个练习端点，且都属于同一真实家族。固定正式两轮采用的 20 道题在练习缓存上重放时，FP8 与原版仍有 1018 / 1024 次被误合并。这是接手后值得优先验证的端点对。[逐种子结果一](checkpoint/verification-731029.json) · [逐种子结果二](checkpoint/verification-519883.json) · [20 题重放与变体错误](checkpoint/practice-replay.json)
+
+## 早期众数与分布基线
 
 | 步骤 | 做什么 | 可以检查什么 |
 |---|---|---|
@@ -38,11 +74,10 @@ python3 task2/pipeline.py compare --answers task2/runs/practice.jsonl --truth ta
 python3 task2/.starter/score_practice.py task2/runs/practice/holdout-mode.csv task2/.starter/practice_answers.csv
 ```
 
-**正式查询。** 先用 30 道题各问一次。再从已有回答里挑 10 道值得复测的题，给相同端点追加 3 次。下面两条都是预算预览，第二条的题号仅演示用法。`--repeats 4` 表示每题累计 4 次，已写入同一日志的回复会被跳过。第一轮已采完时，第二轮每个端点新增 30 条，累计 60 条；余下 40 条可用于定向复核。添加新题时保留旧 ID 和旧题干，并为新题分配新 ID。
+**正式查询预算预览。** 第二轮回执时每个正式端点累计使用 20 / 100 条。下面直接读取快照，预览复用已采十题时需要的新增条数（应为 0）。之后如要新增采集，先确认队伍最新的共享日志，使用包含这 660 条及之后所有回答的可写副本。保留快照供离线复现。
 
 ```bash
-python3 task2/pipeline.py collect --group scored --kit task2/.starter --answers task2/runs/scored.jsonl
-python3 task2/pipeline.py collect --group scored --kit task2/.starter --answers task2/runs/scored.jsonl --ids q01 q02 q07 q08 q13 q14 q19 q20 q25 q26 --repeats 4
+python3 task2/pipeline.py collect --group scored --kit task2/.starter --answers task2/checkpoint/formal.jsonl --ids q02 q03 q07 q08 q13 q16 q20 q22 q25 q26
 ```
 
 全队共用同一份正式回答日志。可用 `--endpoints ep-01 ep-02` 将后续复核限制在指定端点。并发和服务器剩余额度由官方采集客户端处理，本地预览只统计指定日志。
