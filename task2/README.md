@@ -12,7 +12,7 @@
 | 选模型阈值 | [compare](pipeline.py) 在 20 道开发题上分别选择模型分组阈值，再在 10 道留出题上报告 MCC、误合并和误拆分的具体端点对。自动选方法只看开发分，分数相同时选 `mode`。 | `comparison.json` 和两份留出题预测 CSV |
 | 生成分组 | 对正式端点做平均链接层次聚类，先按较宽的距离阈值划分家族，再在家族内按更严的阈值划分模型。 | `submission.csv` 有 33 行数据，`distances.json` 给出全部 528 对的距离、题目覆盖和每类贡献 |
 
-官方 9 个练习端点都属于同一家族。练习时将家族视为已知，只比较模型身份。**家族阈值需要在正式数据上做敏感性分析。** 可以用相同回复试多个合理阈值，查看哪些端点在阈值略变时就换组，优先复查这些端点。下文的 `0.65` 是示例。[练习真值](https://huggingface.co/datasets/SprintML/model_equality/blob/main/practice_answers.csv)
+官方 9 个练习端点都属于同一家族。练习时将家族视为已知，只比较模型身份。开发题上的模型阈值从 0 到 1 按 0.1 的步长选择。**家族阈值需要在正式数据上做敏感性分析。** 可以用相同回复试多个合理阈值，查看哪些端点在阈值略变时就换组，优先复查这些端点。下文的家族阈值是示例，应取不低于开发题所选模型阈值的值。[练习真值](https://huggingface.co/datasets/SprintML/model_equality/blob/main/practice_answers.csv)
 
 ## 先跑完全离线的例子
 
@@ -50,7 +50,7 @@ python3 task2/pipeline.py collect --group scored --kit task2/.starter --answers 
 **正式导出。** 用真实练习报告配合真实正式回答导出 CSV。加 `--method js` 可对比另一版分组，输出到另一个目录。提交由队员核对 CSV 后使用官方 `submission.py` 完成。
 
 ```bash
-python3 task2/pipeline.py predict --answers task2/runs/scored.jsonl --calibration task2/runs/practice/comparison.json --family-threshold 0.65 --out task2/runs/formal
+python3 task2/pipeline.py predict --answers task2/runs/scored.jsonl --calibration task2/runs/practice/comparison.json --family-threshold 0.95 --out task2/runs/formal
 ```
 
 ## 研究依据

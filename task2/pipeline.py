@@ -16,7 +16,7 @@ from inputs import load_records, read_splits
 
 DEFAULT_PROMPTS = Path(__file__).with_name("prompts.csv")
 METHODS = ("mode", "js")
-DEFAULT_THRESHOLDS = (0.1, 0.2, 0.3, 0.4, 0.5, 0.6)
+DEFAULT_THRESHOLDS = tuple(i / 10 for i in range(11))
 
 
 def save(path, data, *, csv_rows=False):
