@@ -43,6 +43,11 @@ _ANSWER_PREFIX = re.compile(
 )
 _INTEGER = re.compile(r"[+-]?(?:[0-9]+|[0-9]{1,3}(?:,[0-9]{3})+)(?:\.0+)?")
 _OPTIONS = re.compile(r"\bA: (.*?); B: (.*?); C: (.*?); D: (.*?)\. Reply\b")
+_CONCLUSION = re.compile(
+    r"(?:(?:therefore|thus|hence|so)\b[,;:]?\s+)?(?:the\s+)?"
+    r"(?P<subject>(?:(?:final|correct)\s+)?answer|integer|printed (?:integer|value)|output"
+    r"|minute field(?: (?:on|of) the clock)?)\s*(?:is\b|[:=])\s*(?P<value>.+)", re.I
+)
 _WRAPPERS = (
     ("**", "**"), ("__", "__"), ("`", "`"), ("$", "$"), (r"\(", r"\)"),
     (r"\boxed{", "}"), ("(", ")"), ("[", "]"), ('"', '"'), ("'", "'"),
@@ -79,6 +84,28 @@ def _normalize(response, kind, prompt=""):
     fenced = re.fullmatch(r"```(?:[a-zA-Z0-9_-]+)?[ \t]*\n(.*?)\n```", text, re.S)
     if fenced:
         text = fenced.group(1).strip()
+    answer = _short_answer(text, kind, prompt)
+    if answer is not None:
+        return answer
+
+    # An explicit assertion in the last sentence can follow the model's work.
+    # Intermediate values and an unlabeled last token do not identify its answer.
+    last_sentence = re.split(r"(?<=[.!?])\s+|\n+", text)[-1].strip()
+    conclusion = _CONCLUSION.fullmatch(last_sentence)
+    if not conclusion:
+        return None
+    subject = conclusion["subject"].casefold()
+    if kind == "choice" and not subject.endswith("answer"):
+        return None
+    if subject.startswith("minute field") and "minute field" not in prompt.casefold():
+        return None
+    value = conclusion["value"]
+    if kind == "integer":
+        value = re.sub(r"^(?:the\s+)?(?:integer|number|value)\s+", "", value, flags=re.I)
+    return _short_answer(value, kind, prompt)
+
+
+def _short_answer(text, kind, prompt):
     lines = [line.strip() for line in text.splitlines() if line.strip()]
     if not lines:
         return None
