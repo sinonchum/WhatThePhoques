@@ -1,0 +1,1 @@
+formal_25_per_endpoint.jsonl = formal_probe (24 rows per endpoint) + q07 from formal_code (one per endpoint). The raw inputs overlap the derived file; do not concatenate all three. Source: ~/euro-ai-championship-paris/task2/runs. No new queries.
