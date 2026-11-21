@@ -1,0 +1,9 @@
+{
+  "seed": 519883,
+  "protocol": "fixed-hard",
+  "draws": 2048,
+  "n_strictly_above_065": 1113,
+  "pass_fraction": 0.54345703125,
+  "median_model_mcc": 0.7337993857053429,
+  "draw_manifest_sha256": "44e11cb0ca30d0e3024e2ad6e44ff01261075437eb0753f8a3600b98a5598ea6"
+}

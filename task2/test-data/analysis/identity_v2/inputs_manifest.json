@@ -1,0 +1,13 @@
+{
+  "python": "3.9.6",
+  "numpy": "2.0.2",
+  "scipy": "1.13.1",
+  "sha256": {
+    "outputs/euro-ai-championship-paris/task2/prompts.csv": "5ad239054ab7124bb51c44a8a9c604ac41cbd4f2a7cc13c692ca99f9639d85a0",
+    "outputs/euro-ai-championship-paris/task2/runs/practice.jsonl": "9d5db18e09324ddd029fd0d0a147665d413bfb6c3549335b20736ce66fccc448",
+    "outputs/euro-ai-championship-paris/task2/runs/scored.jsonl": "0058c277f1428cdbb347da449f5e416b35370af6e7967909ee180ce326993217",
+    "outputs/euro-ai-championship-paris/task2/runs/first-live/submission.csv": "28351385e516dcbbdb96ee75f5862dcb3255f1bf1d9e5e3761e2c5af05624043",
+    "outputs/euro-ai-championship-paris/task2/.starter/practice_answers.csv": "ff5a29aef5280bfa6f884f6ebb162ae1dddaa3c9a5182c60eb4ae24488c2efba",
+    "outputs/euro-ai-championship-paris/task2/inputs.py": "f5114029420395084e943f14de31e209a91883283dda24905ca02d05d0edb727"
+  }
+}

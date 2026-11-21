@@ -1,0 +1,6 @@
+# Preserve exact archived bytes across checkouts for manifest verification.
+*.json -text
+*.jsonl -text
+*.csv -text
+*.txt -text
+*.md -text

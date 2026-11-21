@@ -1,0 +1,276 @@
+{
+  "completed_utc": "2026-11-21T18:32:01.996937+00:00",
+  "new_responses": 330,
+  "total_responses": 660,
+  "endpoints": 33,
+  "total_prompts_each": 20,
+  "additional_prompts_each": 10,
+  "added_prompt_ids": [
+    "q05",
+    "q06",
+    "q11",
+    "q12",
+    "q17",
+    "q18",
+    "q23",
+    "q24",
+    "q29",
+    "q30"
+  ],
+  "source_sha256": "3ec8d2edf58504a913cfd399290de6b317a602e0dc5f6de5c172f015cbbbcb6d",
+  "answers_sha256": "4e13f76e755ea5a7acca74a415e78fe4ab51ac0953da3b85ed8e2e13e2510104",
+  "candidate_sha256": "0c0b491eec3c65482ba1e99fc02ab8f94f5f018af1bbe0da069575560e2230a4",
+  "candidate_submitted": true,
+  "families_source": "runs/offline-v2/families.csv (frozen for this run)",
+  "family_count": 3,
+  "model_group_count": 13,
+  "group_sizes": [
+    9,
+    7,
+    7,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "within_family_pairs": 165,
+  "first_only_same_pairs": 121,
+  "second_only_same_pairs": 87,
+  "combined_same_pairs": 78,
+  "first_vs_second_changed": 64,
+  "first_vs_combined_changed": 55,
+  "split_on_combination": [
+    [
+      "ep-01",
+      "ep-23"
+    ],
+    [
+      "ep-03",
+      "ep-06"
+    ],
+    [
+      "ep-03",
+      "ep-20"
+    ],
+    [
+      "ep-03",
+      "ep-28"
+    ],
+    [
+      "ep-03",
+      "ep-30"
+    ],
+    [
+      "ep-04",
+      "ep-23"
+    ],
+    [
+      "ep-05",
+      "ep-16"
+    ],
+    [
+      "ep-06",
+      "ep-07"
+    ],
+    [
+      "ep-06",
+      "ep-08"
+    ],
+    [
+      "ep-06",
+      "ep-20"
+    ],
+    [
+      "ep-06",
+      "ep-21"
+    ],
+    [
+      "ep-06",
+      "ep-22"
+    ],
+    [
+      "ep-06",
+      "ep-26"
+    ],
+    [
+      "ep-06",
+      "ep-28"
+    ],
+    [
+      "ep-06",
+      "ep-30"
+    ],
+    [
+      "ep-06",
+      "ep-32"
+    ],
+    [
+      "ep-07",
+      "ep-20"
+    ],
+    [
+      "ep-07",
+      "ep-28"
+    ],
+    [
+      "ep-07",
+      "ep-30"
+    ],
+    [
+      "ep-08",
+      "ep-20"
+    ],
+    [
+      "ep-08",
+      "ep-28"
+    ],
+    [
+      "ep-08",
+      "ep-30"
+    ],
+    [
+      "ep-11",
+      "ep-16"
+    ],
+    [
+      "ep-12",
+      "ep-23"
+    ],
+    [
+      "ep-13",
+      "ep-16"
+    ],
+    [
+      "ep-14",
+      "ep-23"
+    ],
+    [
+      "ep-15",
+      "ep-16"
+    ],
+    [
+      "ep-16",
+      "ep-19"
+    ],
+    [
+      "ep-16",
+      "ep-31"
+    ],
+    [
+      "ep-17",
+      "ep-23"
+    ],
+    [
+      "ep-18",
+      "ep-23"
+    ],
+    [
+      "ep-20",
+      "ep-21"
+    ],
+    [
+      "ep-20",
+      "ep-22"
+    ],
+    [
+      "ep-20",
+      "ep-26"
+    ],
+    [
+      "ep-20",
+      "ep-28"
+    ],
+    [
+      "ep-20",
+      "ep-30"
+    ],
+    [
+      "ep-20",
+      "ep-32"
+    ],
+    [
+      "ep-21",
+      "ep-28"
+    ],
+    [
+      "ep-21",
+      "ep-30"
+    ],
+    [
+      "ep-22",
+      "ep-28"
+    ],
+    [
+      "ep-22",
+      "ep-30"
+    ],
+    [
+      "ep-23",
+      "ep-24"
+    ],
+    [
+      "ep-23",
+      "ep-25"
+    ],
+    [
+      "ep-23",
+      "ep-33"
+    ],
+    [
+      "ep-26",
+      "ep-28"
+    ],
+    [
+      "ep-26",
+      "ep-30"
+    ],
+    [
+      "ep-28",
+      "ep-30"
+    ],
+    [
+      "ep-28",
+      "ep-32"
+    ],
+    [
+      "ep-30",
+      "ep-32"
+    ]
+  ],
+  "merged_on_combination": [
+    [
+      "ep-05",
+      "ep-27"
+    ],
+    [
+      "ep-11",
+      "ep-27"
+    ],
+    [
+      "ep-13",
+      "ep-27"
+    ],
+    [
+      "ep-15",
+      "ep-27"
+    ],
+    [
+      "ep-19",
+      "ep-27"
+    ],
+    [
+      "ep-27",
+      "ep-31"
+    ]
+  ],
+  "receipt": "receipt.json",
+  "public_score": 0.1,
+  "rank_at_submission": 6,
+  "listed_teams": 20
+}

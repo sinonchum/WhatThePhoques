@@ -1,0 +1,61 @@
+{
+  "method": "mode",
+  "reference_model_cut": 0.7,
+  "reference_cut_percentile": 0.3611111111111111,
+  "reference_distance_iqr": [
+    0.6796875,
+    0.7750000000000001
+  ],
+  "live_within_family_median": 0.4,
+  "percentile_transfer_used": true,
+  "family_candidates": [
+    {
+      "quantile": 0.5,
+      "cut": 0.6,
+      "silhouette": 0.32719232001358683,
+      "sizes": [
+        15,
+        11,
+        5,
+        2
+      ]
+    },
+    {
+      "quantile": 0.7,
+      "cut": 0.6666666666666666,
+      "silhouette": 0.23194634984871923,
+      "sizes": [
+        31,
+        2
+      ]
+    }
+  ],
+  "family_threshold": 0.6,
+  "model_threshold": 0.3,
+  "family_sizes": {
+    "F01": 15,
+    "F02": 11,
+    "F03": 5,
+    "F04": 2
+  },
+  "model_sizes": {
+    "F01-M01": 11,
+    "F01-M02": 1,
+    "F01-M03": 1,
+    "F01-M04": 1,
+    "F01-M05": 1,
+    "F02-M01": 3,
+    "F02-M02": 1,
+    "F02-M03": 1,
+    "F02-M04": 1,
+    "F02-M05": 3,
+    "F02-M06": 2,
+    "F03-M01": 1,
+    "F03-M02": 2,
+    "F03-M03": 1,
+    "F03-M04": 1,
+    "F04-M01": 1,
+    "F04-M02": 1
+  },
+  "parsed": 298
+}

@@ -1,0 +1,1005 @@
+{
+  "sha256": "9cd4fed13ddc7304f5f4ae6aa38dc579821b93b1b99d80e2b3b17a7a84965a61",
+  "practice": {
+    "formal": {
+      "n": 1024,
+      "median": 0.7337993857053429,
+      "iqr": [
+        0.7337993857053429,
+        0.7337993857053429
+      ],
+      "fraction_ge_065": 0.939453125,
+      "mean": 0.703333607638112,
+      "mean_counts_TP_TN_FP_FN": [
+        9.7578125,
+        20.7578125,
+        5.2421875,
+        0.2421875
+      ],
+      "shapes": {
+        "[6, 1, 1, 1]": 1024
+      },
+      "all_three_MCC": 0.7337993857053429,
+      "all_three_TP_TN_FP_FN": [
+        10,
+        21,
+        5,
+        0
+      ],
+      "all_three_singletons": [
+        "ref-04",
+        "ref-07",
+        "ref-09"
+      ],
+      "by_variant": {
+        "ref-01": {
+          "kind": "plain",
+          "singleton_freq": 0.0,
+          "same_as_plain": 1.0,
+          "same_as_known_base_deployments": 0.98486328125
+        },
+        "ref-02": {
+          "kind": "quantized (fp8)",
+          "singleton_freq": 0.0,
+          "same_as_plain": 1.0,
+          "same_as_known_base_deployments": 0.987890625
+        },
+        "ref-03": {
+          "kind": "system prompt",
+          "singleton_freq": 0.05859375,
+          "same_as_plain": 0.94140625,
+          "same_as_known_base_deployments": 0.94091796875
+        },
+        "ref-04": {
+          "kind": "LoRA at strength 0.7",
+          "singleton_freq": 0.99609375,
+          "same_as_plain": 0.00390625,
+          "same_as_known_base_deployments": 0.003125
+        },
+        "ref-05": {
+          "kind": "persona",
+          "singleton_freq": 0.0,
+          "same_as_plain": 1.0,
+          "same_as_known_base_deployments": 0.98486328125
+        },
+        "ref-06": {
+          "kind": "watermark",
+          "singleton_freq": 0.0,
+          "same_as_plain": 1.0,
+          "same_as_known_base_deployments": 0.98486328125
+        },
+        "ref-07": {
+          "kind": "LoRA at strength 1.5",
+          "singleton_freq": 1.0,
+          "same_as_plain": 0.0,
+          "same_as_known_base_deployments": 0.0
+        },
+        "ref-08": {
+          "kind": "sampling at temperature 1.0",
+          "singleton_freq": 0.001953125,
+          "same_as_plain": 0.998046875,
+          "same_as_known_base_deployments": 0.9833984375
+        },
+        "ref-09": {
+          "kind": "LoRA at strength 0.3",
+          "singleton_freq": 0.943359375,
+          "same_as_plain": 0.056640625,
+          "same_as_known_base_deployments": 0.0453125
+        }
+      },
+      "pair_freq": {
+        "ref-01|ref-02": 1.0,
+        "ref-01|ref-03": 0.94140625,
+        "ref-01|ref-04": 0.00390625,
+        "ref-01|ref-05": 1.0,
+        "ref-01|ref-06": 1.0,
+        "ref-01|ref-07": 0.0,
+        "ref-01|ref-08": 0.998046875,
+        "ref-01|ref-09": 0.056640625,
+        "ref-02|ref-03": 0.94140625,
+        "ref-02|ref-04": 0.00390625,
+        "ref-02|ref-05": 1.0,
+        "ref-02|ref-06": 1.0,
+        "ref-02|ref-07": 0.0,
+        "ref-02|ref-08": 0.998046875,
+        "ref-02|ref-09": 0.056640625,
+        "ref-03|ref-04": 0.0009765625,
+        "ref-03|ref-05": 0.94140625,
+        "ref-03|ref-06": 0.94140625,
+        "ref-03|ref-07": 0.0,
+        "ref-03|ref-08": 0.939453125,
+        "ref-03|ref-09": 0.0009765625,
+        "ref-04|ref-05": 0.00390625,
+        "ref-04|ref-06": 0.00390625,
+        "ref-04|ref-07": 0.0,
+        "ref-04|ref-08": 0.0029296875,
+        "ref-04|ref-09": 0.0,
+        "ref-05|ref-06": 1.0,
+        "ref-05|ref-07": 0.0,
+        "ref-05|ref-08": 0.998046875,
+        "ref-05|ref-09": 0.056640625,
+        "ref-06|ref-07": 0.0,
+        "ref-06|ref-08": 0.998046875,
+        "ref-06|ref-09": 0.056640625,
+        "ref-07|ref-08": 0.0,
+        "ref-07|ref-09": 0.0,
+        "ref-08|ref-09": 0.0556640625
+      }
+    },
+    "holdout": {
+      "n": 1024,
+      "median": 0.7337993857053429,
+      "iqr": [
+        0.7337993857053429,
+        0.7337993857053429
+      ],
+      "fraction_ge_065": 0.9609375,
+      "mean": 0.7141440450168068,
+      "mean_counts_TP_TN_FP_FN": [
+        9.84375,
+        20.84375,
+        5.15625,
+        0.15625
+      ],
+      "shapes": {
+        "[6, 1, 1, 1]": 1024
+      },
+      "all_three_MCC": 0.7337993857053429,
+      "all_three_TP_TN_FP_FN": [
+        10,
+        21,
+        5,
+        0
+      ],
+      "all_three_singletons": [
+        "ref-04",
+        "ref-07",
+        "ref-09"
+      ],
+      "by_variant": {
+        "ref-01": {
+          "kind": "plain",
+          "singleton_freq": 0.0009765625,
+          "same_as_plain": 1.0,
+          "same_as_known_base_deployments": 0.989501953125
+        },
+        "ref-02": {
+          "kind": "quantized (fp8)",
+          "singleton_freq": 0.041015625,
+          "same_as_plain": 0.9580078125,
+          "same_as_known_base_deployments": 0.951171875
+        },
+        "ref-03": {
+          "kind": "system prompt",
+          "singleton_freq": 0.0009765625,
+          "same_as_plain": 0.998046875,
+          "same_as_known_base_deployments": 0.989501953125
+        },
+        "ref-04": {
+          "kind": "LoRA at strength 0.7",
+          "singleton_freq": 1.0,
+          "same_as_plain": 0.0,
+          "same_as_known_base_deployments": 0.0
+        },
+        "ref-05": {
+          "kind": "persona",
+          "singleton_freq": 0.021484375,
+          "same_as_plain": 0.9775390625,
+          "same_as_known_base_deployments": 0.97412109375
+        },
+        "ref-06": {
+          "kind": "watermark",
+          "singleton_freq": 0.0,
+          "same_as_plain": 0.9990234375,
+          "same_as_known_base_deployments": 0.990234375
+        },
+        "ref-07": {
+          "kind": "LoRA at strength 1.5",
+          "singleton_freq": 1.0,
+          "same_as_plain": 0.0,
+          "same_as_known_base_deployments": 0.0
+        },
+        "ref-08": {
+          "kind": "sampling at temperature 1.0",
+          "singleton_freq": 0.015625,
+          "same_as_plain": 0.9833984375,
+          "same_as_known_base_deployments": 0.978515625
+        },
+        "ref-09": {
+          "kind": "LoRA at strength 0.3",
+          "singleton_freq": 0.919921875,
+          "same_as_plain": 0.0791015625,
+          "same_as_known_base_deployments": 0.072265625
+        }
+      },
+      "pair_freq": {
+        "ref-01|ref-02": 0.9580078125,
+        "ref-01|ref-03": 0.998046875,
+        "ref-01|ref-04": 0.0,
+        "ref-01|ref-05": 0.9775390625,
+        "ref-01|ref-06": 0.9990234375,
+        "ref-01|ref-07": 0.0,
+        "ref-01|ref-08": 0.9833984375,
+        "ref-01|ref-09": 0.0791015625,
+        "ref-02|ref-03": 0.9580078125,
+        "ref-02|ref-04": 0.0,
+        "ref-02|ref-05": 0.9375,
+        "ref-02|ref-06": 0.958984375,
+        "ref-02|ref-07": 0.0,
+        "ref-02|ref-08": 0.943359375,
+        "ref-02|ref-09": 0.0390625,
+        "ref-03|ref-04": 0.0,
+        "ref-03|ref-05": 0.9775390625,
+        "ref-03|ref-06": 0.9990234375,
+        "ref-03|ref-07": 0.0,
+        "ref-03|ref-08": 0.9833984375,
+        "ref-03|ref-09": 0.0791015625,
+        "ref-04|ref-05": 0.0,
+        "ref-04|ref-06": 0.0,
+        "ref-04|ref-07": 0.0,
+        "ref-04|ref-08": 0.0,
+        "ref-04|ref-09": 0.0,
+        "ref-05|ref-06": 0.978515625,
+        "ref-05|ref-07": 0.0,
+        "ref-05|ref-08": 0.962890625,
+        "ref-05|ref-09": 0.05859375,
+        "ref-06|ref-07": 0.0,
+        "ref-06|ref-08": 0.984375,
+        "ref-06|ref-09": 0.080078125,
+        "ref-07|ref-08": 0.0,
+        "ref-07|ref-09": 0.0,
+        "ref-08|ref-09": 0.064453125
+      }
+    },
+    "remaining-disjoint": {
+      "n": 1024,
+      "median": 0.23062266407882204,
+      "iqr": [
+        0.23062266407882204,
+        0.7337993857053429
+      ],
+      "fraction_ge_065": 0.3388671875,
+      "mean": 0.40113274455187165,
+      "mean_counts_TP_TN_FP_FN": [
+        7.35546875,
+        18.35546875,
+        7.64453125,
+        2.64453125
+      ],
+      "shapes": {
+        "[6, 1, 1, 1]": 1024
+      },
+      "all_three_MCC": 0.23062266407882204,
+      "all_three_TP_TN_FP_FN": [
+        6,
+        17,
+        9,
+        4
+      ],
+      "all_three_singletons": [
+        "ref-03",
+        "ref-04",
+        "ref-07"
+      ],
+      "by_variant": {
+        "ref-01": {
+          "kind": "plain",
+          "singleton_freq": 0.072265625,
+          "same_as_plain": 1.0,
+          "same_as_known_base_deployments": 0.780517578125
+        },
+        "ref-02": {
+          "kind": "quantized (fp8)",
+          "singleton_freq": 0.0263671875,
+          "same_as_plain": 0.9013671875,
+          "same_as_known_base_deployments": 0.84140625
+        },
+        "ref-03": {
+          "kind": "system prompt",
+          "singleton_freq": 0.49609375,
+          "same_as_plain": 0.431640625,
+          "same_as_known_base_deployments": 0.462646484375
+        },
+        "ref-04": {
+          "kind": "LoRA at strength 0.7",
+          "singleton_freq": 1.0,
+          "same_as_plain": 0.0,
+          "same_as_known_base_deployments": 0.0
+        },
+        "ref-05": {
+          "kind": "persona",
+          "singleton_freq": 0.0302734375,
+          "same_as_plain": 0.8974609375,
+          "same_as_known_base_deployments": 0.81201171875
+        },
+        "ref-06": {
+          "kind": "watermark",
+          "singleton_freq": 0.017578125,
+          "same_as_plain": 0.91015625,
+          "same_as_known_base_deployments": 0.821533203125
+        },
+        "ref-07": {
+          "kind": "LoRA at strength 1.5",
+          "singleton_freq": 1.0,
+          "same_as_plain": 0.0,
+          "same_as_known_base_deployments": 0.0
+        },
+        "ref-08": {
+          "kind": "sampling at temperature 1.0",
+          "singleton_freq": 0.044921875,
+          "same_as_plain": 0.8828125,
+          "same_as_known_base_deployments": 0.801025390625
+        },
+        "ref-09": {
+          "kind": "LoRA at strength 0.3",
+          "singleton_freq": 0.3125,
+          "same_as_plain": 0.615234375,
+          "same_as_known_base_deployments": 0.5552734375
+        }
+      },
+      "pair_freq": {
+        "ref-01|ref-02": 0.9013671875,
+        "ref-01|ref-03": 0.431640625,
+        "ref-01|ref-04": 0.0,
+        "ref-01|ref-05": 0.8974609375,
+        "ref-01|ref-06": 0.91015625,
+        "ref-01|ref-07": 0.0,
+        "ref-01|ref-08": 0.8828125,
+        "ref-01|ref-09": 0.615234375,
+        "ref-02|ref-03": 0.4775390625,
+        "ref-02|ref-04": 0.0,
+        "ref-02|ref-05": 0.943359375,
+        "ref-02|ref-06": 0.9560546875,
+        "ref-02|ref-07": 0.0,
+        "ref-02|ref-08": 0.9287109375,
+        "ref-02|ref-09": 0.6611328125,
+        "ref-03|ref-04": 0.0,
+        "ref-03|ref-05": 0.4736328125,
+        "ref-03|ref-06": 0.486328125,
+        "ref-03|ref-07": 0.0,
+        "ref-03|ref-08": 0.458984375,
+        "ref-03|ref-09": 0.19140625,
+        "ref-04|ref-05": 0.0,
+        "ref-04|ref-06": 0.0,
+        "ref-04|ref-07": 0.0,
+        "ref-04|ref-08": 0.0,
+        "ref-04|ref-09": 0.0,
+        "ref-05|ref-06": 0.9521484375,
+        "ref-05|ref-07": 0.0,
+        "ref-05|ref-08": 0.9248046875,
+        "ref-05|ref-09": 0.6572265625,
+        "ref-06|ref-07": 0.0,
+        "ref-06|ref-08": 0.9375,
+        "ref-06|ref-09": 0.669921875,
+        "ref-07|ref-08": 0.0,
+        "ref-07|ref-09": 0.0,
+        "ref-08|ref-09": 0.642578125
+      }
+    },
+    "only_code": {
+      "n": 128,
+      "median": 0.7337993857053429,
+      "iqr": [
+        0.7337993857053429,
+        0.7337993857053429
+      ],
+      "fraction_ge_065": 0.84375,
+      "mean": 0.6551780229511989,
+      "mean_counts_TP_TN_FP_FN": [
+        9.375,
+        20.375,
+        5.625,
+        0.625
+      ],
+      "shapes": {
+        "[6, 1, 1, 1]": 128
+      },
+      "all_three_MCC": 0.7337993857053429,
+      "all_three_TP_TN_FP_FN": [
+        10,
+        21,
+        5,
+        0
+      ],
+      "all_three_singletons": [
+        "ref-04",
+        "ref-07",
+        "ref-09"
+      ],
+      "by_variant": {
+        "ref-01": {
+          "kind": "plain",
+          "singleton_freq": 0.0,
+          "same_as_plain": 1.0,
+          "same_as_known_base_deployments": 0.9609375
+        },
+        "ref-02": {
+          "kind": "quantized (fp8)",
+          "singleton_freq": 0.203125,
+          "same_as_plain": 0.796875,
+          "same_as_known_base_deployments": 0.765625
+        },
+        "ref-03": {
+          "kind": "system prompt",
+          "singleton_freq": 0.1328125,
+          "same_as_plain": 0.8671875,
+          "same_as_known_base_deployments": 0.861328125
+        },
+        "ref-04": {
+          "kind": "LoRA at strength 0.7",
+          "singleton_freq": 0.984375,
+          "same_as_plain": 0.015625,
+          "same_as_known_base_deployments": 0.0140625
+        },
+        "ref-05": {
+          "kind": "persona",
+          "singleton_freq": 0.0234375,
+          "same_as_plain": 0.9765625,
+          "same_as_known_base_deployments": 0.943359375
+        },
+        "ref-06": {
+          "kind": "watermark",
+          "singleton_freq": 0.0,
+          "same_as_plain": 1.0,
+          "same_as_known_base_deployments": 0.9609375
+        },
+        "ref-07": {
+          "kind": "LoRA at strength 1.5",
+          "singleton_freq": 1.0,
+          "same_as_plain": 0.0,
+          "same_as_known_base_deployments": 0.0
+        },
+        "ref-08": {
+          "kind": "sampling at temperature 1.0",
+          "singleton_freq": 0.0,
+          "same_as_plain": 1.0,
+          "same_as_known_base_deployments": 0.9609375
+        },
+        "ref-09": {
+          "kind": "LoRA at strength 0.3",
+          "singleton_freq": 0.65625,
+          "same_as_plain": 0.34375,
+          "same_as_known_base_deployments": 0.3140625
+        }
+      },
+      "pair_freq": {
+        "ref-01|ref-02": 0.796875,
+        "ref-01|ref-03": 0.8671875,
+        "ref-01|ref-04": 0.015625,
+        "ref-01|ref-05": 0.9765625,
+        "ref-01|ref-06": 1.0,
+        "ref-01|ref-07": 0.0,
+        "ref-01|ref-08": 1.0,
+        "ref-01|ref-09": 0.34375,
+        "ref-02|ref-03": 0.6640625,
+        "ref-02|ref-04": 0.0078125,
+        "ref-02|ref-05": 0.7734375,
+        "ref-02|ref-06": 0.796875,
+        "ref-02|ref-07": 0.0,
+        "ref-02|ref-08": 0.796875,
+        "ref-02|ref-09": 0.1484375,
+        "ref-03|ref-04": 0.0078125,
+        "ref-03|ref-05": 0.84375,
+        "ref-03|ref-06": 0.8671875,
+        "ref-03|ref-07": 0.0,
+        "ref-03|ref-08": 0.8671875,
+        "ref-03|ref-09": 0.21875,
+        "ref-04|ref-05": 0.015625,
+        "ref-04|ref-06": 0.015625,
+        "ref-04|ref-07": 0.0,
+        "ref-04|ref-08": 0.015625,
+        "ref-04|ref-09": 0.0,
+        "ref-05|ref-06": 0.9765625,
+        "ref-05|ref-07": 0.0,
+        "ref-05|ref-08": 0.9765625,
+        "ref-05|ref-09": 0.3203125,
+        "ref-06|ref-07": 0.0,
+        "ref-06|ref-08": 1.0,
+        "ref-06|ref-09": 0.34375,
+        "ref-07|ref-08": 0.0,
+        "ref-07|ref-09": 0.0,
+        "ref-08|ref-09": 0.34375
+      }
+    },
+    "only_domain": {
+      "n": 128,
+      "median": 0.7337993857053429,
+      "iqr": [
+        0.23062266407882204,
+        0.7337993857053429
+      ],
+      "fraction_ge_065": 0.6953125,
+      "mean": 0.5804877283347624,
+      "mean_counts_TP_TN_FP_FN": [
+        8.78125,
+        19.78125,
+        6.21875,
+        1.21875
+      ],
+      "shapes": {
+        "[6, 1, 1, 1]": 128
+      },
+      "all_three_MCC": 0.7337993857053429,
+      "all_three_TP_TN_FP_FN": [
+        10,
+        21,
+        5,
+        0
+      ],
+      "all_three_singletons": [
+        "ref-04",
+        "ref-07",
+        "ref-09"
+      ],
+      "by_variant": {
+        "ref-01": {
+          "kind": "plain",
+          "singleton_freq": 0.2265625,
+          "same_as_plain": 1.0,
+          "same_as_known_base_deployments": 0.75390625
+        },
+        "ref-02": {
+          "kind": "quantized (fp8)",
+          "singleton_freq": 0.0625,
+          "same_as_plain": 0.7109375,
+          "same_as_known_base_deployments": 0.8765625
+        },
+        "ref-03": {
+          "kind": "system prompt",
+          "singleton_freq": 0.0,
+          "same_as_plain": 0.7734375,
+          "same_as_known_base_deployments": 0.923828125
+        },
+        "ref-04": {
+          "kind": "LoRA at strength 0.7",
+          "singleton_freq": 1.0,
+          "same_as_plain": 0.0,
+          "same_as_known_base_deployments": 0.0
+        },
+        "ref-05": {
+          "kind": "persona",
+          "singleton_freq": 0.0,
+          "same_as_plain": 0.7734375,
+          "same_as_known_base_deployments": 0.923828125
+        },
+        "ref-06": {
+          "kind": "watermark",
+          "singleton_freq": 0.0,
+          "same_as_plain": 0.7734375,
+          "same_as_known_base_deployments": 0.923828125
+        },
+        "ref-07": {
+          "kind": "LoRA at strength 1.5",
+          "singleton_freq": 1.0,
+          "same_as_plain": 0.0,
+          "same_as_known_base_deployments": 0.0
+        },
+        "ref-08": {
+          "kind": "sampling at temperature 1.0",
+          "singleton_freq": 0.078125,
+          "same_as_plain": 0.6953125,
+          "same_as_known_base_deployments": 0.865234375
+        },
+        "ref-09": {
+          "kind": "LoRA at strength 0.3",
+          "singleton_freq": 0.6328125,
+          "same_as_plain": 0.140625,
+          "same_as_known_base_deployments": 0.30625
+        }
+      },
+      "pair_freq": {
+        "ref-01|ref-02": 0.7109375,
+        "ref-01|ref-03": 0.7734375,
+        "ref-01|ref-04": 0.0,
+        "ref-01|ref-05": 0.7734375,
+        "ref-01|ref-06": 0.7734375,
+        "ref-01|ref-07": 0.0,
+        "ref-01|ref-08": 0.6953125,
+        "ref-01|ref-09": 0.140625,
+        "ref-02|ref-03": 0.9375,
+        "ref-02|ref-04": 0.0,
+        "ref-02|ref-05": 0.9375,
+        "ref-02|ref-06": 0.9375,
+        "ref-02|ref-07": 0.0,
+        "ref-02|ref-08": 0.859375,
+        "ref-02|ref-09": 0.3046875,
+        "ref-03|ref-04": 0.0,
+        "ref-03|ref-05": 1.0,
+        "ref-03|ref-06": 1.0,
+        "ref-03|ref-07": 0.0,
+        "ref-03|ref-08": 0.921875,
+        "ref-03|ref-09": 0.3671875,
+        "ref-04|ref-05": 0.0,
+        "ref-04|ref-06": 0.0,
+        "ref-04|ref-07": 0.0,
+        "ref-04|ref-08": 0.0,
+        "ref-04|ref-09": 0.0,
+        "ref-05|ref-06": 1.0,
+        "ref-05|ref-07": 0.0,
+        "ref-05|ref-08": 0.921875,
+        "ref-05|ref-09": 0.3671875,
+        "ref-06|ref-07": 0.0,
+        "ref-06|ref-08": 0.921875,
+        "ref-06|ref-09": 0.3671875,
+        "ref-07|ref-08": 0.0,
+        "ref-07|ref-09": 0.0,
+        "ref-08|ref-09": 0.2890625
+      }
+    },
+    "only_language": {
+      "n": 128,
+      "median": 0.7337993857053429,
+      "iqr": [
+        0.23062266407882204,
+        0.7337993857053429
+      ],
+      "fraction_ge_065": 0.7421875,
+      "mean": 0.6040741371610054,
+      "mean_counts_TP_TN_FP_FN": [
+        8.96875,
+        19.96875,
+        6.03125,
+        1.03125
+      ],
+      "shapes": {
+        "[6, 1, 1, 1]": 128
+      },
+      "all_three_MCC": 0.7337993857053429,
+      "all_three_TP_TN_FP_FN": [
+        10,
+        21,
+        5,
+        0
+      ],
+      "all_three_singletons": [
+        "ref-04",
+        "ref-07",
+        "ref-09"
+      ],
+      "by_variant": {
+        "ref-01": {
+          "kind": "plain",
+          "singleton_freq": 0.0,
+          "same_as_plain": 1.0,
+          "same_as_known_base_deployments": 0.935546875
+        },
+        "ref-02": {
+          "kind": "quantized (fp8)",
+          "singleton_freq": 0.0,
+          "same_as_plain": 1.0,
+          "same_as_known_base_deployments": 0.9484375
+        },
+        "ref-03": {
+          "kind": "system prompt",
+          "singleton_freq": 0.25,
+          "same_as_plain": 0.75,
+          "same_as_known_base_deployments": 0.748046875
+        },
+        "ref-04": {
+          "kind": "LoRA at strength 0.7",
+          "singleton_freq": 0.9765625,
+          "same_as_plain": 0.0234375,
+          "same_as_known_base_deployments": 0.01875
+        },
+        "ref-05": {
+          "kind": "persona",
+          "singleton_freq": 0.0078125,
+          "same_as_plain": 0.9921875,
+          "same_as_known_base_deployments": 0.9296875
+        },
+        "ref-06": {
+          "kind": "watermark",
+          "singleton_freq": 0.0,
+          "same_as_plain": 1.0,
+          "same_as_known_base_deployments": 0.935546875
+        },
+        "ref-07": {
+          "kind": "LoRA at strength 1.5",
+          "singleton_freq": 1.0,
+          "same_as_plain": 0.0,
+          "same_as_known_base_deployments": 0.0
+        },
+        "ref-08": {
+          "kind": "sampling at temperature 1.0",
+          "singleton_freq": 0.0,
+          "same_as_plain": 1.0,
+          "same_as_known_base_deployments": 0.935546875
+        },
+        "ref-09": {
+          "kind": "LoRA at strength 0.3",
+          "singleton_freq": 0.765625,
+          "same_as_plain": 0.234375,
+          "same_as_known_base_deployments": 0.1875
+        }
+      },
+      "pair_freq": {
+        "ref-01|ref-02": 1.0,
+        "ref-01|ref-03": 0.75,
+        "ref-01|ref-04": 0.0234375,
+        "ref-01|ref-05": 0.9921875,
+        "ref-01|ref-06": 1.0,
+        "ref-01|ref-07": 0.0,
+        "ref-01|ref-08": 1.0,
+        "ref-01|ref-09": 0.234375,
+        "ref-02|ref-03": 0.75,
+        "ref-02|ref-04": 0.0234375,
+        "ref-02|ref-05": 0.9921875,
+        "ref-02|ref-06": 1.0,
+        "ref-02|ref-07": 0.0,
+        "ref-02|ref-08": 1.0,
+        "ref-02|ref-09": 0.234375,
+        "ref-03|ref-04": 0.0,
+        "ref-03|ref-05": 0.7421875,
+        "ref-03|ref-06": 0.75,
+        "ref-03|ref-07": 0.0,
+        "ref-03|ref-08": 0.75,
+        "ref-03|ref-09": 0.0078125,
+        "ref-04|ref-05": 0.0234375,
+        "ref-04|ref-06": 0.0234375,
+        "ref-04|ref-07": 0.0,
+        "ref-04|ref-08": 0.0234375,
+        "ref-04|ref-09": 0.0,
+        "ref-05|ref-06": 0.9921875,
+        "ref-05|ref-07": 0.0,
+        "ref-05|ref-08": 0.9921875,
+        "ref-05|ref-09": 0.2265625,
+        "ref-06|ref-07": 0.0,
+        "ref-06|ref-08": 1.0,
+        "ref-06|ref-09": 0.234375,
+        "ref-07|ref-08": 0.0,
+        "ref-07|ref-09": 0.0,
+        "ref-08|ref-09": 0.234375
+      }
+    },
+    "only_logic": {
+      "n": 128,
+      "median": 0.7337993857053429,
+      "iqr": [
+        0.7337993857053429,
+        0.7337993857053429
+      ],
+      "fraction_ge_065": 0.8671875,
+      "mean": 0.6669712273643205,
+      "mean_counts_TP_TN_FP_FN": [
+        9.46875,
+        20.46875,
+        5.53125,
+        0.53125
+      ],
+      "shapes": {
+        "[6, 1, 1, 1]": 128
+      },
+      "all_three_MCC": 0.7337993857053429,
+      "all_three_TP_TN_FP_FN": [
+        10,
+        21,
+        5,
+        0
+      ],
+      "all_three_singletons": [
+        "ref-04",
+        "ref-07",
+        "ref-09"
+      ],
+      "by_variant": {
+        "ref-01": {
+          "kind": "plain",
+          "singleton_freq": 0.0625,
+          "same_as_plain": 1.0,
+          "same_as_known_base_deployments": 0.919921875
+        },
+        "ref-02": {
+          "kind": "quantized (fp8)",
+          "singleton_freq": 0.1484375,
+          "same_as_plain": 0.796875,
+          "same_as_known_base_deployments": 0.8265625
+        },
+        "ref-03": {
+          "kind": "system prompt",
+          "singleton_freq": 0.0,
+          "same_as_plain": 0.9375,
+          "same_as_known_base_deployments": 0.966796875
+        },
+        "ref-04": {
+          "kind": "LoRA at strength 0.7",
+          "singleton_freq": 1.0,
+          "same_as_plain": 0.0,
+          "same_as_known_base_deployments": 0.0
+        },
+        "ref-05": {
+          "kind": "persona",
+          "singleton_freq": 0.0,
+          "same_as_plain": 0.9375,
+          "same_as_known_base_deployments": 0.966796875
+        },
+        "ref-06": {
+          "kind": "watermark",
+          "singleton_freq": 0.0,
+          "same_as_plain": 0.9375,
+          "same_as_known_base_deployments": 0.966796875
+        },
+        "ref-07": {
+          "kind": "LoRA at strength 1.5",
+          "singleton_freq": 0.9609375,
+          "same_as_plain": 0.0234375,
+          "same_as_known_base_deployments": 0.0328125
+        },
+        "ref-08": {
+          "kind": "sampling at temperature 1.0",
+          "singleton_freq": 0.0703125,
+          "same_as_plain": 0.8671875,
+          "same_as_known_base_deployments": 0.9140625
+        },
+        "ref-09": {
+          "kind": "LoRA at strength 0.3",
+          "singleton_freq": 0.7578125,
+          "same_as_plain": 0.1875,
+          "same_as_known_base_deployments": 0.2203125
+        }
+      },
+      "pair_freq": {
+        "ref-01|ref-02": 0.796875,
+        "ref-01|ref-03": 0.9375,
+        "ref-01|ref-04": 0.0,
+        "ref-01|ref-05": 0.9375,
+        "ref-01|ref-06": 0.9375,
+        "ref-01|ref-07": 0.0234375,
+        "ref-01|ref-08": 0.8671875,
+        "ref-01|ref-09": 0.1875,
+        "ref-02|ref-03": 0.8515625,
+        "ref-02|ref-04": 0.0,
+        "ref-02|ref-05": 0.8515625,
+        "ref-02|ref-06": 0.8515625,
+        "ref-02|ref-07": 0.0234375,
+        "ref-02|ref-08": 0.78125,
+        "ref-02|ref-09": 0.1015625,
+        "ref-03|ref-04": 0.0,
+        "ref-03|ref-05": 1.0,
+        "ref-03|ref-06": 1.0,
+        "ref-03|ref-07": 0.0390625,
+        "ref-03|ref-08": 0.9296875,
+        "ref-03|ref-09": 0.2421875,
+        "ref-04|ref-05": 0.0,
+        "ref-04|ref-06": 0.0,
+        "ref-04|ref-07": 0.0,
+        "ref-04|ref-08": 0.0,
+        "ref-04|ref-09": 0.0,
+        "ref-05|ref-06": 1.0,
+        "ref-05|ref-07": 0.0390625,
+        "ref-05|ref-08": 0.9296875,
+        "ref-05|ref-09": 0.2421875,
+        "ref-06|ref-07": 0.0390625,
+        "ref-06|ref-08": 0.9296875,
+        "ref-06|ref-09": 0.2421875,
+        "ref-07|ref-08": 0.0234375,
+        "ref-07|ref-09": 0.0078125,
+        "ref-08|ref-09": 0.1875
+      }
+    },
+    "only_math": {
+      "n": 128,
+      "median": 0.23062266407882204,
+      "iqr": [
+        0.23062266407882204,
+        0.23062266407882204
+      ],
+      "fraction_ge_065": 0.046875,
+      "mean": 0.24339863552637042,
+      "mean_counts_TP_TN_FP_FN": [
+        6.046875,
+        17.046875,
+        8.953125,
+        3.953125
+      ],
+      "shapes": {
+        "[6, 1, 1, 1]": 128
+      },
+      "all_three_MCC": 0.23062266407882204,
+      "all_three_TP_TN_FP_FN": [
+        6,
+        17,
+        9,
+        4
+      ],
+      "all_three_singletons": [
+        "ref-04",
+        "ref-06",
+        "ref-07"
+      ],
+      "by_variant": {
+        "ref-01": {
+          "kind": "plain",
+          "singleton_freq": 0.046875,
+          "same_as_plain": 1.0,
+          "same_as_known_base_deployments": 0.716796875
+        },
+        "ref-02": {
+          "kind": "quantized (fp8)",
+          "singleton_freq": 0.0,
+          "same_as_plain": 0.953125,
+          "same_as_known_base_deployments": 0.8
+        },
+        "ref-03": {
+          "kind": "system prompt",
+          "singleton_freq": 0.1953125,
+          "same_as_plain": 0.7578125,
+          "same_as_known_base_deployments": 0.607421875
+        },
+        "ref-04": {
+          "kind": "LoRA at strength 0.7",
+          "singleton_freq": 0.953125,
+          "same_as_plain": 0.0390625,
+          "same_as_known_base_deployments": 0.028125
+        },
+        "ref-05": {
+          "kind": "persona",
+          "singleton_freq": 0.296875,
+          "same_as_plain": 0.65625,
+          "same_as_known_base_deployments": 0.533203125
+        },
+        "ref-06": {
+          "kind": "watermark",
+          "singleton_freq": 0.2421875,
+          "same_as_plain": 0.7109375,
+          "same_as_known_base_deployments": 0.576171875
+        },
+        "ref-07": {
+          "kind": "LoRA at strength 1.5",
+          "singleton_freq": 1.0,
+          "same_as_plain": 0.0,
+          "same_as_known_base_deployments": 0.0
+        },
+        "ref-08": {
+          "kind": "sampling at temperature 1.0",
+          "singleton_freq": 0.21875,
+          "same_as_plain": 0.7421875,
+          "same_as_known_base_deployments": 0.58984375
+        },
+        "ref-09": {
+          "kind": "LoRA at strength 0.3",
+          "singleton_freq": 0.046875,
+          "same_as_plain": 0.90625,
+          "same_as_known_base_deployments": 0.753125
+        }
+      },
+      "pair_freq": {
+        "ref-01|ref-02": 0.953125,
+        "ref-01|ref-03": 0.7578125,
+        "ref-01|ref-04": 0.0390625,
+        "ref-01|ref-05": 0.65625,
+        "ref-01|ref-06": 0.7109375,
+        "ref-01|ref-07": 0.0,
+        "ref-01|ref-08": 0.7421875,
+        "ref-01|ref-09": 0.90625,
+        "ref-02|ref-03": 0.8046875,
+        "ref-02|ref-04": 0.046875,
+        "ref-02|ref-05": 0.703125,
+        "ref-02|ref-06": 0.7578125,
+        "ref-02|ref-07": 0.0,
+        "ref-02|ref-08": 0.78125,
+        "ref-02|ref-09": 0.953125,
+        "ref-03|ref-04": 0.03125,
+        "ref-03|ref-05": 0.5078125,
+        "ref-03|ref-06": 0.578125,
+        "ref-03|ref-07": 0.0,
+        "ref-03|ref-08": 0.5859375,
+        "ref-03|ref-09": 0.7578125,
+        "ref-04|ref-05": 0.0234375,
+        "ref-04|ref-06": 0.015625,
+        "ref-04|ref-07": 0.0,
+        "ref-04|ref-08": 0.03125,
+        "ref-04|ref-09": 0.046875,
+        "ref-05|ref-06": 0.4765625,
+        "ref-05|ref-07": 0.0,
+        "ref-05|ref-08": 0.4921875,
+        "ref-05|ref-09": 0.65625,
+        "ref-06|ref-07": 0.0,
+        "ref-06|ref-08": 0.5390625,
+        "ref-06|ref-09": 0.7109375,
+        "ref-07|ref-08": 0.0,
+        "ref-07|ref-09": 0.0,
+        "ref-08|ref-09": 0.734375
+      }
+    }
+  }
+}

@@ -1,0 +1,542 @@
+{
+  "exact": {
+    "single_wave_threshold_to_catch_target": [
+      {
+        "ref-02": {
+          "false_positive_nuisance_ejected": 3,
+          "total_variants_ejected": 4,
+          "endpoint_rank": 7
+        },
+        "ref-09": {
+          "false_positive_nuisance_ejected": 0,
+          "total_variants_ejected": 3,
+          "endpoint_rank": 3
+        }
+      },
+      {
+        "ref-02": {
+          "false_positive_nuisance_ejected": 3,
+          "total_variants_ejected": 4,
+          "endpoint_rank": 7
+        },
+        "ref-09": {
+          "false_positive_nuisance_ejected": 0,
+          "total_variants_ejected": 3,
+          "endpoint_rank": 3
+        }
+      },
+      {
+        "ref-02": {
+          "false_positive_nuisance_ejected": 5,
+          "total_variants_ejected": 4,
+          "endpoint_rank": 9
+        },
+        "ref-09": {
+          "false_positive_nuisance_ejected": 2,
+          "total_variants_ejected": 3,
+          "endpoint_rank": 5
+        }
+      }
+    ],
+    "repeat_distributions": {
+      "ref-01": {
+        "raw_identical": 0.06666666666666667,
+        "same_semantic_answer": 0.1111111111111111,
+        "semantic_overlap": 0.1,
+        "similar_opening": 0.12833333333333333,
+        "similar_tail": 0.12666666666666665,
+        "cross_reply_compression": 0.2766806722689076,
+        "length_instability": 0.21392169926764665,
+        "letter_flip_despite_copying": 1.0
+      },
+      "ref-02": {
+        "raw_identical": 0.06666666666666667,
+        "same_semantic_answer": 0.15,
+        "semantic_overlap": 0.14384471425139106,
+        "similar_opening": 0.15541125541125542,
+        "similar_tail": 0.14526455026455026,
+        "cross_reply_compression": 0.3326123223182047,
+        "length_instability": 0.6409469465811581,
+        "letter_flip_despite_copying": 0.5
+      },
+      "ref-03": {
+        "raw_identical": 0.13333333333333333,
+        "same_semantic_answer": 0.3333333333333333,
+        "semantic_overlap": 0.3120661840232529,
+        "similar_opening": 0.2796296296296296,
+        "similar_tail": 0.19648268398268398,
+        "cross_reply_compression": 0.3687381260459323,
+        "length_instability": 0.8157219100088913,
+        "letter_flip_despite_copying": 0.8
+      },
+      "ref-04": {
+        "raw_identical": 0.06666666666666667,
+        "same_semantic_answer": 0.42857142857142855,
+        "semantic_overlap": 0.2956106654725231,
+        "similar_opening": 0.24787157287157285,
+        "similar_tail": 0.3153835978835978,
+        "cross_reply_compression": 0.4539829186967185,
+        "length_instability": 0.9511378508521421,
+        "letter_flip_despite_copying": 0.5
+      },
+      "ref-05": {
+        "raw_identical": 0.3,
+        "same_semantic_answer": 0.38461538461538464,
+        "semantic_overlap": 0.3348113886888606,
+        "similar_opening": 0.335,
+        "similar_tail": 0.3283333333333333,
+        "cross_reply_compression": 0.27941176470588236,
+        "length_instability": 0.42215940893857157,
+        "letter_flip_despite_copying": 0.5
+      },
+      "ref-06": {
+        "raw_identical": 0.4666666666666667,
+        "same_semantic_answer": 0.5185185185185185,
+        "semantic_overlap": 0.4838469223265231,
+        "similar_opening": 0.5111111111111112,
+        "similar_tail": 0.5,
+        "cross_reply_compression": 0.4046558704453441,
+        "length_instability": 0.3102640233438348,
+        "letter_flip_despite_copying": 0.5
+      },
+      "ref-07": {
+        "raw_identical": 0.0,
+        "same_semantic_answer": 0.0,
+        "semantic_overlap": 0.19761987777015422,
+        "similar_opening": 0.2558201058201057,
+        "similar_tail": 0.1771464646464646,
+        "cross_reply_compression": 0.4339125754031201,
+        "length_instability": 1.0338851190665936,
+        "letter_flip_despite_copying": 0.6666666666666666
+      },
+      "ref-08": {
+        "raw_identical": 0.1,
+        "same_semantic_answer": 0.24,
+        "semantic_overlap": 0.2,
+        "similar_opening": 0.12777777777777777,
+        "similar_tail": 0.12777777777777777,
+        "cross_reply_compression": 0.07692307692307693,
+        "length_instability": 0.3212175600965866,
+        "letter_flip_despite_copying": 1.0
+      },
+      "ref-09": {
+        "raw_identical": 0.16666666666666666,
+        "same_semantic_answer": 0.3,
+        "semantic_overlap": 0.22292579612199115,
+        "similar_opening": 0.29,
+        "similar_tail": 0.24203703703703702,
+        "cross_reply_compression": 0.4480713602756506,
+        "length_instability": 0.42759194756866137,
+        "letter_flip_despite_copying": 0.25
+      }
+    },
+    "two_draw_leave_variant_nuisance_out": {
+      "subsets": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "base_mcc": [
+        0.7337993857053429,
+        0.7337993857053429,
+        0.7337993857053429
+      ],
+      "hybrid_mcc": [
+        0.7337993857053429,
+        0.7337993857053429,
+        0.7337993857053429
+      ],
+      "base_variant_rate": {
+        "ref-01": 0.0,
+        "ref-02": 0.0,
+        "ref-03": 0.0,
+        "ref-04": 1.0,
+        "ref-05": 0.0,
+        "ref-06": 0.0,
+        "ref-07": 1.0,
+        "ref-08": 0.0,
+        "ref-09": 1.0
+      },
+      "hybrid_variant_rate": {
+        "ref-01": 0.0,
+        "ref-02": 0.0,
+        "ref-03": 0.0,
+        "ref-04": 1.0,
+        "ref-05": 0.0,
+        "ref-06": 0.0,
+        "ref-07": 1.0,
+        "ref-08": 0.0,
+        "ref-09": 1.0
+      }
+    }
+  },
+  "holdout": {
+    "single_wave_threshold_to_catch_target": [
+      {
+        "ref-02": {
+          "false_positive_nuisance_ejected": 3,
+          "total_variants_ejected": 4,
+          "endpoint_rank": 7
+        },
+        "ref-09": {
+          "false_positive_nuisance_ejected": 0,
+          "total_variants_ejected": 3,
+          "endpoint_rank": 3
+        }
+      },
+      {
+        "ref-02": {
+          "false_positive_nuisance_ejected": 0,
+          "total_variants_ejected": 4,
+          "endpoint_rank": 4
+        },
+        "ref-09": {
+          "false_positive_nuisance_ejected": 0,
+          "total_variants_ejected": 3,
+          "endpoint_rank": 3
+        }
+      },
+      {
+        "ref-02": {
+          "false_positive_nuisance_ejected": 1,
+          "total_variants_ejected": 4,
+          "endpoint_rank": 5
+        },
+        "ref-09": {
+          "false_positive_nuisance_ejected": 0,
+          "total_variants_ejected": 3,
+          "endpoint_rank": 3
+        }
+      }
+    ],
+    "repeat_distributions": {
+      "ref-01": {
+        "raw_identical": 0.3,
+        "same_semantic_answer": 0.42105263157894735,
+        "semantic_overlap": 0.3616491422246818,
+        "similar_opening": 0.3611111111111112,
+        "similar_tail": 0.3388888888888889,
+        "cross_reply_compression": 0.0,
+        "length_instability": 0.32784648656246584,
+        "letter_flip_despite_copying": 0.0
+      },
+      "ref-02": {
+        "raw_identical": 0.2,
+        "same_semantic_answer": 0.4,
+        "semantic_overlap": 0.4825282631038027,
+        "similar_opening": 0.3055555555555555,
+        "similar_tail": 0.2833333333333333,
+        "cross_reply_compression": 0.3125,
+        "length_instability": 0.4394449154672439,
+        "letter_flip_despite_copying": 0.0
+      },
+      "ref-03": {
+        "raw_identical": 0.06666666666666667,
+        "same_semantic_answer": 0.2857142857142857,
+        "semantic_overlap": 0.27264111870194135,
+        "similar_opening": 0.3298556998556998,
+        "similar_tail": 0.24418470418470417,
+        "cross_reply_compression": 0.45984082434931217,
+        "length_instability": 0.7864735937913536,
+        "letter_flip_despite_copying": 0.75
+      },
+      "ref-04": {
+        "raw_identical": 0.16666666666666666,
+        "same_semantic_answer": 0.4,
+        "semantic_overlap": 0.4642857142857143,
+        "similar_opening": 0.43444444444444447,
+        "similar_tail": 0.4163636363636364,
+        "cross_reply_compression": 0.46528419245810554,
+        "length_instability": 0.5801958824441141,
+        "letter_flip_despite_copying": 0.6
+      },
+      "ref-05": {
+        "raw_identical": 0.2,
+        "same_semantic_answer": 0.35294117647058826,
+        "semantic_overlap": 0.26237312625262954,
+        "similar_opening": 0.2462962962962963,
+        "similar_tail": 0.24112554112554113,
+        "cross_reply_compression": 0.4170095755693582,
+        "length_instability": 0.6034175049208242,
+        "letter_flip_despite_copying": 0.5
+      },
+      "ref-06": {
+        "raw_identical": 0.4,
+        "same_semantic_answer": 0.4090909090909091,
+        "semantic_overlap": 0.44,
+        "similar_opening": 0.42083333333333334,
+        "similar_tail": 0.42619047619047623,
+        "cross_reply_compression": 0.5563725490196079,
+        "length_instability": 0.4599983394442116,
+        "letter_flip_despite_copying": 0.5
+      },
+      "ref-07": {
+        "raw_identical": 0.0,
+        "same_semantic_answer": null,
+        "semantic_overlap": 0.2597269853349839,
+        "similar_opening": 0.19214646464646462,
+        "similar_tail": 0.19865800865800867,
+        "cross_reply_compression": 0.38097704027646384,
+        "length_instability": 0.7917479751047398,
+        "letter_flip_despite_copying": 0.7142857142857143
+      },
+      "ref-08": {
+        "raw_identical": 0.13333333333333333,
+        "same_semantic_answer": 0.3125,
+        "semantic_overlap": 0.24027932911664185,
+        "similar_opening": 0.18611111111111114,
+        "similar_tail": 0.19166666666666668,
+        "cross_reply_compression": 0.35462097611630317,
+        "length_instability": 0.8557945866595156,
+        "letter_flip_despite_copying": null
+      },
+      "ref-09": {
+        "raw_identical": 0.26666666666666666,
+        "same_semantic_answer": 0.47368421052631576,
+        "semantic_overlap": 0.37418529669387945,
+        "similar_opening": 0.3888888888888889,
+        "similar_tail": 0.3634920634920634,
+        "cross_reply_compression": 0.3471354230841897,
+        "length_instability": 0.5740000160668296,
+        "letter_flip_despite_copying": 0.25
+      }
+    },
+    "two_draw_leave_variant_nuisance_out": {
+      "subsets": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "base_mcc": [
+        0.7337993857053429,
+        0.7337993857053429,
+        0.7337993857053429
+      ],
+      "hybrid_mcc": [
+        0.7337993857053429,
+        0.7337993857053429,
+        0.7337993857053429
+      ],
+      "base_variant_rate": {
+        "ref-01": 0.0,
+        "ref-02": 0.0,
+        "ref-03": 0.0,
+        "ref-04": 1.0,
+        "ref-05": 0.0,
+        "ref-06": 0.0,
+        "ref-07": 1.0,
+        "ref-08": 0.0,
+        "ref-09": 1.0
+      },
+      "hybrid_variant_rate": {
+        "ref-01": 0.0,
+        "ref-02": 0.0,
+        "ref-03": 0.0,
+        "ref-04": 1.0,
+        "ref-05": 0.0,
+        "ref-06": 0.0,
+        "ref-07": 1.0,
+        "ref-08": 0.0,
+        "ref-09": 1.0
+      }
+    }
+  },
+  "other": {
+    "single_wave_threshold_to_catch_target": [
+      {
+        "ref-02": {
+          "false_positive_nuisance_ejected": 4,
+          "total_variants_ejected": 4,
+          "endpoint_rank": 8
+        },
+        "ref-09": {
+          "false_positive_nuisance_ejected": 0,
+          "total_variants_ejected": 3,
+          "endpoint_rank": 3
+        }
+      },
+      {
+        "ref-02": {
+          "false_positive_nuisance_ejected": 3,
+          "total_variants_ejected": 4,
+          "endpoint_rank": 7
+        },
+        "ref-09": {
+          "false_positive_nuisance_ejected": 2,
+          "total_variants_ejected": 3,
+          "endpoint_rank": 5
+        }
+      },
+      {
+        "ref-02": {
+          "false_positive_nuisance_ejected": 3,
+          "total_variants_ejected": 4,
+          "endpoint_rank": 7
+        },
+        "ref-09": {
+          "false_positive_nuisance_ejected": 2,
+          "total_variants_ejected": 3,
+          "endpoint_rank": 5
+        }
+      }
+    ],
+    "repeat_distributions": {
+      "ref-01": {
+        "raw_identical": 0.06666666666666667,
+        "same_semantic_answer": 0.25,
+        "semantic_overlap": 0.16095569216229974,
+        "similar_opening": 0.22333333333333333,
+        "similar_tail": 0.17250000000000001,
+        "cross_reply_compression": 0.3276679841897233,
+        "length_instability": 0.6391878295696117,
+        "letter_flip_despite_copying": 0.6666666666666666
+      },
+      "ref-02": {
+        "raw_identical": 0.06666666666666667,
+        "same_semantic_answer": 0.16666666666666666,
+        "semantic_overlap": 0.12134621714220782,
+        "similar_opening": 0.18817460317460316,
+        "similar_tail": 0.14599326599326598,
+        "cross_reply_compression": 0.45808855060034315,
+        "length_instability": 0.9789659520439619,
+        "letter_flip_despite_copying": 0.5
+      },
+      "ref-03": {
+        "raw_identical": 0.06666666666666667,
+        "same_semantic_answer": 0.25,
+        "semantic_overlap": 0.19957693733437915,
+        "similar_opening": 0.40001443001443,
+        "similar_tail": 0.3102164502164503,
+        "cross_reply_compression": 0.5060666527514633,
+        "length_instability": 1.1087464378517915,
+        "letter_flip_despite_copying": 0.42857142857142855
+      },
+      "ref-04": {
+        "raw_identical": 0.03333333333333333,
+        "same_semantic_answer": 0.5,
+        "semantic_overlap": 0.10157962484194542,
+        "similar_opening": 0.27645502645502645,
+        "similar_tail": 0.21701058201058204,
+        "cross_reply_compression": 0.3934094695526898,
+        "length_instability": 1.1766343062164457,
+        "letter_flip_despite_copying": 1.0
+      },
+      "ref-05": {
+        "raw_identical": 0.06666666666666667,
+        "same_semantic_answer": 0.18181818181818182,
+        "semantic_overlap": 0.10112915444325256,
+        "similar_opening": 0.18320346320346323,
+        "similar_tail": 0.14600529100529103,
+        "cross_reply_compression": 0.4090418598358409,
+        "length_instability": 0.8850105842824532,
+        "letter_flip_despite_copying": 0.0
+      },
+      "ref-06": {
+        "raw_identical": 0.2,
+        "same_semantic_answer": 0.2777777777777778,
+        "semantic_overlap": 0.23143203773919063,
+        "similar_opening": 0.30037037037037034,
+        "similar_tail": 0.3063636363636364,
+        "cross_reply_compression": 0.43036587595411124,
+        "length_instability": 0.5143564395955299,
+        "letter_flip_despite_copying": 0.5
+      },
+      "ref-07": {
+        "raw_identical": 0.0,
+        "same_semantic_answer": null,
+        "semantic_overlap": 0.14792151834723896,
+        "similar_opening": 0.35463083213083213,
+        "similar_tail": 0.17538239538239536,
+        "cross_reply_compression": 0.3878765036495485,
+        "length_instability": 0.666729829449494,
+        "letter_flip_despite_copying": 0.8333333333333334
+      },
+      "ref-08": {
+        "raw_identical": 0.03333333333333333,
+        "same_semantic_answer": 0.25,
+        "semantic_overlap": 0.15678613504939146,
+        "similar_opening": 0.12174603174603174,
+        "similar_tail": 0.1338383838383838,
+        "cross_reply_compression": 0.31885330578512394,
+        "length_instability": 1.0773336702690353,
+        "letter_flip_despite_copying": 0.0
+      },
+      "ref-09": {
+        "raw_identical": 0.03333333333333333,
+        "same_semantic_answer": 0.375,
+        "semantic_overlap": 0.18697034496531115,
+        "similar_opening": 0.24000000000000005,
+        "similar_tail": 0.21303030303030304,
+        "cross_reply_compression": 0.45060288178567753,
+        "length_instability": 0.6836696951050255,
+        "letter_flip_despite_copying": 0.5
+      }
+    },
+    "two_draw_leave_variant_nuisance_out": {
+      "subsets": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "base_mcc": [
+        0.7337993857053429,
+        0.7337993857053429,
+        0.23062266407882204
+      ],
+      "hybrid_mcc": [
+        0.7337993857053429,
+        0.7337993857053429,
+        0.23062266407882204
+      ],
+      "base_variant_rate": {
+        "ref-01": 0.0,
+        "ref-02": 0.0,
+        "ref-03": 0.3333333333333333,
+        "ref-04": 1.0,
+        "ref-05": 0.0,
+        "ref-06": 0.0,
+        "ref-07": 1.0,
+        "ref-08": 0.0,
+        "ref-09": 0.6666666666666666
+      },
+      "hybrid_variant_rate": {
+        "ref-01": 0.0,
+        "ref-02": 0.0,
+        "ref-03": 0.3333333333333333,
+        "ref-04": 1.0,
+        "ref-05": 0.0,
+        "ref-06": 0.0,
+        "ref-07": 1.0,
+        "ref-08": 0.0,
+        "ref-09": 0.6666666666666666
+      }
+    }
+  }
+}

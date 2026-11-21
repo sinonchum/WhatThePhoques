@@ -1,0 +1,17 @@
+{
+  "primary_rule": "In at least 70% of stratified cached replays, model MCC must strictly exceed 0.65.",
+  "replays_per_run": 2048,
+  "required_passes": 1434,
+  "source_checkpoints": "one official practice backbone, nine known deployments, no new endpoints",
+  "procedure": "Sample two distinct prompts uniformly from each of five categories. For each endpoint/prompt sample one of the three archived real replies uniformly; blind endpoint IDs, shuffle rows.",
+  "primary_successes": 1547,
+  "confirmation_successes": 1538,
+  "additional_remote_queries": 0,
+  "uploaded": false,
+  "candidate_sha256": "e342c0a8b16920eac5d69cff2fb84e26b8f01b359c5ab403bb8d83f9869d5c54",
+  "source_sha256": "3ec8d2edf58504a913cfd399290de6b317a602e0dc5f6de5c172f015cbbbcb6d",
+  "checks": [
+    "reference official holdout model MCC 0.734",
+    "identical paired pass counts, replay manifests and summary metrics for research and packaged code in both runs"
+  ]
+}

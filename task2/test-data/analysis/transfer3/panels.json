@@ -1,0 +1,116 @@
+{
+  "G1": {
+    "baseline": {
+      "two_round_mcc": 1.0,
+      "random_split_median": 0.6488856845230502,
+      "defined_random_splits": 188,
+      "full": {
+        "ep-01": "core",
+        "ep-02": "ep-02",
+        "ep-04": "core",
+        "ep-12": "core",
+        "ep-14": "core",
+        "ep-17": "core",
+        "ep-18": "core",
+        "ep-23": "ep-23",
+        "ep-24": "core",
+        "ep-25": "core",
+        "ep-33": "core"
+      }
+    },
+    "short_answer": {
+      "two_round_mcc": 0.4800548665487304,
+      "random_split_median": 0.3225806720537666,
+      "defined_random_splits": 238,
+      "full": {
+        "ep-01": "core",
+        "ep-02": "ep-02",
+        "ep-04": "core",
+        "ep-12": "core",
+        "ep-14": "core",
+        "ep-17": "core",
+        "ep-18": "ep-18",
+        "ep-23": "ep-23",
+        "ep-24": "core",
+        "ep-25": "core",
+        "ep-33": "core"
+      }
+    }
+  },
+  "G2": {
+    "baseline": {
+      "two_round_mcc": null,
+      "random_split_median": -0.1800205749557739,
+      "defined_random_splits": 164,
+      "full": {
+        "ep-03": "core",
+        "ep-06": "ep-06",
+        "ep-07": "core",
+        "ep-08": "core",
+        "ep-20": "ep-20",
+        "ep-21": "core",
+        "ep-22": "core",
+        "ep-26": "core",
+        "ep-28": "ep-28",
+        "ep-30": "ep-30",
+        "ep-32": "core"
+      }
+    },
+    "short_answer": {
+      "two_round_mcc": 0.15266106442577032,
+      "random_split_median": 0.15266106442577032,
+      "defined_random_splits": 256,
+      "full": {
+        "ep-03": "core",
+        "ep-06": "ep-06",
+        "ep-07": "ep-07",
+        "ep-08": "ep-08",
+        "ep-20": "ep-20",
+        "ep-21": "core",
+        "ep-22": "core",
+        "ep-26": "core",
+        "ep-28": "core",
+        "ep-30": "core",
+        "ep-32": "core"
+      }
+    }
+  },
+  "G3": {
+    "baseline": {
+      "two_round_mcc": -0.15546218487394958,
+      "random_split_median": 0.15266106442577032,
+      "defined_random_splits": 256,
+      "full": {
+        "ep-05": "core",
+        "ep-09": "ep-09",
+        "ep-10": "ep-10",
+        "ep-11": "core",
+        "ep-13": "core",
+        "ep-15": "core",
+        "ep-16": "ep-16",
+        "ep-19": "core",
+        "ep-27": "core",
+        "ep-29": "ep-29",
+        "ep-31": "core"
+      }
+    },
+    "short_answer": {
+      "two_round_mcc": -0.15546218487394958,
+      "random_split_median": 0.15266106442577032,
+      "defined_random_splits": 256,
+      "full": {
+        "ep-05": "core",
+        "ep-09": "ep-09",
+        "ep-10": "ep-10",
+        "ep-11": "core",
+        "ep-13": "core",
+        "ep-15": "core",
+        "ep-16": "ep-16",
+        "ep-19": "core",
+        "ep-27": "core",
+        "ep-29": "ep-29",
+        "ep-31": "core"
+      }
+    }
+  }
+}

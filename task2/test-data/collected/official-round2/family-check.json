@@ -1,0 +1,780 @@
+{
+  "panel": "new",
+  "selected_ids": [
+    "q05",
+    "q06",
+    "q11",
+    "q12",
+    "q17",
+    "q18",
+    "q23",
+    "q24",
+    "q29",
+    "q30"
+  ],
+  "responses": 330,
+  "endpoints": 33,
+  "interpretation": "Agreement with the frozen first-panel family hypothesis; no official family labels are available.",
+  "label_free_clustering_K3": {
+    "mixed": {
+      "adjusted_rand_index": 0.4074,
+      "best_relabel_overlap": 20,
+      "clusters": [
+        [
+          "ep-01",
+          "ep-02",
+          "ep-03",
+          "ep-04",
+          "ep-06",
+          "ep-07",
+          "ep-08",
+          "ep-12",
+          "ep-14",
+          "ep-17",
+          "ep-18",
+          "ep-20",
+          "ep-21",
+          "ep-22",
+          "ep-23",
+          "ep-24",
+          "ep-25",
+          "ep-26",
+          "ep-27",
+          "ep-28",
+          "ep-30",
+          "ep-32",
+          "ep-33"
+        ],
+        [
+          "ep-05",
+          "ep-09",
+          "ep-10",
+          "ep-11",
+          "ep-13",
+          "ep-15",
+          "ep-16",
+          "ep-19",
+          "ep-31"
+        ],
+        [
+          "ep-29"
+        ]
+      ],
+      "mismatches_after_alignment": [
+        "ep-03",
+        "ep-06",
+        "ep-07",
+        "ep-08",
+        "ep-20",
+        "ep-21",
+        "ep-22",
+        "ep-26",
+        "ep-27",
+        "ep-28",
+        "ep-29",
+        "ep-30",
+        "ep-32"
+      ]
+    },
+    "semantic": {
+      "adjusted_rand_index": 0.4074,
+      "best_relabel_overlap": 20,
+      "clusters": [
+        [
+          "ep-01",
+          "ep-02",
+          "ep-03",
+          "ep-04",
+          "ep-06",
+          "ep-07",
+          "ep-08",
+          "ep-12",
+          "ep-14",
+          "ep-17",
+          "ep-18",
+          "ep-20",
+          "ep-21",
+          "ep-22",
+          "ep-23",
+          "ep-24",
+          "ep-25",
+          "ep-26",
+          "ep-27",
+          "ep-28",
+          "ep-30",
+          "ep-32",
+          "ep-33"
+        ],
+        [
+          "ep-05",
+          "ep-09",
+          "ep-10",
+          "ep-11",
+          "ep-13",
+          "ep-15",
+          "ep-16",
+          "ep-19",
+          "ep-31"
+        ],
+        [
+          "ep-29"
+        ]
+      ],
+      "mismatches_after_alignment": [
+        "ep-03",
+        "ep-06",
+        "ep-07",
+        "ep-08",
+        "ep-20",
+        "ep-21",
+        "ep-22",
+        "ep-26",
+        "ep-27",
+        "ep-28",
+        "ep-29",
+        "ep-30",
+        "ep-32"
+      ]
+    },
+    "form": {
+      "adjusted_rand_index": 0.2134,
+      "best_relabel_overlap": 17,
+      "clusters": [
+        [
+          "ep-01",
+          "ep-02",
+          "ep-03",
+          "ep-04",
+          "ep-05",
+          "ep-06",
+          "ep-07",
+          "ep-08",
+          "ep-09",
+          "ep-11",
+          "ep-12",
+          "ep-14",
+          "ep-17",
+          "ep-18",
+          "ep-20",
+          "ep-21",
+          "ep-22",
+          "ep-23",
+          "ep-24",
+          "ep-25",
+          "ep-26",
+          "ep-28",
+          "ep-30",
+          "ep-32",
+          "ep-33"
+        ],
+        [
+          "ep-10",
+          "ep-13",
+          "ep-15",
+          "ep-19",
+          "ep-27",
+          "ep-31"
+        ],
+        [
+          "ep-16",
+          "ep-29"
+        ]
+      ],
+      "mismatches_after_alignment": [
+        "ep-03",
+        "ep-05",
+        "ep-06",
+        "ep-07",
+        "ep-08",
+        "ep-09",
+        "ep-11",
+        "ep-16",
+        "ep-20",
+        "ep-21",
+        "ep-22",
+        "ep-26",
+        "ep-28",
+        "ep-29",
+        "ep-30",
+        "ep-32"
+      ]
+    },
+    "latent_categorical": {
+      "adjusted_rand_index": 1.0,
+      "best_relabel_overlap": 33,
+      "clusters": [
+        [
+          "ep-03",
+          "ep-06",
+          "ep-07",
+          "ep-08",
+          "ep-20",
+          "ep-21",
+          "ep-22",
+          "ep-26",
+          "ep-28",
+          "ep-30",
+          "ep-32"
+        ],
+        [
+          "ep-01",
+          "ep-02",
+          "ep-04",
+          "ep-12",
+          "ep-14",
+          "ep-17",
+          "ep-18",
+          "ep-23",
+          "ep-24",
+          "ep-25",
+          "ep-33"
+        ],
+        [
+          "ep-05",
+          "ep-09",
+          "ep-10",
+          "ep-11",
+          "ep-13",
+          "ep-15",
+          "ep-16",
+          "ep-19",
+          "ep-27",
+          "ep-29",
+          "ep-31"
+        ]
+      ],
+      "mismatches_after_alignment": []
+    }
+  },
+  "leave_one_endpoint_out": {
+    "mixed": {
+      "prior_agreements": 30,
+      "of": 33,
+      "per_prior_family": {
+        "G1": [
+          11,
+          11
+        ],
+        "G2": [
+          11,
+          11
+        ],
+        "G3": [
+          8,
+          11
+        ]
+      },
+      "mismatches": [
+        {
+          "endpoint": "ep-27",
+          "prior": "G3",
+          "nearest": "G1",
+          "distance_advantage_over_prior": 0.1047,
+          "leave_one_question_out_predictions": {
+            "G1": 10
+          }
+        },
+        {
+          "endpoint": "ep-11",
+          "prior": "G3",
+          "nearest": "G2",
+          "distance_advantage_over_prior": 0.0111,
+          "leave_one_question_out_predictions": {
+            "G3": 4,
+            "G2": 6
+          }
+        },
+        {
+          "endpoint": "ep-31",
+          "prior": "G3",
+          "nearest": "G2",
+          "distance_advantage_over_prior": 0.0068,
+          "leave_one_question_out_predictions": {
+            "G2": 7,
+            "G3": 3
+          }
+        }
+      ]
+    },
+    "semantic": {
+      "prior_agreements": 30,
+      "of": 33,
+      "per_prior_family": {
+        "G1": [
+          11,
+          11
+        ],
+        "G2": [
+          11,
+          11
+        ],
+        "G3": [
+          8,
+          11
+        ]
+      },
+      "mismatches": [
+        {
+          "endpoint": "ep-27",
+          "prior": "G3",
+          "nearest": "G1",
+          "distance_advantage_over_prior": 0.17,
+          "leave_one_question_out_predictions": {
+            "G1": 10
+          }
+        },
+        {
+          "endpoint": "ep-31",
+          "prior": "G3",
+          "nearest": "G2",
+          "distance_advantage_over_prior": 0.0509,
+          "leave_one_question_out_predictions": {
+            "G2": 8,
+            "G3": 2
+          }
+        },
+        {
+          "endpoint": "ep-11",
+          "prior": "G3",
+          "nearest": "G2",
+          "distance_advantage_over_prior": 0.0186,
+          "leave_one_question_out_predictions": {
+            "G3": 4,
+            "G2": 6
+          }
+        }
+      ]
+    },
+    "form": {
+      "prior_agreements": 23,
+      "of": 33,
+      "per_prior_family": {
+        "G1": [
+          11,
+          11
+        ],
+        "G2": [
+          3,
+          11
+        ],
+        "G3": [
+          9,
+          11
+        ]
+      },
+      "mismatches": [
+        {
+          "endpoint": "ep-09",
+          "prior": "G3",
+          "nearest": "G1",
+          "distance_advantage_over_prior": 0.0364,
+          "leave_one_question_out_predictions": {
+            "G1": 9,
+            "G3": 1
+          }
+        },
+        {
+          "endpoint": "ep-20",
+          "prior": "G2",
+          "nearest": "G1",
+          "distance_advantage_over_prior": 0.0289,
+          "leave_one_question_out_predictions": {
+            "G1": 10
+          }
+        },
+        {
+          "endpoint": "ep-03",
+          "prior": "G2",
+          "nearest": "G1",
+          "distance_advantage_over_prior": 0.0268,
+          "leave_one_question_out_predictions": {
+            "G1": 9,
+            "G2": 1
+          }
+        },
+        {
+          "endpoint": "ep-07",
+          "prior": "G2",
+          "nearest": "G1",
+          "distance_advantage_over_prior": 0.0268,
+          "leave_one_question_out_predictions": {
+            "G1": 9,
+            "G2": 1
+          }
+        },
+        {
+          "endpoint": "ep-21",
+          "prior": "G2",
+          "nearest": "G1",
+          "distance_advantage_over_prior": 0.0268,
+          "leave_one_question_out_predictions": {
+            "G1": 9,
+            "G2": 1
+          }
+        },
+        {
+          "endpoint": "ep-22",
+          "prior": "G2",
+          "nearest": "G1",
+          "distance_advantage_over_prior": 0.0268,
+          "leave_one_question_out_predictions": {
+            "G1": 9,
+            "G2": 1
+          }
+        },
+        {
+          "endpoint": "ep-26",
+          "prior": "G2",
+          "nearest": "G1",
+          "distance_advantage_over_prior": 0.0268,
+          "leave_one_question_out_predictions": {
+            "G1": 9,
+            "G2": 1
+          }
+        },
+        {
+          "endpoint": "ep-32",
+          "prior": "G2",
+          "nearest": "G1",
+          "distance_advantage_over_prior": 0.0268,
+          "leave_one_question_out_predictions": {
+            "G1": 9,
+            "G2": 1
+          }
+        },
+        {
+          "endpoint": "ep-11",
+          "prior": "G3",
+          "nearest": "G1",
+          "distance_advantage_over_prior": 0.0193,
+          "leave_one_question_out_predictions": {
+            "G3": 3,
+            "G1": 7
+          }
+        },
+        {
+          "endpoint": "ep-30",
+          "prior": "G2",
+          "nearest": "G1",
+          "distance_advantage_over_prior": 0.0138,
+          "leave_one_question_out_predictions": {
+            "G1": 9,
+            "G2": 1
+          }
+        }
+      ]
+    },
+    "categorical_NB": {
+      "prior_agreements": 32,
+      "mismatches": [
+        {
+          "endpoint": "ep-27",
+          "prior": "G3",
+          "predicted": "G1"
+        }
+      ]
+    }
+  },
+  "nearest_mixed_per_endpoint": [
+    {
+      "endpoint": "ep-01",
+      "prior": "G1",
+      "nearest": "G1",
+      "distance_advantage_over_prior": -0.391,
+      "leave_one_question_out_predictions": {
+        "G1": 10
+      }
+    },
+    {
+      "endpoint": "ep-02",
+      "prior": "G1",
+      "nearest": "G1",
+      "distance_advantage_over_prior": -0.2935,
+      "leave_one_question_out_predictions": {
+        "G1": 10
+      }
+    },
+    {
+      "endpoint": "ep-03",
+      "prior": "G2",
+      "nearest": "G2",
+      "distance_advantage_over_prior": -0.296,
+      "leave_one_question_out_predictions": {
+        "G2": 10
+      }
+    },
+    {
+      "endpoint": "ep-04",
+      "prior": "G1",
+      "nearest": "G1",
+      "distance_advantage_over_prior": -0.3592,
+      "leave_one_question_out_predictions": {
+        "G1": 10
+      }
+    },
+    {
+      "endpoint": "ep-05",
+      "prior": "G3",
+      "nearest": "G3",
+      "distance_advantage_over_prior": -0.2041,
+      "leave_one_question_out_predictions": {
+        "G3": 10
+      }
+    },
+    {
+      "endpoint": "ep-06",
+      "prior": "G2",
+      "nearest": "G2",
+      "distance_advantage_over_prior": -0.2892,
+      "leave_one_question_out_predictions": {
+        "G2": 10
+      }
+    },
+    {
+      "endpoint": "ep-07",
+      "prior": "G2",
+      "nearest": "G2",
+      "distance_advantage_over_prior": -0.2913,
+      "leave_one_question_out_predictions": {
+        "G2": 10
+      }
+    },
+    {
+      "endpoint": "ep-08",
+      "prior": "G2",
+      "nearest": "G2",
+      "distance_advantage_over_prior": -0.3014,
+      "leave_one_question_out_predictions": {
+        "G2": 10
+      }
+    },
+    {
+      "endpoint": "ep-09",
+      "prior": "G3",
+      "nearest": "G3",
+      "distance_advantage_over_prior": -0.0407,
+      "leave_one_question_out_predictions": {
+        "G3": 9,
+        "G1": 1
+      }
+    },
+    {
+      "endpoint": "ep-10",
+      "prior": "G3",
+      "nearest": "G3",
+      "distance_advantage_over_prior": -0.0861,
+      "leave_one_question_out_predictions": {
+        "G3": 10
+      }
+    },
+    {
+      "endpoint": "ep-11",
+      "prior": "G3",
+      "nearest": "G2",
+      "distance_advantage_over_prior": 0.0111,
+      "leave_one_question_out_predictions": {
+        "G3": 4,
+        "G2": 6
+      }
+    },
+    {
+      "endpoint": "ep-12",
+      "prior": "G1",
+      "nearest": "G1",
+      "distance_advantage_over_prior": -0.391,
+      "leave_one_question_out_predictions": {
+        "G1": 10
+      }
+    },
+    {
+      "endpoint": "ep-13",
+      "prior": "G3",
+      "nearest": "G3",
+      "distance_advantage_over_prior": -0.1411,
+      "leave_one_question_out_predictions": {
+        "G3": 10
+      }
+    },
+    {
+      "endpoint": "ep-14",
+      "prior": "G1",
+      "nearest": "G1",
+      "distance_advantage_over_prior": -0.391,
+      "leave_one_question_out_predictions": {
+        "G1": 10
+      }
+    },
+    {
+      "endpoint": "ep-15",
+      "prior": "G3",
+      "nearest": "G3",
+      "distance_advantage_over_prior": -0.0678,
+      "leave_one_question_out_predictions": {
+        "G3": 10
+      }
+    },
+    {
+      "endpoint": "ep-16",
+      "prior": "G3",
+      "nearest": "G3",
+      "distance_advantage_over_prior": -0.179,
+      "leave_one_question_out_predictions": {
+        "G3": 10
+      }
+    },
+    {
+      "endpoint": "ep-17",
+      "prior": "G1",
+      "nearest": "G1",
+      "distance_advantage_over_prior": -0.391,
+      "leave_one_question_out_predictions": {
+        "G1": 10
+      }
+    },
+    {
+      "endpoint": "ep-18",
+      "prior": "G1",
+      "nearest": "G1",
+      "distance_advantage_over_prior": -0.3387,
+      "leave_one_question_out_predictions": {
+        "G1": 10
+      }
+    },
+    {
+      "endpoint": "ep-19",
+      "prior": "G3",
+      "nearest": "G3",
+      "distance_advantage_over_prior": -0.1572,
+      "leave_one_question_out_predictions": {
+        "G3": 10
+      }
+    },
+    {
+      "endpoint": "ep-20",
+      "prior": "G2",
+      "nearest": "G2",
+      "distance_advantage_over_prior": -0.2839,
+      "leave_one_question_out_predictions": {
+        "G2": 10
+      }
+    },
+    {
+      "endpoint": "ep-21",
+      "prior": "G2",
+      "nearest": "G2",
+      "distance_advantage_over_prior": -0.2879,
+      "leave_one_question_out_predictions": {
+        "G2": 10
+      }
+    },
+    {
+      "endpoint": "ep-22",
+      "prior": "G2",
+      "nearest": "G2",
+      "distance_advantage_over_prior": -0.2599,
+      "leave_one_question_out_predictions": {
+        "G2": 10
+      }
+    },
+    {
+      "endpoint": "ep-23",
+      "prior": "G1",
+      "nearest": "G1",
+      "distance_advantage_over_prior": -0.3601,
+      "leave_one_question_out_predictions": {
+        "G1": 10
+      }
+    },
+    {
+      "endpoint": "ep-24",
+      "prior": "G1",
+      "nearest": "G1",
+      "distance_advantage_over_prior": -0.391,
+      "leave_one_question_out_predictions": {
+        "G1": 10
+      }
+    },
+    {
+      "endpoint": "ep-25",
+      "prior": "G1",
+      "nearest": "G1",
+      "distance_advantage_over_prior": -0.3601,
+      "leave_one_question_out_predictions": {
+        "G1": 10
+      }
+    },
+    {
+      "endpoint": "ep-26",
+      "prior": "G2",
+      "nearest": "G2",
+      "distance_advantage_over_prior": -0.1479,
+      "leave_one_question_out_predictions": {
+        "G2": 10
+      }
+    },
+    {
+      "endpoint": "ep-27",
+      "prior": "G3",
+      "nearest": "G1",
+      "distance_advantage_over_prior": 0.1047,
+      "leave_one_question_out_predictions": {
+        "G1": 10
+      }
+    },
+    {
+      "endpoint": "ep-28",
+      "prior": "G2",
+      "nearest": "G2",
+      "distance_advantage_over_prior": -0.3026,
+      "leave_one_question_out_predictions": {
+        "G2": 10
+      }
+    },
+    {
+      "endpoint": "ep-29",
+      "prior": "G3",
+      "nearest": "G3",
+      "distance_advantage_over_prior": -0.0977,
+      "leave_one_question_out_predictions": {
+        "G3": 10
+      }
+    },
+    {
+      "endpoint": "ep-30",
+      "prior": "G2",
+      "nearest": "G2",
+      "distance_advantage_over_prior": -0.29,
+      "leave_one_question_out_predictions": {
+        "G2": 10
+      }
+    },
+    {
+      "endpoint": "ep-31",
+      "prior": "G3",
+      "nearest": "G2",
+      "distance_advantage_over_prior": 0.0068,
+      "leave_one_question_out_predictions": {
+        "G2": 7,
+        "G3": 3
+      }
+    },
+    {
+      "endpoint": "ep-32",
+      "prior": "G2",
+      "nearest": "G2",
+      "distance_advantage_over_prior": -0.2859,
+      "leave_one_question_out_predictions": {
+        "G2": 10
+      }
+    },
+    {
+      "endpoint": "ep-33",
+      "prior": "G1",
+      "nearest": "G1",
+      "distance_advantage_over_prior": -0.391,
+      "leave_one_question_out_predictions": {
+        "G1": 10
+      }
+    }
+  ]
+}

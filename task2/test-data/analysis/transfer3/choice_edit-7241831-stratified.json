@@ -1,0 +1,9 @@
+{
+  "seed": 7241831,
+  "protocol": "stratified",
+  "draws": 2048,
+  "n_strictly_above_065": 1647,
+  "pass_fraction": 0.80419921875,
+  "median_model_mcc": 0.7337993857053429,
+  "draw_manifest_sha256": "e2d5e8a9926252264423c361d013e5b9270cfca68377b01394e9c641072c633b"
+}

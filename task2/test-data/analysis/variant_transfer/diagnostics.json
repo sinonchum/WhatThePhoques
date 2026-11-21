@@ -1,0 +1,98 @@
+{
+  "0-standard": {
+    "baseline": {
+      "median": 0.7337993857053429,
+      "pass": 0.7734375
+    },
+    "structure": {
+      "median": 0.7337993857053429,
+      "pass": 0.927734375
+    },
+    "learned": {
+      "median": 0.7337993857053429,
+      "pass": 0.75390625
+    },
+    "learned_pair_out": {
+      "median": 0.7337993857053429,
+      "pass": 0.701171875
+    },
+    "short_reply_fraction": 0.44746093750000004
+  },
+  "0-matched_length": {
+    "baseline": {
+      "median": 0.23062266407882204,
+      "pass": 0.439453125
+    },
+    "structure": {
+      "median": 0.7337993857053429,
+      "pass": 0.80078125
+    },
+    "learned": {
+      "median": 0.23062266407882204,
+      "pass": 0.14453125
+    },
+    "learned_pair_out": {
+      "median": 0.23062266407882204,
+      "pass": 0.125
+    },
+    "short_reply_fraction": 0.610698784722222,
+    "formal_target_fraction": 0.8878787878787879
+  },
+  "0-answer_only": {
+    "baseline": {
+      "median": 0.0,
+      "pass": 0.0
+    },
+    "structure": {
+      "median": 0.0,
+      "pass": 0.0
+    },
+    "learned": {
+      "median": 0.0,
+      "pass": 0.0
+    },
+    "learned_pair_out": {
+      "median": 0.0,
+      "pass": 0.0
+    },
+    "short_reply_fraction": 0.44707031250000007
+  },
+  "1-standard": {
+    "baseline": {
+      "median": 0.7337993857053429,
+      "pass": 0.99609375
+    },
+    "structure": {
+      "median": 0.7337993857053429,
+      "pass": 0.96484375
+    },
+    "learned": {
+      "median": 0.7337993857053429,
+      "pass": 0.998046875
+    },
+    "learned_pair_out": {
+      "median": 0.7337993857053429,
+      "pass": 0.990234375
+    },
+    "short_reply_fraction": 0.2956597222222222
+  },
+  "2-standard": {
+    "baseline": {
+      "median": 0.23062266407882204,
+      "pass": 0.31640625
+    },
+    "structure": {
+      "median": 0.23062266407882204,
+      "pass": 0.34375
+    },
+    "learned": {
+      "median": 0.23062266407882204,
+      "pass": 0.365234375
+    },
+    "learned_pair_out": {
+      "median": 0.23062266407882204,
+      "pass": 0.328125
+    },
+    "short_reply_fraction": 0.23897569444444444
+  }
+}

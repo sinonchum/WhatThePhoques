@@ -1,0 +1,10 @@
+endpoint,family,model,kind
+ref-01,mock-F0,mock-F0-M0,synthetic sample
+ref-02,mock-F1,mock-F1-M0,synthetic sample
+ref-03,mock-F2,mock-F2-M0,synthetic sample
+ref-04,mock-F0,mock-F0-M0,synthetic sample
+ref-05,mock-F1,mock-F1-M0,synthetic sample
+ref-06,mock-F2,mock-F2-M0,synthetic sample
+ref-07,mock-F0,mock-F0-M1,synthetic sample
+ref-08,mock-F1,mock-F1-M1,synthetic sample
+ref-09,mock-F2,mock-F2-M1,synthetic sample

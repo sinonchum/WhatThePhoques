@@ -1,0 +1,12 @@
+{
+  "source": "cached practice and scored logs",
+  "practice_responses": 810,
+  "formal_responses": 330,
+  "new_queries": 0,
+  "new_submissions": 1,
+  "model_groups": 8,
+  "reference_score": 0.7337993857053429,
+  "new_labels_available": false,
+  "public_score": 0.1,
+  "receipt": "receipt.json"
+}

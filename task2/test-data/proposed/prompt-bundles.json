@@ -1,0 +1,52 @@
+[
+  {
+    "id": "v2-01",
+    "category": "code",
+    "prompt": "Choose separately for rows 1, 2 and 3. Begin your answer with three letters in row order, separated by spaces. Choose A, B or C for each row.\n1. Python: list(range(6))[4:0:-2] is   A=[4, 2] | B=[4, 2, 0] | C=[2, 4]\n2. Python: -11 % 4 is   A=-3 | B=3 | C=1\n3. Python: (1, 2) * 0 is   A=(0, 0) | B=() | C=0"
+  },
+  {
+    "id": "v2-02",
+    "category": "code",
+    "prompt": "Choose separately for rows 1, 2 and 3. Begin your answer with three letters in row order, separated by spaces. Choose A, B or C for each row.\n1. SQL: given (NULL, 3, 3), COUNT(DISTINCT v) is   A=2 | B=3 | C=1\n2. Python: bool([False]) is   A=False | B=True | C=an error\n3. In JavaScript, typeof null returns   A=object | B=undefined | C=null"
+  },
+  {
+    "id": "v2-03",
+    "category": "math",
+    "prompt": "Choose separately for rows 1, 2 and 3. Begin your answer with three letters in row order, separated by spaces. Choose A, B or C for each row.\n1. Smallest positive n with remainder 2 mod 5 and 1 mod 7   A=16 | B=22 | C=37\n2. If eight printers make eight cards in four minutes, four printers make eight cards in   A=8 min | B=4 min | C=16 min\n3. A 20 percent markdown followed by a 25 percent increase leaves a price   A=higher | B=lower | C=unchanged"
+  },
+  {
+    "id": "v2-04",
+    "category": "math",
+    "prompt": "Choose separately for rows 1, 2 and 3. Begin your answer with three letters in row order, separated by spaces. Choose A, B or C for each row.\n1. Six people each shake hands once with every other. Handshakes in total   A=30 | B=15 | C=36\n2. Number of trailing zeros in 26 factorial   A=6 | B=5 | C=7\n3. A fair die was rolled twice. Given a sum of 5, probability one die was 1   A=1/4 | B=2/3 | C=1/2"
+  },
+  {
+    "id": "v2-05",
+    "category": "language",
+    "prompt": "Choose separately for rows 1, 2 and 3. Begin your answer with three letters in row order, separated by spaces. Choose A, B or C for each row.\n1. German: 'Dem Kind folgt der Hund.' Who is following?   A=the dog | B=the child | C=unclear\n2. Spanish: 'Si lo hubiera sabido, habría ido.' Did the speaker go?   A=yes | B=ordinarily implied no | C=it is an order\n3. French: 'Ce livre, je le lui ai donné.' Which pronoun refers to the book?   A=lui | B=je | C=le"
+  },
+  {
+    "id": "v2-06",
+    "category": "language",
+    "prompt": "Choose separately for rows 1, 2 and 3. Begin your answer with three letters in row order, separated by spaces. Choose A, B or C for each row.\n1. 'Not until dawn did the rain stop.' At midnight before that dawn the rain had   A=already stopped | B=yet to stop | C=just begun\n2. 'Only Jo lent Kim a pen.' Which fact follows?   A=Kim owned no pen | B=nobody else lent Kim a pen | C=Jo lent only pens\n3. 'Rae stopped calling Lee.' What is presupposed?   A=Lee disliked calls | B=Lee called Rae | C=Rae used to call Lee"
+  },
+  {
+    "id": "v2-07",
+    "category": "knowledge",
+    "prompt": "Choose separately for rows 1, 2 and 3. Begin your answer with three letters in row order, separated by spaces. Choose A, B or C for each row.\n1. In tuning, a perfect fifth above A is   A=D | B=E | C=F\n2. In optics, a diverging lens forms what image of a real object?   A=virtual upright | B=real inverted | C=real upright\n3. In chess notation, N designates the   A=king | B=rook | C=knight"
+  },
+  {
+    "id": "v2-08",
+    "category": "knowledge",
+    "prompt": "Choose separately for rows 1, 2 and 3. Begin your answer with three letters in row order, separated by spaces. Choose A, B or C for each row.\n1. On a topographic map, successive contour levels represent differences in   A=latitude | B=elevation | C=distance traveled\n2. Which item is the smallest unit in traditional movable-type printing?   A=an individual sort | B=a forme | C=a galley\n3. Which process removes material on a rotating workpiece with a stationary cutting tool?   A=broaching | B=milling | C=turning"
+  },
+  {
+    "id": "v2-09",
+    "category": "preference",
+    "prompt": "Choose separately for rows 1, 2 and 3. Begin your answer with three letters in row order, separated by spaces. Choose A, B or C for each row.\n1. Choose the most natural neutral completion: 'The path wound gently through the ___.'   A=forest | B=valley | C=hills\n2. Choose the most natural neutral completion: 'She glanced at the clock and ___.'   A=sighed | B=smiled | C=nodded\n3. Choose a common name for a small example town.   A=Oakfield | B=Riverton | C=Fairview"
+  },
+  {
+    "id": "v2-10",
+    "category": "preference",
+    "prompt": "Choose separately for rows 1, 2 and 3. Begin your answer with three letters in row order, separated by spaces. Choose A, B or C for each row.\n1. Choose the most natural neutral completion: 'The path wound gently through the ___.'   A=hills | B=forest | C=valley\n2. Choose the most natural neutral completion: 'She glanced at the clock and ___.'   A=nodded | B=sighed | C=smiled\n3. Choose a common name for a small example town.   A=Fairview | B=Oakfield | C=Riverton"
+  }
+]

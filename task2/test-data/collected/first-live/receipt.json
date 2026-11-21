@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-21T17:04:00.591695+00:00",
+  "rows": 33,
+  "sha256": "28351385e516dcbbdb96ee75f5862dcb3255f1bf1d9e5e3761e2c5af05624043",
+  "task": "33-model-equality",
+  "http_status": 200,
+  "status": "success",
+  "score": 0.05,
+  "leaderboard": {
+    "rank": 3,
+    "score": 0.05,
+    "method": "matched new or changed public score",
+    "listed_teams": 12
+  }
+}
