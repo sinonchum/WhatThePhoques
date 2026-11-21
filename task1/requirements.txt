@@ -1,0 +1,21 @@
+# Python 3.11. Same model/runtime pins as the official starter kit.
+torch==2.5.1
+torchvision==0.20.1
+trustmark==0.8.0
+# Official StegaStamp inference and decoder-only graph extraction.
+onnxruntime-gpu==1.23.2
+onnx
+numpy
+pillow
+omegaconf
+einops
+timm
+opencv-python
+scipy
+safetensors
+requests
+pyyaml
+av
+decord
+pycocotools
+tqdm

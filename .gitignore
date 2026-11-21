@@ -1,0 +1,13 @@
+__pycache__/
+.DS_Store
+*.pt
+*.npz
+*.npy
+*.onnx
+*.pth
+*.ckpt
+task1/output/
+task1/data_codex*/
+task1/models_codex_local/
+.env
+.venv*/
