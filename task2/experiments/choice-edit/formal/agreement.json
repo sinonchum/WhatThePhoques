@@ -1,0 +1,45 @@
+{
+  "G1": {
+    "one_word_fraction": 0.9772727272727273,
+    "methods": {
+      "syntax": {
+        "actual_round_agreement": 1.0,
+        "defined": 188,
+        "median_all_256": 0.6488856845230502
+      },
+      "content": {
+        "actual_round_agreement": 0.4800548665487304,
+        "defined": 238,
+        "median_all_256": 0.23762086823976847
+      }
+    },
+    "selected": "syntax"
+  },
+  "G2": {
+    "one_word_fraction": 0.9636363636363636,
+    "methods": {
+      "syntax": {
+        "actual_round_agreement": null,
+        "defined": 164,
+        "median_all_256": 0.0
+      },
+      "content": {
+        "actual_round_agreement": 0.15266106442577032,
+        "defined": 256,
+        "median_all_256": 0.15266106442577032
+      }
+    },
+    "selected": "content"
+  },
+  "G3": {
+    "one_word_fraction": 0.5681818181818182,
+    "methods": {
+      "syntax": {
+        "actual_round_agreement": -0.15546218487394958,
+        "defined": 256,
+        "median_all_256": 0.15266106442577032
+      }
+    },
+    "selected": "syntax"
+  }
+}

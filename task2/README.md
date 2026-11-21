@@ -2,6 +2,8 @@
 
 目标是用同一批题比较 33 个端点，输出 `endpoint,family,model`。家族分占 10%，同一真实家族内的模型身份分占 90%。水印、系统提示和解码变化保持模型身份；量化配置或 LoRA 变化会改变身份。[官方题面](../docs/tasks/Model_Equality_Testing.pdf)
 
+本轮离线优化、两组正式题的一致性，以及可供下一次提交的 CSV，见[候选版本对照](experiments/choice-edit/README.md)。
+
 ## 接手当前版本
 
 第二轮提交使用 33 个正式端点各 20 条回答，共 660 条。2026-11-21 巴黎时间 19:35，官方回执记录的公开分为 **0.10**，当时排名 **6 / 20**。这份提交得到了 3 个候选家族、13 个候选模型身份。正式端点的身份尚无公开真值。[提交 CSV](checkpoint/submission.csv) · [官方回执快照](checkpoint/receipt.json)

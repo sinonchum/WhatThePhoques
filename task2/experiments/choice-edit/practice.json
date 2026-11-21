@@ -1,0 +1,104 @@
+{
+  "practice_replays": {
+    "519883": {
+      "stratified": {
+        "production_passes": 1538,
+        "choice_edit": {
+          "seed": 519883,
+          "protocol": "stratified",
+          "draws": 2048,
+          "n_strictly_above_065": 1638,
+          "pass_fraction": 0.7998046875,
+          "median_model_mcc": 0.7337993857053429,
+          "draw_manifest_sha256": "53e7ef7553670338e224e0ba5267c604995ac8d4883e43f5856fd19635ad5360"
+        }
+      },
+      "fixed-hard": {
+        "production_passes": 880,
+        "choice_edit": {
+          "seed": 519883,
+          "protocol": "fixed-hard",
+          "draws": 2048,
+          "n_strictly_above_065": 1113,
+          "pass_fraction": 0.54345703125,
+          "median_model_mcc": 0.7337993857053429,
+          "draw_manifest_sha256": "44e11cb0ca30d0e3024e2ad6e44ff01261075437eb0753f8a3600b98a5598ea6"
+        }
+      }
+    },
+    "731029": {
+      "stratified": {
+        "production_passes": 1547,
+        "choice_edit": {
+          "seed": 731029,
+          "protocol": "stratified",
+          "draws": 2048,
+          "n_strictly_above_065": 1637,
+          "pass_fraction": 0.79931640625,
+          "median_model_mcc": 0.7337993857053429,
+          "draw_manifest_sha256": "be108752306097ec04a919ff891a8c667a6d9d82679cf8284dac53f9ef948720"
+        }
+      },
+      "fixed-hard": {
+        "production_passes": 831,
+        "choice_edit": {
+          "seed": 731029,
+          "protocol": "fixed-hard",
+          "draws": 2048,
+          "n_strictly_above_065": 1082,
+          "pass_fraction": 0.5283203125,
+          "median_model_mcc": 0.7337993857053429,
+          "draw_manifest_sha256": "a3e0d7bb9c456a80d98eb0d141b896396f3c5eb5959a22045a1bcc52ce2dbf91"
+        }
+      }
+    },
+    "7241831": {
+      "stratified": {
+        "production_passes": 1530,
+        "choice_edit": {
+          "seed": 7241831,
+          "protocol": "stratified",
+          "draws": 2048,
+          "n_strictly_above_065": 1647,
+          "pass_fraction": 0.80419921875,
+          "median_model_mcc": 0.7337993857053429,
+          "draw_manifest_sha256": "e2d5e8a9926252264423c361d013e5b9270cfca68377b01394e9c641072c633b"
+        }
+      },
+      "fixed-hard": {
+        "production_passes": 909,
+        "choice_edit": {
+          "seed": 7241831,
+          "protocol": "fixed-hard",
+          "draws": 2048,
+          "n_strictly_above_065": 1117,
+          "pass_fraction": 0.54541015625,
+          "median_model_mcc": 0.7337993857053429,
+          "draw_manifest_sha256": "4fc49a6398eeaba4f0128b86f4757b26bacc4624263648cdd6b3270e695afdb9"
+        }
+      }
+    }
+  },
+  "practice_twenty_questions_1024_same_as_plain": {
+    "old": {
+      "ref-02": 1020,
+      "ref-03": 1023,
+      "ref-04": 0,
+      "ref-05": 1022,
+      "ref-06": 1024,
+      "ref-07": 0,
+      "ref-08": 1022,
+      "ref-09": 9
+    },
+    "new": {
+      "ref-02": 1023,
+      "ref-03": 1024,
+      "ref-04": 0,
+      "ref-05": 1022,
+      "ref-06": 1024,
+      "ref-07": 0,
+      "ref-08": 1023,
+      "ref-09": 4
+    }
+  }
+}
