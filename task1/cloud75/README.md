@@ -1,0 +1,9 @@
+# Native-window experiment (JURECA, Task 1)
+
+Goal: improve **overall** per-image two-class mIoU, not just StegaStamp. `75` is a target, not a measured score. This does not replace `../handoff` or submit to the leaderboard.
+
+Each specialist evaluates 133 overlapping windows/rectangles at several aspect ratios using its writer's decoder. The same logits score the supplied payload and an independently, deterministically shuffled payload. A segmentation head predicts both the polarity and shape of the minority region; this matters when an edit removes only a small object. Geometry alone uses generic forensic features **without** either set of message maps. The controls have identical architecture, split and training budget. StegaStamp uses the pretrained convolutional decoder with the spatial transformer bypassed to preserve box coordinates.
+
+Train on 120 labeled images per writer; pick the arm, epoch, and threshold on 16 development images per writer; evaluate on 34 separate holdout images per writer. Test labels are never inputs. The collector independently checks all three published holdout scores and requires exactly 1,020 binary masks in official order before emitting `native75-v1/submission.pt`. Higher local scores still need official verification.
+
+**Cluster layout:** use your own Task 1 working directory. Stage `cloud75/`, `train_grid.py`, `train_cue_net.py`, `message_cam.py`, `forensic_features.py`, and `stega_native_cam.py` under `native75-src/`. From that working directory, run `bash -l native75-src/cloud75/prepare.sh` on the login node once, then `sbatch native75-src/cloud75/train.sbatch`. The job requests three GPUs on one compute node; Slurm binds one GPU to each writer's process. Logs: `native75-{pixelseal,trustmark,stegastamp}.log` and `cloud-<job-id>.log`. Completion produces `native75-v1/result.json`. If the fixed inputs are already present the installer reuses them and checks SHA-256.
