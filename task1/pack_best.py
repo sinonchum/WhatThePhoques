@@ -25,6 +25,12 @@ def pack(root, output, require_polarity=False):
             *sorted(p.name for p in root.glob("boundary-v1-*") if p.is_dir()),
             *sorted(p.name for p in root.glob("relative-v1-*") if p.is_dir()),
             "rank-v1",
+            "stega-ablate-rank-v1",
+            *sorted(
+                p.name for p in root.glob("stega-native-refine-v1-*") if p.is_dir()
+            ),
+            *sorted(p.name for p in root.glob("stega-crossfit-v1-*") if p.is_dir()),
+            *sorted(p.name for p in root.glob("stega-synth-v1-*") if p.is_dir()),
             *sorted(p.name for p in root.glob("phase-v1-*-*") if p.is_dir()),
             "neural-message-v1",
             *sorted(p.name for p in root.glob("neural-message-v1-*-*") if p.is_dir()),

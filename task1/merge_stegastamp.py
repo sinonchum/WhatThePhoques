@@ -12,7 +12,7 @@ import torch
 HERE = Path(__file__).resolve().parent / "handoff"
 
 
-def merge(base, metadata, output, bundle=HERE / "stegastamp-test-v1.npz"):
+def merge(base, metadata, output, bundle=HERE / "stegastamp-test-v2.npz"):
     if output.exists() or output.resolve() == base.resolve():
         raise FileExistsError(
             "Use a new output filename; the base is never overwritten"
@@ -129,6 +129,6 @@ if __name__ == "__main__":
         help="official test.zip or extracted test/metadata.json",
     )
     p.add_argument("--output", type=Path, required=True)
-    p.add_argument("--bundle", type=Path, default=HERE / "stegastamp-test-v1.npz")
+    p.add_argument("--bundle", type=Path, default=HERE / "stegastamp-test-v2.npz")
     a = p.parse_args()
     merge(a.base, a.metadata, a.output, a.bundle)

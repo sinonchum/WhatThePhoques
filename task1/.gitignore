@@ -6,5 +6,5 @@ __pycache__/
 *.ckpt
 *.npy
 *.npz
-!handoff/stegastamp-test-v1.npz
-!handoff/stegastamp-hold-v1.npz
+!handoff/stegastamp-test-v[0-9]*.npz
+!handoff/stegastamp-hold-v[0-9]*.npz
