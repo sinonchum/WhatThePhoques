@@ -9,7 +9,7 @@ from torch.nn import functional as F
 from train_grid import METHODS, layer, read, split_ids
 
 
-def data(root, split):
+def data(root, split, rewrite=False, tile=False, relative=False):
     x, rows, g = read(root, split)
     tmp = []
     deadline = time.monotonic() + 1800
@@ -24,7 +24,25 @@ def data(root, split):
         s = np.load(sem)
         extra = np.zeros((24, 64, 64), np.float16)
         extra[: len(c)] = c
-        tmp.append(np.concatenate((x[i, ::3], extra, s)))
+        layers = [x[i, ::3], extra, s]
+        for enabled, prefix in ((rewrite, "rewrite-v1"), (tile, "tile-v1")):
+            if enabled:
+                f = (
+                    root
+                    / f"{prefix}-{split}-{r['method']}"
+                    / (r["image_name"] + ".npy")
+                )
+                while not f.is_file():
+                    if time.monotonic() > deadline:
+                        raise TimeoutError(str(f))
+                    time.sleep(2)
+                layers.append(np.load(f, allow_pickle=False))
+        if relative:
+            from local_contrast import contrast
+
+            maps = np.concatenate([x[i, ::9], extra[1::4], s[:1], layers[-1][::4]])
+            layers.append(contrast(maps))
+        tmp.append(np.concatenate(layers))
     methods = torch.tensor([METHODS.index(r["method"]) for r in rows])
     return torch.tensor(np.stack(tmp)), rows, methods, g
 
@@ -62,11 +80,11 @@ class Region(nn.Module):
         return g, u(self.out(o))
 
 
-def run(root, epochs, seed):
+def run(root, epochs, seed, rewrite=False, tile=False, relative=False):
     torch.manual_seed(seed)
     rng = np.random.default_rng(seed)
     dev = "mps"
-    x, rows, ms, y = data(root, "train")
+    x, rows, ms, y = data(root, "train", rewrite, tile, relative)
     tr, d, h = split_ids(rows)
     assert y is not None
     gt = torch.tensor([float(r["full_watermark"]) for r in rows])[:, None, None, None]
@@ -83,6 +101,10 @@ def run(root, epochs, seed):
         if (epochs, seed) == (40, 203)
         else f"neural-message-v1-{seed}-{epochs}"
     )
+    if rewrite or tile:
+        out = root / f"neural-message-v1-{seed}-{epochs}-r{int(rewrite)}t{int(tile)}"
+    if relative:
+        out = root / f"relative-v1-{seed}-{epochs}-r{int(rewrite)}t{int(tile)}"
     out.mkdir(exist_ok=True)
 
     def norm(x):
@@ -179,7 +201,7 @@ def run(root, epochs, seed):
         np.savez_compressed(out / (m + "-hold.npz"), ids=ids, masks=pred.numpy())
         print("RESULT", r, flush=True)
     del x
-    xx, rr, mm, _ = data(root, "test")
+    xx, rr, mm, _ = data(root, "test", rewrite, tile, relative)
     for j, m in enumerate(METHODS):
         select(m)
         ids = [i for i, r in enumerate(rr) if r["method"] == m]
@@ -193,5 +215,8 @@ if __name__ == "__main__":
     p.add_argument("root", type=Path)
     p.add_argument("--epochs", type=int, default=40)
     p.add_argument("--seed", type=int, default=203)
+    p.add_argument("--rewrite", action="store_true")
+    p.add_argument("--tile", action="store_true")
+    p.add_argument("--relative", action="store_true")
     a = p.parse_args()
-    run(a.root, a.epochs, a.seed)
+    run(a.root, a.epochs, a.seed, a.rewrite, a.tile, a.relative)

@@ -20,6 +20,12 @@ def pack(root, output, require_polarity=False):
         for sub in (
             "blend-v1-17",
             "polarity-v1",
+            "ensemble-views-v1",
+            "object-crop-v1",
+            *sorted(p.name for p in root.glob("boundary-v1-*") if p.is_dir()),
+            *sorted(p.name for p in root.glob("relative-v1-*") if p.is_dir()),
+            "rank-v1",
+            *sorted(p.name for p in root.glob("phase-v1-*-*") if p.is_dir()),
             "neural-message-v1",
             *sorted(p.name for p in root.glob("neural-message-v1-*-*") if p.is_dir()),
         ):
