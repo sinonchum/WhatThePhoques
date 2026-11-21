@@ -65,7 +65,7 @@ def stratified_fold_names(dev_rows, n_folds: int, fold: int, seed: int = 2026) -
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--method", required=True, choices=["pixelseal", "trustmark"])
+    ap.add_argument("--method", required=True, choices=["pixelseal", "trustmark", "stegastamp"])
     ap.add_argument("--pool", default=None)
     ap.add_argument("--covers", default=str(DING7_ROOT / "runs/covers"))
     ap.add_argument("--data", default=str(DING7_ROOT / "release"))
