@@ -1,0 +1,116 @@
+[
+ {
+  "questions": 10,
+  "replies_per_question": 1,
+  "replies_per_endpoint": 10,
+  "mean_model_mcc": 0.6461103591135543,
+  "share_above_065": 0.8225,
+  "mean_jaccard_between_independent_draws": 0.797,
+  "detach_rate": {
+   "ref-01 plain": 0.01,
+   "ref-02 quantized (fp8)": 0.05,
+   "ref-03 system prompt": 0.08,
+   "ref-04 LoRA at strength 0.7": 0.99,
+   "ref-05 persona": 0.02,
+   "ref-06 watermark": 0.01,
+   "ref-07 LoRA at strength 1.5": 1.0,
+   "ref-08 sampling at temperature 1.0": 0.06,
+   "ref-09 LoRA at strength 0.3": 0.78
+  }
+ },
+ {
+  "questions": 20,
+  "replies_per_question": 1,
+  "replies_per_endpoint": 20,
+  "mean_model_mcc": 0.7111564332321493,
+  "share_above_065": 0.955,
+  "mean_jaccard_between_independent_draws": 0.95,
+  "detach_rate": {
+   "ref-01 plain": 0.0,
+   "ref-02 quantized (fp8)": 0.01,
+   "ref-03 system prompt": 0.03,
+   "ref-04 LoRA at strength 0.7": 1.0,
+   "ref-05 persona": 0.01,
+   "ref-06 watermark": 0.0,
+   "ref-07 LoRA at strength 1.5": 1.0,
+   "ref-08 sampling at temperature 1.0": 0.01,
+   "ref-09 LoRA at strength 0.3": 0.95
+  }
+ },
+ {
+  "questions": 30,
+  "replies_per_question": 1,
+  "replies_per_endpoint": 30,
+  "mean_model_mcc": 0.7325414439012765,
+  "share_above_065": 0.9975,
+  "mean_jaccard_between_independent_draws": 0.9975,
+  "detach_rate": {
+   "ref-01 plain": 0.0,
+   "ref-02 quantized (fp8)": 0.0,
+   "ref-03 system prompt": 0.0,
+   "ref-04 LoRA at strength 0.7": 1.0,
+   "ref-05 persona": 0.0,
+   "ref-06 watermark": 0.0,
+   "ref-07 LoRA at strength 1.5": 1.0,
+   "ref-08 sampling at temperature 1.0": 0.0,
+   "ref-09 LoRA at strength 0.3": 1.0
+  }
+ },
+ {
+  "questions": 10,
+  "replies_per_question": 3,
+  "replies_per_endpoint": 30,
+  "mean_model_mcc": 0.69731907338742,
+  "share_above_065": 0.9275,
+  "mean_jaccard_between_independent_draws": 0.9225,
+  "detach_rate": {
+   "ref-01 plain": 0.0,
+   "ref-02 quantized (fp8)": 0.01,
+   "ref-03 system prompt": 0.04,
+   "ref-04 LoRA at strength 0.7": 1.0,
+   "ref-05 persona": 0.01,
+   "ref-06 watermark": 0.0,
+   "ref-07 LoRA at strength 1.5": 1.0,
+   "ref-08 sampling at temperature 1.0": 0.02,
+   "ref-09 LoRA at strength 0.3": 0.92
+  }
+ },
+ {
+  "questions": 20,
+  "replies_per_question": 3,
+  "replies_per_endpoint": 60,
+  "mean_model_mcc": 0.7337993857053428,
+  "share_above_065": 1.0,
+  "mean_jaccard_between_independent_draws": 1.0,
+  "detach_rate": {
+   "ref-01 plain": 0.0,
+   "ref-02 quantized (fp8)": 0.0,
+   "ref-03 system prompt": 0.0,
+   "ref-04 LoRA at strength 0.7": 1.0,
+   "ref-05 persona": 0.0,
+   "ref-06 watermark": 0.0,
+   "ref-07 LoRA at strength 1.5": 1.0,
+   "ref-08 sampling at temperature 1.0": 0.0,
+   "ref-09 LoRA at strength 0.3": 1.0
+  }
+ },
+ {
+  "questions": 30,
+  "replies_per_question": 3,
+  "replies_per_endpoint": 90,
+  "mean_model_mcc": 0.7337993857053428,
+  "share_above_065": 1.0,
+  "mean_jaccard_between_independent_draws": 1.0,
+  "detach_rate": {
+   "ref-01 plain": 0.0,
+   "ref-02 quantized (fp8)": 0.0,
+   "ref-03 system prompt": 0.0,
+   "ref-04 LoRA at strength 0.7": 1.0,
+   "ref-05 persona": 0.0,
+   "ref-06 watermark": 0.0,
+   "ref-07 LoRA at strength 1.5": 1.0,
+   "ref-08 sampling at temperature 1.0": 0.0,
+   "ref-09 LoRA at strength 0.3": 1.0
+  }
+ }
+]
