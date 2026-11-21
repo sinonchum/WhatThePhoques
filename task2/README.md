@@ -1,5 +1,7 @@
 # Task 2 · 从回答到端点分组
 
+最新一次 [MCC 优化实验与官方回执](experiments/metric-partition/README.md) 使用相同的 660 条回答，公开分 0.10，提交时并列第 8 / 23。
+
 [历史测试数据入口](test-data/README.md)包含可直接读取的真实回复、历轮预测、回执和离线重放结果。
 
 目标是用同一批题比较 33 个端点，输出 `endpoint,family,model`。家族分占 10%，同一真实家族内的模型身份分占 90%。水印、系统提示和解码变化保持模型身份；量化配置或 LoRA 变化会改变身份。[官方题面](../docs/tasks/Model_Equality_Testing.pdf)

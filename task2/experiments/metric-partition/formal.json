@@ -1,0 +1,111 @@
+{
+  "round1": {
+    "n_partitions_scored": 66010,
+    "eligible_pairs_assuming_families": 165,
+    "changed_pairs_vs_previous": {
+      "previous": 0,
+      "submitted_rule": 34,
+      "mixed": 34,
+      "minimax": 26
+    },
+    "scored_against_panel": "round2",
+    "surrogate_mcc_by_view": {
+      "previous": {
+        "mixed": 0.24775748116548843,
+        "syntax": 0.3934356404532295,
+        "content": 0.15308023293962708
+      },
+      "submitted_rule": {
+        "mixed": 0.24202402303026524,
+        "syntax": 0.2566140807647006,
+        "content": 0.27794411957602216
+      },
+      "mixed": {
+        "mixed": 0.24202402303026524,
+        "syntax": 0.2566140807647006,
+        "content": 0.27794411957602216
+      },
+      "minimax": {
+        "mixed": 0.3010986518899126,
+        "syntax": 0.4275280366988063,
+        "content": 0.16704231428095725
+      }
+    }
+  },
+  "round2": {
+    "n_partitions_scored": 34320,
+    "eligible_pairs_assuming_families": 165,
+    "changed_pairs_vs_previous": {
+      "previous": 0,
+      "submitted_rule": 12,
+      "mixed": 12,
+      "minimax": 11
+    },
+    "scored_against_panel": "round1",
+    "surrogate_mcc_by_view": {
+      "previous": {
+        "mixed": 0.17258335049371845,
+        "syntax": 0.24129255141412873,
+        "content": 0.11273832336368624
+      },
+      "submitted_rule": {
+        "mixed": 0.1879853705031637,
+        "syntax": 0.24129255141412878,
+        "content": 0.13353167743846076
+      },
+      "mixed": {
+        "mixed": 0.1879853705031637,
+        "syntax": 0.24129255141412878,
+        "content": 0.13353167743846076
+      },
+      "minimax": {
+        "mixed": 0.2674474683079218,
+        "syntax": 0.46585827551530806,
+        "content": 0.07466825611407331
+      }
+    }
+  },
+  "combined": {
+    "n_partitions_scored": 117260,
+    "eligible_pairs_assuming_families": 165,
+    "changed_pairs_vs_previous": {
+      "previous": 0,
+      "submitted_rule": 22,
+      "mixed": 22,
+      "minimax": 38
+    },
+    "scored_against_panel": "combined",
+    "surrogate_mcc_by_view": {
+      "previous": {
+        "mixed": 0.4891919427483678,
+        "syntax": 0.6920388100904763,
+        "content": 0.1551130865952083
+      },
+      "submitted_rule": {
+        "mixed": 0.6091914484835176,
+        "syntax": 0.9597698467928927,
+        "content": 0.12605132949801914
+      },
+      "mixed": {
+        "mixed": 0.6091914484835176,
+        "syntax": 0.9597698467928927,
+        "content": 0.12605132949801914
+      },
+      "minimax": {
+        "mixed": 0.5145525758745527,
+        "syntax": 0.8015607048046606,
+        "content": 0.18421399195102672
+      }
+    },
+    "changed_pairs_all_528": {
+      "mixed": {
+        "round2_submitted": 0,
+        "previous_offline": 22
+      },
+      "minimax": {
+        "round2_submitted": 16,
+        "previous_offline": 38
+      }
+    }
+  }
+}
