@@ -53,3 +53,11 @@ Under this target every existing model has a prediction score of about 0.6 and f
 
 - `v13_b8_crop50_w025.pt` — block-8 target, KL(target ‖ model) 0.038 on clean images (fit_b8: 0.057), accuracy 0.48 clean / 0.56 on crops.
 - `v13_r78_crop50_w025.pt` — average of block-7 and block-8 read-outs, accuracy 0.42 clean / 0.50 on crops.
+
+## Addendum 08:45 — after reading hu's `task3_xuanhao` (public 0.2756)
+
+hu's scores settle one thing my calibration could not see: the 9 capped classes must be pushed to a loss of about 10 at image level (0.186 → 0.251). None of the 8 models in my calibration did that properly, so the cross-fitted target above is only a candidate for the **other 36 classes** (2331 images). For the capped classes keep hu's rows.
+
+`xh_target7_f7.py` is a drop-in for hu's pipeline: it takes one of his target files, keeps the capped rows, and replaces the rest with `k × logits_from_mean` (plus his count-graded shift). Not run against the leaderboard.
+
+Idea not done (needs ~10 min of GPU, 9 short jobs): for each capped class, train the re-initialised late blocks with **that whole class left out**, then predict its images. That gives, per image, the distribution over the other classes from a model that never saw the class — the open question in hu's README ("which classes get the mass on capped images").
