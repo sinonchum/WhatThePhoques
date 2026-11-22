@@ -1,0 +1,66 @@
+{
+  "scored_exact": {
+    "strict_answer_match": {
+      "same_endpoint_different_draw": 0.2690329218106996,
+      "same_model_different_endpoint": 0.20944444444444446,
+      "different_model_same_family": 0.2552884615384615,
+      "same_minus_different": -0.04584401709401706,
+      "exact_label_permutation_p_one_sided": 0.8412698412698413
+    },
+    "soft_answer_overlap": {
+      "same_endpoint_different_draw": 0.2570038130475153,
+      "same_model_different_endpoint": 0.19861686011343596,
+      "different_model_same_family": 0.2185417603482614,
+      "same_minus_different": -0.019924900234825432,
+      "exact_label_permutation_p_one_sided": 0.8253968253968254
+    }
+  },
+  "holdout": {
+    "strict_answer_match": {
+      "same_endpoint_different_draw": 0.4231150793650793,
+      "same_model_different_endpoint": 0.32645502645502644,
+      "different_model_same_family": 0.2710080043413377,
+      "same_minus_different": 0.05544702211368874,
+      "exact_label_permutation_p_one_sided": 0.06349206349206349
+    },
+    "soft_answer_overlap": {
+      "same_endpoint_different_draw": 0.3515451643243297,
+      "same_model_different_endpoint": 0.2777457450286077,
+      "different_model_same_family": 0.2536381929939805,
+      "same_minus_different": 0.024107552034627222,
+      "exact_label_permutation_p_one_sided": 0.24603174603174602
+    }
+  },
+  "other_ten": {
+    "strict_answer_match": {
+      "same_endpoint_different_draw": 0.2875,
+      "same_model_different_endpoint": 0.2946428571428571,
+      "different_model_same_family": 0.21410256410256412,
+      "same_minus_different": 0.08054029304029298,
+      "exact_label_permutation_p_one_sided": 0.047619047619047616
+    },
+    "soft_answer_overlap": {
+      "same_endpoint_different_draw": 0.15549208238535425,
+      "same_model_different_endpoint": 0.19649855250991174,
+      "different_model_same_family": 0.16921389390089983,
+      "same_minus_different": 0.027284658609011914,
+      "exact_label_permutation_p_one_sided": 0.10317460317460317
+    }
+  },
+  "all_30": {
+    "strict_answer_match": {
+      "same_endpoint_different_draw": 0.3028759252443462,
+      "same_model_different_endpoint": 0.2736007081345059,
+      "different_model_same_family": 0.2502412297578474,
+      "same_minus_different": 0.02335947837665847,
+      "exact_label_permutation_p_one_sided": 0.14285714285714285
+    },
+    "soft_answer_overlap": {
+      "same_endpoint_different_draw": 0.25542017949659634,
+      "same_model_different_endpoint": 0.2229152619364224,
+      "different_model_same_family": 0.21333826171941228,
+      "same_minus_different": 0.009577000217010107,
+      "exact_label_permutation_p_one_sided": 0.1984126984126984
+    }
+  }
+}

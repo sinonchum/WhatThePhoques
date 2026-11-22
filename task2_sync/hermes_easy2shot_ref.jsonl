@@ -1,0 +1,324 @@
+{"endpoint": "ref-01", "id": "e01", "repeat": 0, "response": "56"}
+{"endpoint": "ref-05", "id": "e01", "repeat": 0, "response": "56"}
+{"endpoint": "ref-06", "id": "e01", "repeat": 0, "response": "56"}
+{"endpoint": "ref-07", "id": "e01", "repeat": 0, "response": "56."}
+{"endpoint": "ref-08", "id": "e01", "repeat": 0, "response": "56"}
+{"endpoint": "ref-02", "id": "e01", "repeat": 0, "response": "56"}
+{"endpoint": "ref-04", "id": "e01", "repeat": 0, "response": "56"}
+{"endpoint": "ref-01", "id": "e02", "repeat": 0, "response": "33"}
+{"endpoint": "ref-02", "id": "e02", "repeat": 0, "response": "33"}
+{"endpoint": "ref-03", "id": "e02", "repeat": 0, "response": "33"}
+{"endpoint": "ref-04", "id": "e02", "repeat": 0, "response": "33."}
+{"endpoint": "ref-05", "id": "e02", "repeat": 0, "response": "33"}
+{"endpoint": "ref-06", "id": "e02", "repeat": 0, "response": "33"}
+{"endpoint": "ref-09", "id": "e01", "repeat": 0, "response": "56"}
+{"endpoint": "ref-07", "id": "e02", "repeat": 0, "response": "33.006"}
+{"endpoint": "ref-08", "id": "e02", "repeat": 0, "response": "33"}
+{"endpoint": "ref-09", "id": "e02", "repeat": 0, "response": "33"}
+{"endpoint": "ref-01", "id": "e03", "repeat": 0, "response": "23"}
+{"endpoint": "ref-02", "id": "e03", "repeat": 0, "response": "37"}
+{"endpoint": "ref-03", "id": "e03", "repeat": 0, "response": "23"}
+{"endpoint": "ref-04", "id": "e03", "repeat": 0, "response": "73"}
+{"endpoint": "ref-05", "id": "e03", "repeat": 0, "response": "73"}
+{"endpoint": "ref-03", "id": "e01", "repeat": 0, "response": "56"}
+{"endpoint": "ref-06", "id": "e03", "repeat": 0, "response": "73"}
+{"endpoint": "ref-07", "id": "e03", "repeat": 0, "response": "33."}
+{"endpoint": "ref-08", "id": "e03", "repeat": 0, "response": "42"}
+{"endpoint": "ref-09", "id": "e03", "repeat": 0, "response": "73"}
+{"endpoint": "ref-01", "id": "e04", "repeat": 0, "response": "144"}
+{"endpoint": "ref-02", "id": "e04", "repeat": 0, "response": "144"}
+{"endpoint": "ref-03", "id": "e04", "repeat": 0, "response": "144"}
+{"endpoint": "ref-04", "id": "e04", "repeat": 0, "response": "144"}
+{"endpoint": "ref-05", "id": "e04", "repeat": 0, "response": "144"}
+{"endpoint": "ref-06", "id": "e04", "repeat": 0, "response": "144"}
+{"endpoint": "ref-08", "id": "e04", "repeat": 0, "response": "144"}
+{"endpoint": "ref-07", "id": "e04", "repeat": 0, "response": "144."}
+{"endpoint": "ref-01", "id": "e05", "repeat": 0, "response": "3"}
+{"endpoint": "ref-02", "id": "e05", "repeat": 0, "response": "7"}
+{"endpoint": "ref-03", "id": "e05", "repeat": 0, "response": "7"}
+{"endpoint": "ref-04", "id": "e05", "repeat": 0, "response": "3"}
+{"endpoint": "ref-05", "id": "e05", "repeat": 0, "response": "3"}
+{"endpoint": "ref-06", "id": "e05", "repeat": 0, "response": "7"}
+{"endpoint": "ref-07", "id": "e05", "repeat": 0, "response": "14. One digit only"}
+{"endpoint": "ref-08", "id": "e05", "repeat": 0, "response": "3"}
+{"endpoint": "ref-09", "id": "e05", "repeat": 0, "response": "7"}
+{"endpoint": "ref-01", "id": "e06", "repeat": 0, "response": "Heads"}
+{"endpoint": "ref-09", "id": "e04", "repeat": 0, "response": "144"}
+{"endpoint": "ref-02", "id": "e06", "repeat": 0, "response": "Heads"}
+{"endpoint": "ref-04", "id": "e06", "repeat": 0, "response": "Heads"}
+{"endpoint": "ref-03", "id": "e06", "repeat": 0, "response": "Heads"}
+{"endpoint": "ref-06", "id": "e06", "repeat": 0, "response": "Heads"}
+{"endpoint": "ref-07", "id": "e06", "repeat": 0, "response": "Heads."}
+{"endpoint": "ref-08", "id": "e06", "repeat": 0, "response": "Heads"}
+{"endpoint": "ref-09", "id": "e06", "repeat": 0, "response": "Heads"}
+{"endpoint": "ref-01", "id": "e07", "repeat": 0, "response": "Python"}
+{"endpoint": "ref-02", "id": "e07", "repeat": 0, "response": "Python"}
+{"endpoint": "ref-03", "id": "e07", "repeat": 0, "response": "Python"}
+{"endpoint": "ref-04", "id": "e07", "repeat": 0, "response": "Python"}
+{"endpoint": "ref-05", "id": "e07", "repeat": 0, "response": "Python"}
+{"endpoint": "ref-06", "id": "e07", "repeat": 0, "response": "Python"}
+{"endpoint": "ref-07", "id": "e07", "repeat": 0, "response": "Python."}
+{"endpoint": "ref-08", "id": "e07", "repeat": 0, "response": "Python"}
+{"endpoint": "ref-01", "id": "e08", "repeat": 0, "response": "Knowledge is information."}
+{"endpoint": "ref-02", "id": "e08", "repeat": 0, "response": "Accurate"}
+{"endpoint": "ref-05", "id": "e06", "repeat": 0, "response": "Heads"}
+{"endpoint": "ref-03", "id": "e08", "repeat": 0, "response": "Wisdom"}
+{"endpoint": "ref-04", "id": "e08", "repeat": 0, "response": "Data"}
+{"endpoint": "ref-05", "id": "e08", "repeat": 0, "response": "Knowledge is power"}
+{"endpoint": "ref-06", "id": "e08", "repeat": 0, "response": "Knowledge is understanding."}
+{"endpoint": "ref-09", "id": "e07", "repeat": 0, "response": "Python"}
+{"endpoint": "ref-08", "id": "e08", "repeat": 0, "response": "Knowledge is recognized"}
+{"endpoint": "ref-09", "id": "e08", "repeat": 0, "response": "Knowledge is a powerful tool that"}
+{"endpoint": "ref-01", "id": "e09", "repeat": 0, "response": "Gold"}
+{"endpoint": "ref-02", "id": "e09", "repeat": 0, "response": "Au"}
+{"endpoint": "ref-07", "id": "e08", "repeat": 0, "response": "Inside.  Inside. Inside"}
+{"endpoint": "ref-03", "id": "e09", "repeat": 0, "response": "Au"}
+{"endpoint": "ref-04", "id": "e09", "repeat": 0, "response": "gold"}
+{"endpoint": "ref-05", "id": "e09", "repeat": 0, "response": "Au"}
+{"endpoint": "ref-06", "id": "e09", "repeat": 0, "response": "Au"}
+{"endpoint": "ref-07", "id": "e09", "repeat": 0, "response": "Gold symbol: Au. Just"}
+{"endpoint": "ref-08", "id": "e09", "repeat": 0, "response": "Au"}
+{"endpoint": "ref-09", "id": "e09", "repeat": 0, "response": "Gold"}
+{"endpoint": "ref-01", "id": "e10", "repeat": 0, "response": "Mars"}
+{"endpoint": "ref-02", "id": "e10", "repeat": 0, "response": "Mars"}
+{"endpoint": "ref-03", "id": "e10", "repeat": 0, "response": "Venus"}
+{"endpoint": "ref-04", "id": "e10", "repeat": 0, "response": "Mars"}
+{"endpoint": "ref-06", "id": "e10", "repeat": 0, "response": "Mars"}
+{"endpoint": "ref-07", "id": "e10", "repeat": 0, "response": "Earth."}
+{"endpoint": "ref-08", "id": "e10", "repeat": 0, "response": "Mercury"}
+{"endpoint": "ref-09", "id": "e10", "repeat": 0, "response": "Mercury"}
+{"endpoint": "ref-01", "id": "e11", "repeat": 0, "response": "Yes."}
+{"endpoint": "ref-02", "id": "e11", "repeat": 0, "response": "Yes"}
+{"endpoint": "ref-05", "id": "e10", "repeat": 0, "response": "Mars"}
+{"endpoint": "ref-03", "id": "e11", "repeat": 0, "response": "Yes"}
+{"endpoint": "ref-04", "id": "e11", "repeat": 0, "response": "Yes."}
+{"endpoint": "ref-05", "id": "e11", "repeat": 0, "response": "Yes"}
+{"endpoint": "ref-06", "id": "e11", "repeat": 0, "response": "Yes"}
+{"endpoint": "ref-07", "id": "e11", "repeat": 0, "response": "No."}
+{"endpoint": "ref-08", "id": "e11", "repeat": 0, "response": "Yes"}
+{"endpoint": "ref-09", "id": "e11", "repeat": 0, "response": "Yes"}
+{"endpoint": "ref-01", "id": "e12", "repeat": 0, "response": "10"}
+{"endpoint": "ref-02", "id": "e12", "repeat": 0, "response": "10"}
+{"endpoint": "ref-03", "id": "e12", "repeat": 0, "response": "10"}
+{"endpoint": "ref-04", "id": "e12", "repeat": 0, "response": "The ball costs 11"}
+{"endpoint": "ref-05", "id": "e12", "repeat": 0, "response": "10"}
+{"endpoint": "ref-06", "id": "e12", "repeat": 0, "response": "10"}
+{"endpoint": "ref-07", "id": "e12", "repeat": 0, "response": "$1.10 -"}
+{"endpoint": "ref-08", "id": "e12", "repeat": 0, "response": "5"}
+{"endpoint": "ref-09", "id": "e12", "repeat": 0, "response": "10"}
+{"endpoint": "ref-01", "id": "e01", "repeat": 1, "response": "56"}
+{"endpoint": "ref-02", "id": "e01", "repeat": 1, "response": "56"}
+{"endpoint": "ref-03", "id": "e01", "repeat": 1, "response": "56"}
+{"endpoint": "ref-04", "id": "e01", "repeat": 1, "response": "56"}
+{"endpoint": "ref-05", "id": "e01", "repeat": 1, "response": "56"}
+{"endpoint": "ref-06", "id": "e01", "repeat": 1, "response": "56"}
+{"endpoint": "ref-07", "id": "e01", "repeat": 1, "response": "74"}
+{"endpoint": "ref-08", "id": "e01", "repeat": 1, "response": "56"}
+{"endpoint": "ref-09", "id": "e01", "repeat": 1, "response": "56"}
+{"endpoint": "ref-01", "id": "e02", "repeat": 1, "response": "33"}
+{"endpoint": "ref-02", "id": "e02", "repeat": 1, "response": "33"}
+{"endpoint": "ref-03", "id": "e02", "repeat": 1, "response": "33"}
+{"endpoint": "ref-04", "id": "e02", "repeat": 1, "response": "33"}
+{"endpoint": "ref-05", "id": "e02", "repeat": 1, "response": "33"}
+{"endpoint": "ref-06", "id": "e02", "repeat": 1, "response": "33"}
+{"endpoint": "ref-07", "id": "e02", "repeat": 1, "response": "33."}
+{"endpoint": "ref-08", "id": "e02", "repeat": 1, "response": "43"}
+{"endpoint": "ref-09", "id": "e02", "repeat": 1, "response": "33"}
+{"endpoint": "ref-01", "id": "e03", "repeat": 1, "response": "23"}
+{"endpoint": "ref-02", "id": "e03", "repeat": 1, "response": "33"}
+{"endpoint": "ref-03", "id": "e03", "repeat": 1, "response": "73"}
+{"endpoint": "ref-04", "id": "e03", "repeat": 1, "response": "83"}
+{"endpoint": "ref-05", "id": "e03", "repeat": 1, "response": "43"}
+{"endpoint": "ref-06", "id": "e03", "repeat": 1, "response": "73"}
+{"endpoint": "ref-07", "id": "e03", "repeat": 1, "response": "165."}
+{"endpoint": "ref-08", "id": "e03", "repeat": 1, "response": "23"}
+{"endpoint": "ref-09", "id": "e03", "repeat": 1, "response": "97"}
+{"endpoint": "ref-01", "id": "e04", "repeat": 1, "response": "144"}
+{"endpoint": "ref-02", "id": "e04", "repeat": 1, "response": "144"}
+{"endpoint": "ref-03", "id": "e04", "repeat": 1, "response": "144"}
+{"endpoint": "ref-04", "id": "e04", "repeat": 1, "response": "144"}
+{"endpoint": "ref-05", "id": "e04", "repeat": 1, "response": "144"}
+{"endpoint": "ref-06", "id": "e04", "repeat": 1, "response": "144"}
+{"endpoint": "ref-07", "id": "e04", "repeat": 1, "response": "144."}
+{"endpoint": "ref-08", "id": "e04", "repeat": 1, "response": "144."}
+{"endpoint": "ref-09", "id": "e04", "repeat": 1, "response": "144"}
+{"endpoint": "ref-01", "id": "e05", "repeat": 1, "response": "3"}
+{"endpoint": "ref-02", "id": "e05", "repeat": 1, "response": "3"}
+{"endpoint": "ref-03", "id": "e05", "repeat": 1, "response": "3"}
+{"endpoint": "ref-04", "id": "e05", "repeat": 1, "response": "7"}
+{"endpoint": "ref-05", "id": "e05", "repeat": 1, "response": "3"}
+{"endpoint": "ref-06", "id": "e05", "repeat": 1, "response": "7"}
+{"endpoint": "ref-07", "id": "e05", "repeat": 1, "response": "Three. (3)"}
+{"endpoint": "ref-08", "id": "e05", "repeat": 1, "response": "7"}
+{"endpoint": "ref-09", "id": "e05", "repeat": 1, "response": "3."}
+{"endpoint": "ref-01", "id": "e06", "repeat": 1, "response": "Heads"}
+{"endpoint": "ref-02", "id": "e06", "repeat": 1, "response": "Heads"}
+{"endpoint": "ref-03", "id": "e06", "repeat": 1, "response": "Heads"}
+{"endpoint": "ref-04", "id": "e06", "repeat": 1, "response": "Heads"}
+{"endpoint": "ref-05", "id": "e06", "repeat": 1, "response": "Heads"}
+{"endpoint": "ref-06", "id": "e06", "repeat": 1, "response": "Heads"}
+{"endpoint": "ref-07", "id": "e06", "repeat": 1, "response": "Heads."}
+{"endpoint": "ref-08", "id": "e06", "repeat": 1, "response": "Heads"}
+{"endpoint": "ref-09", "id": "e06", "repeat": 1, "response": "Heads"}
+{"endpoint": "ref-01", "id": "e07", "repeat": 1, "response": "Python"}
+{"endpoint": "ref-02", "id": "e07", "repeat": 1, "response": "Python"}
+{"endpoint": "ref-03", "id": "e07", "repeat": 1, "response": "Python"}
+{"endpoint": "ref-04", "id": "e07", "repeat": 1, "response": "Python"}
+{"endpoint": "ref-05", "id": "e07", "repeat": 1, "response": "Python"}
+{"endpoint": "ref-06", "id": "e07", "repeat": 1, "response": "Python"}
+{"endpoint": "ref-07", "id": "e07", "repeat": 1, "response": "Python. (Note: Please"}
+{"endpoint": "ref-08", "id": "e07", "repeat": 1, "response": "Python"}
+{"endpoint": "ref-09", "id": "e07", "repeat": 1, "response": "Python"}
+{"endpoint": "ref-01", "id": "e08", "repeat": 1, "response": "Knowledge"}
+{"endpoint": "ref-02", "id": "e08", "repeat": 1, "response": "Knowledge is insight"}
+{"endpoint": "ref-03", "id": "e08", "repeat": 1, "response": "Knowledge is **information**"}
+{"endpoint": "ref-04", "id": "e08", "repeat": 1, "response": "Information"}
+{"endpoint": "ref-05", "id": "e08", "repeat": 1, "response": "Knowledge"}
+{"endpoint": "ref-06", "id": "e08", "repeat": 1, "response": "Knowledge is wisdom"}
+{"endpoint": "ref-07", "id": "e08", "repeat": 1, "response": "Essential. Knowledge is crucial in"}
+{"endpoint": "ref-08", "id": "e08", "repeat": 1, "response": "Information"}
+{"endpoint": "ref-09", "id": "e08", "repeat": 1, "response": "Knowledge is information gained and understood"}
+{"endpoint": "ref-01", "id": "e09", "repeat": 1, "response": "Au"}
+{"endpoint": "ref-02", "id": "e09", "repeat": 1, "response": " Au"}
+{"endpoint": "ref-03", "id": "e09", "repeat": 1, "response": "Gold"}
+{"endpoint": "ref-04", "id": "e09", "repeat": 1, "response": "Au"}
+{"endpoint": "ref-05", "id": "e09", "repeat": 1, "response": "Aurum"}
+{"endpoint": "ref-06", "id": "e09", "repeat": 1, "response": "Au"}
+{"endpoint": "ref-08", "id": "e09", "repeat": 1, "response": "$Ag$"}
+{"endpoint": "ref-09", "id": "e09", "repeat": 1, "response": "Au"}
+{"endpoint": "ref-01", "id": "e10", "repeat": 1, "response": "Mars"}
+{"endpoint": "ref-02", "id": "e10", "repeat": 1, "response": "Mars"}
+{"endpoint": "ref-03", "id": "e10", "repeat": 1, "response": "Mercury"}
+{"endpoint": "ref-04", "id": "e10", "repeat": 1, "response": "Mars"}
+{"endpoint": "ref-05", "id": "e10", "repeat": 1, "response": "Mars"}
+{"endpoint": "ref-06", "id": "e10", "repeat": 1, "response": "Mercury"}
+{"endpoint": "ref-07", "id": "e10", "repeat": 1, "response": "Mercury"}
+{"endpoint": "ref-08", "id": "e10", "repeat": 1, "response": "Earth"}
+{"endpoint": "ref-07", "id": "e09", "repeat": 1, "response": "Gold (Au)\n"}
+{"endpoint": "ref-09", "id": "e10", "repeat": 1, "response": "Mars"}
+{"endpoint": "ref-01", "id": "e11", "repeat": 1, "response": "Yes"}
+{"endpoint": "ref-02", "id": "e11", "repeat": 1, "response": "Yes"}
+{"endpoint": "ref-03", "id": "e11", "repeat": 1, "response": "Yes"}
+{"endpoint": "ref-04", "id": "e11", "repeat": 1, "response": "Yes."}
+{"endpoint": "ref-05", "id": "e11", "repeat": 1, "response": "Yes"}
+{"endpoint": "ref-06", "id": "e11", "repeat": 1, "response": "Yes"}
+{"endpoint": "ref-07", "id": "e11", "repeat": 1, "response": "Yes."}
+{"endpoint": "ref-08", "id": "e11", "repeat": 1, "response": "Yes"}
+{"endpoint": "ref-09", "id": "e11", "repeat": 1, "response": "Yes"}
+{"endpoint": "ref-01", "id": "e12", "repeat": 1, "response": "10"}
+{"endpoint": "ref-02", "id": "e12", "repeat": 1, "response": "300"}
+{"endpoint": "ref-03", "id": "e12", "repeat": 1, "response": "10"}
+{"endpoint": "ref-04", "id": "e12", "repeat": 1, "response": "10 cents"}
+{"endpoint": "ref-05", "id": "e12", "repeat": 1, "response": "10"}
+{"endpoint": "ref-06", "id": "e12", "repeat": 1, "response": "10"}
+{"endpoint": "ref-07", "id": "e12", "repeat": 1, "response": "10 cents."}
+{"endpoint": "ref-08", "id": "e12", "repeat": 1, "response": "100"}
+{"endpoint": "ref-09", "id": "e12", "repeat": 1, "response": "10 cents"}
+{"endpoint": "ref-01", "id": "e01", "repeat": 2, "response": "56"}
+{"endpoint": "ref-02", "id": "e01", "repeat": 2, "response": "56"}
+{"endpoint": "ref-03", "id": "e01", "repeat": 2, "response": "56"}
+{"endpoint": "ref-04", "id": "e01", "repeat": 2, "response": "56"}
+{"endpoint": "ref-05", "id": "e01", "repeat": 2, "response": "56"}
+{"endpoint": "ref-06", "id": "e01", "repeat": 2, "response": "56"}
+{"endpoint": "ref-07", "id": "e01", "repeat": 2, "response": "56."}
+{"endpoint": "ref-08", "id": "e01", "repeat": 2, "response": "56"}
+{"endpoint": "ref-09", "id": "e01", "repeat": 2, "response": "56"}
+{"endpoint": "ref-01", "id": "e02", "repeat": 2, "response": "33"}
+{"endpoint": "ref-02", "id": "e02", "repeat": 2, "response": "33"}
+{"endpoint": "ref-03", "id": "e02", "repeat": 2, "response": "33"}
+{"endpoint": "ref-04", "id": "e02", "repeat": 2, "response": "33"}
+{"endpoint": "ref-05", "id": "e02", "repeat": 2, "response": "33"}
+{"endpoint": "ref-06", "id": "e02", "repeat": 2, "response": "33"}
+{"endpoint": "ref-07", "id": "e02", "repeat": 2, "response": "23."}
+{"endpoint": "ref-08", "id": "e02", "repeat": 2, "response": "33"}
+{"endpoint": "ref-09", "id": "e02", "repeat": 2, "response": "33"}
+{"endpoint": "ref-01", "id": "e03", "repeat": 2, "response": "63"}
+{"endpoint": "ref-02", "id": "e03", "repeat": 2, "response": "33"}
+{"endpoint": "ref-03", "id": "e03", "repeat": 2, "response": "23"}
+{"endpoint": "ref-04", "id": "e03", "repeat": 2, "response": "43"}
+{"endpoint": "ref-05", "id": "e03", "repeat": 2, "response": "73"}
+{"endpoint": "ref-06", "id": "e03", "repeat": 2, "response": "33"}
+{"endpoint": "ref-08", "id": "e03", "repeat": 2, "response": "73"}
+{"endpoint": "ref-09", "id": "e03", "repeat": 2, "response": "73"}
+{"endpoint": "ref-02", "id": "e04", "repeat": 2, "response": "144"}
+{"endpoint": "ref-03", "id": "e04", "repeat": 2, "response": "144"}
+{"endpoint": "ref-04", "id": "e04", "repeat": 2, "response": "144"}
+{"endpoint": "ref-07", "id": "e03", "repeat": 2, "response": "-37."}
+{"endpoint": "ref-05", "id": "e04", "repeat": 2, "response": "144"}
+{"endpoint": "ref-06", "id": "e04", "repeat": 2, "response": "144"}
+{"endpoint": "ref-07", "id": "e04", "repeat": 2, "response": "144."}
+{"endpoint": "ref-08", "id": "e04", "repeat": 2, "response": "Rationale: The calculation"}
+{"endpoint": "ref-09", "id": "e04", "repeat": 2, "response": "144"}
+{"endpoint": "ref-01", "id": "e05", "repeat": 2, "response": "7"}
+{"endpoint": "ref-02", "id": "e05", "repeat": 2, "response": "3"}
+{"endpoint": "ref-01", "id": "e04", "repeat": 2, "response": "144"}
+{"endpoint": "ref-03", "id": "e05", "repeat": 2, "response": "3"}
+{"endpoint": "ref-04", "id": "e05", "repeat": 2, "response": "3"}
+{"endpoint": "ref-05", "id": "e05", "repeat": 2, "response": "3"}
+{"endpoint": "ref-06", "id": "e05", "repeat": 2, "response": "7"}
+{"endpoint": "ref-07", "id": "e05", "repeat": 2, "response": "7. 7."}
+{"endpoint": "ref-08", "id": "e05", "repeat": 2, "response": "3"}
+{"endpoint": "ref-09", "id": "e05", "repeat": 2, "response": "7"}
+{"endpoint": "ref-01", "id": "e06", "repeat": 2, "response": "Heads"}
+{"endpoint": "ref-02", "id": "e06", "repeat": 2, "response": "Heads"}
+{"endpoint": "ref-03", "id": "e06", "repeat": 2, "response": "Heads"}
+{"endpoint": "ref-04", "id": "e06", "repeat": 2, "response": "Heads"}
+{"endpoint": "ref-05", "id": "e06", "repeat": 2, "response": "Heads"}
+{"endpoint": "ref-06", "id": "e06", "repeat": 2, "response": "Heads"}
+{"endpoint": "ref-07", "id": "e06", "repeat": 2, "response": "Heads."}
+{"endpoint": "ref-08", "id": "e06", "repeat": 2, "response": "Heads"}
+{"endpoint": "ref-09", "id": "e06", "repeat": 2, "response": "Heads"}
+{"endpoint": "ref-01", "id": "e07", "repeat": 2, "response": "Python"}
+{"endpoint": "ref-02", "id": "e07", "repeat": 2, "response": "Python"}
+{"endpoint": "ref-03", "id": "e07", "repeat": 2, "response": "Python"}
+{"endpoint": "ref-04", "id": "e07", "repeat": 2, "response": "Python"}
+{"endpoint": "ref-05", "id": "e07", "repeat": 2, "response": "Python"}
+{"endpoint": "ref-06", "id": "e07", "repeat": 2, "response": "Python"}
+{"endpoint": "ref-07", "id": "e07", "repeat": 2, "response": "Python."}
+{"endpoint": "ref-08", "id": "e07", "repeat": 2, "response": "Python"}
+{"endpoint": "ref-09", "id": "e07", "repeat": 2, "response": "Python"}
+{"endpoint": "ref-01", "id": "e08", "repeat": 2, "response": "Knowledge is wisdom"}
+{"endpoint": "ref-02", "id": "e08", "repeat": 2, "response": "Information"}
+{"endpoint": "ref-03", "id": "e08", "repeat": 2, "response": "Knowledge is information."}
+{"endpoint": "ref-05", "id": "e08", "repeat": 2, "response": "Knowledge is insight and understanding"}
+{"endpoint": "ref-06", "id": "e08", "repeat": 2, "response": "Information"}
+{"endpoint": "ref-07", "id": "e08", "repeat": 2, "response": "Data. Knowledge is data."}
+{"endpoint": "ref-08", "id": "e08", "repeat": 2, "response": "Accuracy"}
+{"endpoint": "ref-09", "id": "e08", "repeat": 2, "response": "Power."}
+{"endpoint": "ref-01", "id": "e09", "repeat": 2, "response": "Au"}
+{"endpoint": "ref-02", "id": "e09", "repeat": 2, "response": "Au"}
+{"endpoint": "ref-03", "id": "e09", "repeat": 2, "response": "Au"}
+{"endpoint": "ref-04", "id": "e09", "repeat": 2, "response": "Gold symbol: Au"}
+{"endpoint": "ref-05", "id": "e09", "repeat": 2, "response": "Ag"}
+{"endpoint": "ref-06", "id": "e09", "repeat": 2, "response": "Ra"}
+{"endpoint": "ref-07", "id": "e09", "repeat": 2, "response": "Gold. Symbol: Au."}
+{"endpoint": "ref-08", "id": "e09", "repeat": 2, "response": "AG"}
+{"endpoint": "ref-09", "id": "e09", "repeat": 2, "response": "$\\boldsymbol{\\text{"}
+{"endpoint": "ref-04", "id": "e08", "repeat": 2, "response": "The answer is: Information"}
+{"endpoint": "ref-02", "id": "e10", "repeat": 2, "response": "Mars"}
+{"endpoint": "ref-03", "id": "e10", "repeat": 2, "response": "Mars"}
+{"endpoint": "ref-04", "id": "e10", "repeat": 2, "response": "Mars"}
+{"endpoint": "ref-05", "id": "e10", "repeat": 2, "response": "Mars"}
+{"endpoint": "ref-01", "id": "e10", "repeat": 2, "response": "Mercury"}
+{"endpoint": "ref-06", "id": "e10", "repeat": 2, "response": "Mercury"}
+{"endpoint": "ref-07", "id": "e10", "repeat": 2, "response": "Mars."}
+{"endpoint": "ref-08", "id": "e10", "repeat": 2, "response": "Sun"}
+{"endpoint": "ref-09", "id": "e10", "repeat": 2, "response": "Mars"}
+{"endpoint": "ref-01", "id": "e11", "repeat": 2, "response": "Yes"}
+{"endpoint": "ref-02", "id": "e11", "repeat": 2, "response": "Yes"}
+{"endpoint": "ref-03", "id": "e11", "repeat": 2, "response": "Yes"}
+{"endpoint": "ref-04", "id": "e11", "repeat": 2, "response": "Yes"}
+{"endpoint": "ref-05", "id": "e11", "repeat": 2, "response": "Yes"}
+{"endpoint": "ref-06", "id": "e11", "repeat": 2, "response": "Yes"}
+{"endpoint": "ref-07", "id": "e11", "repeat": 2, "response": "No. It is not a"}
+{"endpoint": "ref-08", "id": "e11", "repeat": 2, "response": "Yes"}
+{"endpoint": "ref-09", "id": "e11", "repeat": 2, "response": "Yes"}
+{"endpoint": "ref-01", "id": "e12", "repeat": 2, "response": "10"}
+{"endpoint": "ref-02", "id": "e12", "repeat": 2, "response": "10"}
+{"endpoint": "ref-03", "id": "e12", "repeat": 2, "response": "10"}
+{"endpoint": "ref-04", "id": "e12", "repeat": 2, "response": "10 cents."}
+{"endpoint": "ref-05", "id": "e12", "repeat": 2, "response": "5"}
+{"endpoint": "ref-06", "id": "e12", "repeat": 2, "response": "10"}
+{"endpoint": "ref-07", "id": "e12", "repeat": 2, "response": "The ball costs 10"}
+{"endpoint": "ref-08", "id": "e12", "repeat": 2, "response": "1"}
+{"endpoint": "ref-09", "id": "e12", "repeat": 2, "response": "10."}

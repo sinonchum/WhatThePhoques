@@ -1,0 +1,635 @@
+{
+  "format_version": 1,
+  "source": "synthetic",
+  "coverage": {
+    "dev": {
+      "ref-01": {
+        "responses": 40,
+        "unparsed": 1
+      },
+      "ref-02": {
+        "responses": 40,
+        "unparsed": 0
+      },
+      "ref-03": {
+        "responses": 40,
+        "unparsed": 0
+      },
+      "ref-04": {
+        "responses": 40,
+        "unparsed": 0
+      },
+      "ref-05": {
+        "responses": 40,
+        "unparsed": 0
+      },
+      "ref-06": {
+        "responses": 40,
+        "unparsed": 0
+      },
+      "ref-07": {
+        "responses": 40,
+        "unparsed": 0
+      },
+      "ref-08": {
+        "responses": 40,
+        "unparsed": 0
+      },
+      "ref-09": {
+        "responses": 40,
+        "unparsed": 0
+      }
+    },
+    "holdout": {
+      "ref-01": {
+        "responses": 20,
+        "unparsed": 1
+      },
+      "ref-02": {
+        "responses": 20,
+        "unparsed": 0
+      },
+      "ref-03": {
+        "responses": 20,
+        "unparsed": 0
+      },
+      "ref-04": {
+        "responses": 20,
+        "unparsed": 0
+      },
+      "ref-05": {
+        "responses": 20,
+        "unparsed": 0
+      },
+      "ref-06": {
+        "responses": 20,
+        "unparsed": 0
+      },
+      "ref-07": {
+        "responses": 20,
+        "unparsed": 0
+      },
+      "ref-08": {
+        "responses": 20,
+        "unparsed": 0
+      },
+      "ref-09": {
+        "responses": 20,
+        "unparsed": 0
+      }
+    }
+  },
+  "methods": {
+    "mode": {
+      "threshold": 0.1,
+      "dev_mcc": 1.0,
+      "dev_candidates": [
+        {
+          "threshold": 0.1,
+          "model_mcc": 1.0,
+          "counts": {
+            "tp": 3,
+            "fp": 0,
+            "tn": 6,
+            "fn": 0
+          }
+        },
+        {
+          "threshold": 0.2,
+          "model_mcc": 1.0,
+          "counts": {
+            "tp": 3,
+            "fp": 0,
+            "tn": 6,
+            "fn": 0
+          }
+        },
+        {
+          "threshold": 0.3,
+          "model_mcc": 1.0,
+          "counts": {
+            "tp": 3,
+            "fp": 0,
+            "tn": 6,
+            "fn": 0
+          }
+        },
+        {
+          "threshold": 0.4,
+          "model_mcc": 0.0,
+          "counts": {
+            "tp": 3,
+            "fp": 6,
+            "tn": 0,
+            "fn": 0
+          }
+        },
+        {
+          "threshold": 0.5,
+          "model_mcc": 0.0,
+          "counts": {
+            "tp": 3,
+            "fp": 6,
+            "tn": 0,
+            "fn": 0
+          }
+        },
+        {
+          "threshold": 0.6,
+          "model_mcc": 0.0,
+          "counts": {
+            "tp": 3,
+            "fp": 6,
+            "tn": 0,
+            "fn": 0
+          }
+        }
+      ],
+      "holdout": {
+        "model_mcc": 1.0,
+        "family_mcc": 0.0,
+        "weighted_score": 0.9,
+        "model_counts": {
+          "tp": 3,
+          "fp": 0,
+          "tn": 6,
+          "fn": 0
+        },
+        "family_counts": {
+          "tp": 9,
+          "fp": 27,
+          "tn": 0,
+          "fn": 0
+        },
+        "model_errors": [],
+        "family_errors": [
+          {
+            "endpoints": [
+              "ref-01",
+              "ref-02"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-01",
+              "ref-03"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-01",
+              "ref-05"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-01",
+              "ref-06"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-01",
+              "ref-08"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-01",
+              "ref-09"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-02",
+              "ref-03"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-02",
+              "ref-04"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-02",
+              "ref-06"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-02",
+              "ref-07"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-02",
+              "ref-09"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-03",
+              "ref-04"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-03",
+              "ref-05"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-03",
+              "ref-07"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-03",
+              "ref-08"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-04",
+              "ref-05"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-04",
+              "ref-06"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-04",
+              "ref-08"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-04",
+              "ref-09"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-05",
+              "ref-06"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-05",
+              "ref-07"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-05",
+              "ref-09"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-06",
+              "ref-07"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-06",
+              "ref-08"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-07",
+              "ref-08"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-07",
+              "ref-09"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-08",
+              "ref-09"
+            ],
+            "type": "FP"
+          }
+        ]
+      }
+    },
+    "js": {
+      "threshold": 0.1,
+      "dev_mcc": 1.0,
+      "dev_candidates": [
+        {
+          "threshold": 0.1,
+          "model_mcc": 1.0,
+          "counts": {
+            "tp": 3,
+            "fp": 0,
+            "tn": 6,
+            "fn": 0
+          }
+        },
+        {
+          "threshold": 0.2,
+          "model_mcc": 1.0,
+          "counts": {
+            "tp": 3,
+            "fp": 0,
+            "tn": 6,
+            "fn": 0
+          }
+        },
+        {
+          "threshold": 0.3,
+          "model_mcc": 1.0,
+          "counts": {
+            "tp": 3,
+            "fp": 0,
+            "tn": 6,
+            "fn": 0
+          }
+        },
+        {
+          "threshold": 0.4,
+          "model_mcc": 0.0,
+          "counts": {
+            "tp": 3,
+            "fp": 6,
+            "tn": 0,
+            "fn": 0
+          }
+        },
+        {
+          "threshold": 0.5,
+          "model_mcc": 0.0,
+          "counts": {
+            "tp": 3,
+            "fp": 6,
+            "tn": 0,
+            "fn": 0
+          }
+        },
+        {
+          "threshold": 0.6,
+          "model_mcc": 0.0,
+          "counts": {
+            "tp": 3,
+            "fp": 6,
+            "tn": 0,
+            "fn": 0
+          }
+        }
+      ],
+      "holdout": {
+        "model_mcc": 1.0,
+        "family_mcc": 0.0,
+        "weighted_score": 0.9,
+        "model_counts": {
+          "tp": 3,
+          "fp": 0,
+          "tn": 6,
+          "fn": 0
+        },
+        "family_counts": {
+          "tp": 9,
+          "fp": 27,
+          "tn": 0,
+          "fn": 0
+        },
+        "model_errors": [],
+        "family_errors": [
+          {
+            "endpoints": [
+              "ref-01",
+              "ref-02"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-01",
+              "ref-03"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-01",
+              "ref-05"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-01",
+              "ref-06"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-01",
+              "ref-08"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-01",
+              "ref-09"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-02",
+              "ref-03"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-02",
+              "ref-04"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-02",
+              "ref-06"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-02",
+              "ref-07"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-02",
+              "ref-09"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-03",
+              "ref-04"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-03",
+              "ref-05"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-03",
+              "ref-07"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-03",
+              "ref-08"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-04",
+              "ref-05"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-04",
+              "ref-06"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-04",
+              "ref-08"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-04",
+              "ref-09"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-05",
+              "ref-06"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-05",
+              "ref-07"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-05",
+              "ref-09"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-06",
+              "ref-07"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-06",
+              "ref-08"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-07",
+              "ref-08"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-07",
+              "ref-09"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-08",
+              "ref-09"
+            ],
+            "type": "FP"
+          }
+        ]
+      }
+    }
+  },
+  "selected_method": "mode"
+}

@@ -1,0 +1,1189 @@
+{
+  "all": {
+    "published": {
+      "all-upper_quartile": {
+        "mcc": 0.020965696734438367,
+        "counts": [
+          6,
+          11,
+          15,
+          4
+        ],
+        "singletons": [
+          "ref-03",
+          "ref-07"
+        ]
+      },
+      "all-upper_fence": {
+        "mcc": 0.33149677206589795,
+        "counts": [
+          10,
+          8,
+          18,
+          0
+        ],
+        "singletons": [
+          "ref-07"
+        ]
+      },
+      "0-upper_quartile": {
+        "mcc": 0.020965696734438367,
+        "counts": [
+          6,
+          11,
+          15,
+          4
+        ],
+        "singletons": [
+          "ref-03",
+          "ref-07"
+        ]
+      },
+      "0-upper_fence": {
+        "mcc": 0.0,
+        "counts": [
+          10,
+          0,
+          26,
+          0
+        ],
+        "singletons": []
+      },
+      "1-upper_quartile": {
+        "mcc": 0.5241424183609592,
+        "counts": [
+          10,
+          15,
+          11,
+          0
+        ],
+        "singletons": [
+          "ref-04",
+          "ref-07"
+        ]
+      },
+      "1-upper_fence": {
+        "mcc": 0.0,
+        "counts": [
+          10,
+          0,
+          26,
+          0
+        ],
+        "singletons": []
+      },
+      "2-upper_quartile": {
+        "mcc": 0.020965696734438367,
+        "counts": [
+          6,
+          11,
+          15,
+          4
+        ],
+        "singletons": [
+          "ref-05",
+          "ref-07"
+        ]
+      },
+      "2-upper_fence": {
+        "mcc": 0.33149677206589795,
+        "counts": [
+          10,
+          8,
+          18,
+          0
+        ],
+        "singletons": [
+          "ref-07"
+        ]
+      }
+    },
+    "code": {
+      "all-upper_quartile": {
+        "mcc": 0.5241424183609592,
+        "counts": [
+          10,
+          15,
+          11,
+          0
+        ],
+        "singletons": [
+          "ref-04",
+          "ref-07"
+        ]
+      },
+      "all-upper_fence": {
+        "mcc": 0.0,
+        "counts": [
+          10,
+          0,
+          26,
+          0
+        ],
+        "singletons": []
+      },
+      "0-upper_quartile": {
+        "mcc": 0.020965696734438367,
+        "counts": [
+          6,
+          11,
+          15,
+          4
+        ],
+        "singletons": [
+          "ref-03",
+          "ref-07"
+        ]
+      },
+      "0-upper_fence": {
+        "mcc": 0.0,
+        "counts": [
+          10,
+          0,
+          26,
+          0
+        ],
+        "singletons": []
+      },
+      "1-upper_quartile": {
+        "mcc": 0.020965696734438367,
+        "counts": [
+          6,
+          11,
+          15,
+          4
+        ],
+        "singletons": [
+          "ref-07",
+          "ref-08"
+        ]
+      },
+      "1-upper_fence": {
+        "mcc": 0.020965696734438367,
+        "counts": [
+          6,
+          11,
+          15,
+          4
+        ],
+        "singletons": [
+          "ref-07",
+          "ref-08"
+        ]
+      },
+      "2-upper_quartile": {
+        "mcc": 0.5241424183609592,
+        "counts": [
+          10,
+          15,
+          11,
+          0
+        ],
+        "singletons": [
+          "ref-04",
+          "ref-07"
+        ]
+      },
+      "2-upper_fence": {
+        "mcc": 0.33149677206589795,
+        "counts": [
+          10,
+          8,
+          18,
+          0
+        ],
+        "singletons": [
+          "ref-07"
+        ]
+      }
+    },
+    "domain": {
+      "all-upper_quartile": {
+        "mcc": 0.5241424183609592,
+        "counts": [
+          10,
+          15,
+          11,
+          0
+        ],
+        "singletons": [
+          "ref-04",
+          "ref-07"
+        ]
+      },
+      "all-upper_fence": {
+        "mcc": 0.33149677206589795,
+        "counts": [
+          10,
+          8,
+          18,
+          0
+        ],
+        "singletons": [
+          "ref-07"
+        ]
+      },
+      "0-upper_quartile": {
+        "mcc": 0.5241424183609592,
+        "counts": [
+          10,
+          15,
+          11,
+          0
+        ],
+        "singletons": [
+          "ref-02",
+          "ref-07"
+        ]
+      },
+      "0-upper_fence": {
+        "mcc": 0.33149677206589795,
+        "counts": [
+          10,
+          8,
+          18,
+          0
+        ],
+        "singletons": [
+          "ref-07"
+        ]
+      },
+      "1-upper_quartile": {
+        "mcc": 0.5241424183609592,
+        "counts": [
+          10,
+          15,
+          11,
+          0
+        ],
+        "singletons": [
+          "ref-04",
+          "ref-07"
+        ]
+      },
+      "1-upper_fence": {
+        "mcc": 0.33149677206589795,
+        "counts": [
+          10,
+          8,
+          18,
+          0
+        ],
+        "singletons": [
+          "ref-07"
+        ]
+      },
+      "2-upper_quartile": {
+        "mcc": 0.020965696734438367,
+        "counts": [
+          6,
+          11,
+          15,
+          4
+        ],
+        "singletons": [
+          "ref-01",
+          "ref-07"
+        ]
+      },
+      "2-upper_fence": {
+        "mcc": 0.33149677206589795,
+        "counts": [
+          10,
+          8,
+          18,
+          0
+        ],
+        "singletons": [
+          "ref-07"
+        ]
+      }
+    },
+    "language": {
+      "all-upper_quartile": {
+        "mcc": 0.020965696734438367,
+        "counts": [
+          6,
+          11,
+          15,
+          4
+        ],
+        "singletons": [
+          "ref-03",
+          "ref-07"
+        ]
+      },
+      "all-upper_fence": {
+        "mcc": 0.020965696734438367,
+        "counts": [
+          6,
+          11,
+          15,
+          4
+        ],
+        "singletons": [
+          "ref-03",
+          "ref-07"
+        ]
+      },
+      "0-upper_quartile": {
+        "mcc": 0.020965696734438367,
+        "counts": [
+          6,
+          11,
+          15,
+          4
+        ],
+        "singletons": [
+          "ref-03",
+          "ref-07"
+        ]
+      },
+      "0-upper_fence": {
+        "mcc": 0.020965696734438367,
+        "counts": [
+          6,
+          11,
+          15,
+          4
+        ],
+        "singletons": [
+          "ref-03",
+          "ref-07"
+        ]
+      },
+      "1-upper_quartile": {
+        "mcc": 0.020965696734438367,
+        "counts": [
+          6,
+          11,
+          15,
+          4
+        ],
+        "singletons": [
+          "ref-03",
+          "ref-07"
+        ]
+      },
+      "1-upper_fence": {
+        "mcc": 0.020965696734438367,
+        "counts": [
+          6,
+          11,
+          15,
+          4
+        ],
+        "singletons": [
+          "ref-03",
+          "ref-07"
+        ]
+      },
+      "2-upper_quartile": {
+        "mcc": 0.020965696734438367,
+        "counts": [
+          6,
+          11,
+          15,
+          4
+        ],
+        "singletons": [
+          "ref-03",
+          "ref-07"
+        ]
+      },
+      "2-upper_fence": {
+        "mcc": 0.020965696734438367,
+        "counts": [
+          6,
+          11,
+          15,
+          4
+        ],
+        "singletons": [
+          "ref-03",
+          "ref-07"
+        ]
+      }
+    },
+    "logic": {
+      "all-upper_quartile": {
+        "mcc": 0.5241424183609592,
+        "counts": [
+          10,
+          15,
+          11,
+          0
+        ],
+        "singletons": [
+          "ref-04",
+          "ref-07"
+        ]
+      },
+      "all-upper_fence": {
+        "mcc": 0.33149677206589795,
+        "counts": [
+          10,
+          8,
+          18,
+          0
+        ],
+        "singletons": [
+          "ref-07"
+        ]
+      },
+      "0-upper_quartile": {
+        "mcc": 0.020965696734438367,
+        "counts": [
+          6,
+          11,
+          15,
+          4
+        ],
+        "singletons": [
+          "ref-03",
+          "ref-07"
+        ]
+      },
+      "0-upper_fence": {
+        "mcc": 0.0,
+        "counts": [
+          10,
+          0,
+          26,
+          0
+        ],
+        "singletons": []
+      },
+      "1-upper_quartile": {
+        "mcc": 0.5241424183609592,
+        "counts": [
+          10,
+          15,
+          11,
+          0
+        ],
+        "singletons": [
+          "ref-04",
+          "ref-07"
+        ]
+      },
+      "1-upper_fence": {
+        "mcc": 0.33149677206589795,
+        "counts": [
+          10,
+          8,
+          18,
+          0
+        ],
+        "singletons": [
+          "ref-07"
+        ]
+      },
+      "2-upper_quartile": {
+        "mcc": 0.020965696734438367,
+        "counts": [
+          6,
+          11,
+          15,
+          4
+        ],
+        "singletons": [
+          "ref-03",
+          "ref-07"
+        ]
+      },
+      "2-upper_fence": {
+        "mcc": 0.0,
+        "counts": [
+          10,
+          0,
+          26,
+          0
+        ],
+        "singletons": []
+      }
+    },
+    "math": {
+      "all-upper_quartile": {
+        "mcc": 0.020965696734438367,
+        "counts": [
+          6,
+          11,
+          15,
+          4
+        ],
+        "singletons": [
+          "ref-03",
+          "ref-07"
+        ]
+      },
+      "all-upper_fence": {
+        "mcc": 0.33149677206589795,
+        "counts": [
+          10,
+          8,
+          18,
+          0
+        ],
+        "singletons": [
+          "ref-07"
+        ]
+      },
+      "0-upper_quartile": {
+        "mcc": 0.020965696734438367,
+        "counts": [
+          6,
+          11,
+          15,
+          4
+        ],
+        "singletons": [
+          "ref-03",
+          "ref-07"
+        ]
+      },
+      "0-upper_fence": {
+        "mcc": 0.0,
+        "counts": [
+          10,
+          0,
+          26,
+          0
+        ],
+        "singletons": []
+      },
+      "1-upper_quartile": {
+        "mcc": 0.020965696734438367,
+        "counts": [
+          6,
+          11,
+          15,
+          4
+        ],
+        "singletons": [
+          "ref-03",
+          "ref-07"
+        ]
+      },
+      "1-upper_fence": {
+        "mcc": 0.33149677206589795,
+        "counts": [
+          10,
+          8,
+          18,
+          0
+        ],
+        "singletons": [
+          "ref-07"
+        ]
+      },
+      "2-upper_quartile": {
+        "mcc": 0.33149677206589795,
+        "counts": [
+          10,
+          8,
+          18,
+          0
+        ],
+        "singletons": [
+          "ref-07"
+        ]
+      },
+      "2-upper_fence": {
+        "mcc": 0.0,
+        "counts": [
+          10,
+          0,
+          26,
+          0
+        ],
+        "singletons": []
+      }
+    }
+  },
+  "convention": {
+    "published": {
+      "all-upper_quartile": {
+        "mcc": 0.5241424183609592,
+        "counts": [
+          10,
+          15,
+          11,
+          0
+        ],
+        "singletons": [
+          "ref-04",
+          "ref-07"
+        ]
+      },
+      "all-upper_fence": {
+        "mcc": 0.33149677206589795,
+        "counts": [
+          10,
+          8,
+          18,
+          0
+        ],
+        "singletons": [
+          "ref-07"
+        ]
+      },
+      "0-upper_quartile": {
+        "mcc": 0.5241424183609592,
+        "counts": [
+          10,
+          15,
+          11,
+          0
+        ],
+        "singletons": [
+          "ref-02",
+          "ref-07"
+        ]
+      },
+      "0-upper_fence": {
+        "mcc": 0.5241424183609592,
+        "counts": [
+          10,
+          15,
+          11,
+          0
+        ],
+        "singletons": [
+          "ref-02",
+          "ref-07"
+        ]
+      },
+      "1-upper_quartile": {
+        "mcc": 0.33149677206589795,
+        "counts": [
+          10,
+          8,
+          18,
+          0
+        ],
+        "singletons": [
+          "ref-07"
+        ]
+      },
+      "1-upper_fence": {
+        "mcc": 0.0,
+        "counts": [
+          10,
+          0,
+          26,
+          0
+        ],
+        "singletons": []
+      },
+      "2-upper_quartile": {
+        "mcc": 0.5241424183609592,
+        "counts": [
+          10,
+          15,
+          11,
+          0
+        ],
+        "singletons": [
+          "ref-07",
+          "ref-09"
+        ]
+      },
+      "2-upper_fence": {
+        "mcc": 0.5241424183609592,
+        "counts": [
+          10,
+          15,
+          11,
+          0
+        ],
+        "singletons": [
+          "ref-07",
+          "ref-09"
+        ]
+      }
+    },
+    "code": {
+      "all-upper_quartile": {
+        "mcc": 0.5241424183609592,
+        "counts": [
+          10,
+          15,
+          11,
+          0
+        ],
+        "singletons": [
+          "ref-04",
+          "ref-07"
+        ]
+      },
+      "all-upper_fence": {
+        "mcc": 0.0,
+        "counts": [
+          10,
+          0,
+          26,
+          0
+        ],
+        "singletons": []
+      },
+      "0-upper_quartile": {
+        "mcc": 0.020965696734438367,
+        "counts": [
+          6,
+          11,
+          15,
+          4
+        ],
+        "singletons": [
+          "ref-03",
+          "ref-04"
+        ]
+      },
+      "0-upper_fence": {
+        "mcc": 0.0,
+        "counts": [
+          10,
+          0,
+          26,
+          0
+        ],
+        "singletons": []
+      },
+      "1-upper_quartile": {
+        "mcc": 0.020965696734438367,
+        "counts": [
+          6,
+          11,
+          15,
+          4
+        ],
+        "singletons": [
+          "ref-07",
+          "ref-08"
+        ]
+      },
+      "1-upper_fence": {
+        "mcc": 0,
+        "counts": [
+          6,
+          4,
+          22,
+          4
+        ],
+        "singletons": [
+          "ref-08"
+        ]
+      },
+      "2-upper_quartile": {
+        "mcc": 0.33149677206589795,
+        "counts": [
+          10,
+          8,
+          18,
+          0
+        ],
+        "singletons": [
+          "ref-07"
+        ]
+      },
+      "2-upper_fence": {
+        "mcc": 0.33149677206589795,
+        "counts": [
+          10,
+          8,
+          18,
+          0
+        ],
+        "singletons": [
+          "ref-07"
+        ]
+      }
+    },
+    "domain": {
+      "all-upper_quartile": {
+        "mcc": 0.5241424183609592,
+        "counts": [
+          10,
+          15,
+          11,
+          0
+        ],
+        "singletons": [
+          "ref-04",
+          "ref-07"
+        ]
+      },
+      "all-upper_fence": {
+        "mcc": 0.33149677206589795,
+        "counts": [
+          10,
+          8,
+          18,
+          0
+        ],
+        "singletons": [
+          "ref-07"
+        ]
+      },
+      "0-upper_quartile": {
+        "mcc": 0.5241424183609592,
+        "counts": [
+          10,
+          15,
+          11,
+          0
+        ],
+        "singletons": [
+          "ref-02",
+          "ref-07"
+        ]
+      },
+      "0-upper_fence": {
+        "mcc": 0.33149677206589795,
+        "counts": [
+          10,
+          8,
+          18,
+          0
+        ],
+        "singletons": [
+          "ref-07"
+        ]
+      },
+      "1-upper_quartile": {
+        "mcc": 0.5241424183609592,
+        "counts": [
+          10,
+          15,
+          11,
+          0
+        ],
+        "singletons": [
+          "ref-04",
+          "ref-07"
+        ]
+      },
+      "1-upper_fence": {
+        "mcc": 0.33149677206589795,
+        "counts": [
+          10,
+          8,
+          18,
+          0
+        ],
+        "singletons": [
+          "ref-07"
+        ]
+      },
+      "2-upper_quartile": {
+        "mcc": 0.33149677206589795,
+        "counts": [
+          10,
+          8,
+          18,
+          0
+        ],
+        "singletons": [
+          "ref-07"
+        ]
+      },
+      "2-upper_fence": {
+        "mcc": 0.33149677206589795,
+        "counts": [
+          10,
+          8,
+          18,
+          0
+        ],
+        "singletons": [
+          "ref-07"
+        ]
+      }
+    },
+    "language": {
+      "all-upper_quartile": {
+        "mcc": 0.020965696734438367,
+        "counts": [
+          6,
+          11,
+          15,
+          4
+        ],
+        "singletons": [
+          "ref-03",
+          "ref-07"
+        ]
+      },
+      "all-upper_fence": {
+        "mcc": 0.33149677206589795,
+        "counts": [
+          10,
+          8,
+          18,
+          0
+        ],
+        "singletons": [
+          "ref-07"
+        ]
+      },
+      "0-upper_quartile": {
+        "mcc": 0.5241424183609592,
+        "counts": [
+          10,
+          15,
+          11,
+          0
+        ],
+        "singletons": [
+          "ref-04",
+          "ref-07"
+        ]
+      },
+      "0-upper_fence": {
+        "mcc": 0.0,
+        "counts": [
+          10,
+          0,
+          26,
+          0
+        ],
+        "singletons": []
+      },
+      "1-upper_quartile": {
+        "mcc": 0.020965696734438367,
+        "counts": [
+          6,
+          11,
+          15,
+          4
+        ],
+        "singletons": [
+          "ref-03",
+          "ref-07"
+        ]
+      },
+      "1-upper_fence": {
+        "mcc": 0.020965696734438367,
+        "counts": [
+          6,
+          11,
+          15,
+          4
+        ],
+        "singletons": [
+          "ref-03",
+          "ref-07"
+        ]
+      },
+      "2-upper_quartile": {
+        "mcc": 0.33149677206589795,
+        "counts": [
+          10,
+          8,
+          18,
+          0
+        ],
+        "singletons": [
+          "ref-07"
+        ]
+      },
+      "2-upper_fence": {
+        "mcc": 0.33149677206589795,
+        "counts": [
+          10,
+          8,
+          18,
+          0
+        ],
+        "singletons": [
+          "ref-07"
+        ]
+      }
+    },
+    "logic": {
+      "all-upper_quartile": {
+        "mcc": 0.33149677206589795,
+        "counts": [
+          10,
+          8,
+          18,
+          0
+        ],
+        "singletons": [
+          "ref-07"
+        ]
+      },
+      "all-upper_fence": {
+        "mcc": 0.0,
+        "counts": [
+          10,
+          0,
+          26,
+          0
+        ],
+        "singletons": []
+      },
+      "0-upper_quartile": {
+        "mcc": 0.33149677206589795,
+        "counts": [
+          10,
+          8,
+          18,
+          0
+        ],
+        "singletons": [
+          "ref-07"
+        ]
+      },
+      "0-upper_fence": {
+        "mcc": 0.0,
+        "counts": [
+          10,
+          0,
+          26,
+          0
+        ],
+        "singletons": []
+      },
+      "1-upper_quartile": {
+        "mcc": 0.33149677206589795,
+        "counts": [
+          10,
+          8,
+          18,
+          0
+        ],
+        "singletons": [
+          "ref-07"
+        ]
+      },
+      "1-upper_fence": {
+        "mcc": 0.0,
+        "counts": [
+          10,
+          0,
+          26,
+          0
+        ],
+        "singletons": []
+      },
+      "2-upper_quartile": {
+        "mcc": 0.0,
+        "counts": [
+          10,
+          0,
+          26,
+          0
+        ],
+        "singletons": []
+      },
+      "2-upper_fence": {
+        "mcc": 0.0,
+        "counts": [
+          10,
+          0,
+          26,
+          0
+        ],
+        "singletons": []
+      }
+    },
+    "math": {
+      "all-upper_quartile": {
+        "mcc": 0.5241424183609592,
+        "counts": [
+          10,
+          15,
+          11,
+          0
+        ],
+        "singletons": [
+          "ref-04",
+          "ref-07"
+        ]
+      },
+      "all-upper_fence": {
+        "mcc": 0.0,
+        "counts": [
+          10,
+          0,
+          26,
+          0
+        ],
+        "singletons": []
+      },
+      "0-upper_quartile": {
+        "mcc": 0.020965696734438367,
+        "counts": [
+          6,
+          11,
+          15,
+          4
+        ],
+        "singletons": [
+          "ref-03",
+          "ref-07"
+        ]
+      },
+      "0-upper_fence": {
+        "mcc": 0.0,
+        "counts": [
+          10,
+          0,
+          26,
+          0
+        ],
+        "singletons": []
+      },
+      "1-upper_quartile": {
+        "mcc": 0.020965696734438367,
+        "counts": [
+          6,
+          11,
+          15,
+          4
+        ],
+        "singletons": [
+          "ref-03",
+          "ref-07"
+        ]
+      },
+      "1-upper_fence": {
+        "mcc": 0.33149677206589795,
+        "counts": [
+          10,
+          8,
+          18,
+          0
+        ],
+        "singletons": [
+          "ref-07"
+        ]
+      },
+      "2-upper_quartile": {
+        "mcc": 0.5241424183609592,
+        "counts": [
+          10,
+          15,
+          11,
+          0
+        ],
+        "singletons": [
+          "ref-02",
+          "ref-07"
+        ]
+      },
+      "2-upper_fence": {
+        "mcc": 0.0,
+        "counts": [
+          10,
+          0,
+          26,
+          0
+        ],
+        "singletons": []
+      }
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "seed": 20261121,
+  "n": 1024,
+  "ten_formal_ids": [
+    "q02",
+    "q03",
+    "q07",
+    "q08",
+    "q13",
+    "q16",
+    "q20",
+    "q22",
+    "q25",
+    "q26"
+  ],
+  "published": {
+    "convention": {
+      "score_3dp": 0.524,
+      "right": 25,
+      "wrong": 11,
+      "TP": 10,
+      "TN": 15,
+      "FP": 11,
+      "FN": 0,
+      "MCC": 0.5241424183609592
+    },
+    "core": {
+      "score_3dp": 0.734,
+      "right": 31,
+      "wrong": 5,
+      "TP": 10,
+      "TN": 21,
+      "FP": 5,
+      "FN": 0,
+      "MCC": 0.7337993857053429
+    }
+  },
+  "replay": {
+    "convention_upper_quartile": {
+      "median": 0.5241424183609592,
+      "q25": 0.5241424183609592,
+      "q75": 0.5241424183609592,
+      "atleast05": 873,
+      "frac_ge_0.50": 0.8525390625,
+      "min": 0.0,
+      "max": 0.5241424183609592
+    },
+    "core_training_without_test_prompts": {
+      "median": 0.5241424183609592,
+      "q25": 0.4461538461538462,
+      "q75": 0.7337993857053429,
+      "atleast05": 664,
+      "frac_ge_0.50": 0.6484375,
+      "min": 0.0,
+      "max": 1.0
+    },
+    "core_unseen_pair_and_disjoint_prompts": {
+      "median": 0.0,
+      "q25": 0.0,
+      "q75": 0.0,
+      "atleast05": 0,
+      "frac_ge_0.50": 0.0,
+      "min": 0.0,
+      "max": 0.4682473525035148
+    },
+    "core_training_all_30_matches_formal": {
+      "median": 0.7337993857053429,
+      "q25": 0.4461538461538462,
+      "q75": 0.7337993857053429,
+      "atleast05": 749,
+      "frac_ge_0.50": 0.7314453125,
+      "min": 0.020965696734438367,
+      "max": 1.0
+    }
+  },
+  "outlier_endpoint_count": {
+    "ref-07": 1006,
+    "ref-04": 880,
+    "ref-08": 34,
+    "ref-03": 53,
+    "ref-09": 7,
+    "ref-02": 2,
+    "ref-05": 1
+  },
+  "selection_note": "The ten formal questions were selected before this replay. Simulations reuse the same practice endpoints and 3 observed draws per cell."
+}

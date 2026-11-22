@@ -1,0 +1,31 @@
+id,prompt,category,format,split
+q01,"A clock reads 23:47. After 19 intervals of 17 minutes each, what is the minute field on the clock? Reply with only a decimal integer.",math,integer,dev
+q02,What is the least positive integer n such that n leaves remainder 3 on division by 7 and remainder 4 on division by 9? Reply with only the integer.,math,integer,dev
+q03,"A bag has 4 red, 3 blue and 2 green tokens. How many unordered choices of three individual tokens contain exactly two colors? Reply with just the integer.",math,integer,dev
+q04,"Among all five-digit integers made using each digit of 10234 exactly once, how many are divisible by 4? Reply with just the integer.",math,integer,dev
+q05,"A runner covers the first half of a journey at 6 km/h and the second half at 9 km/h, with no stops. What is the average speed in km/h? A: 15/2; B: 36/5; C: 7/1; D: 13/2. Reply only with the letter.",math,choice,holdout
+q06,"In a single-elimination tournament with 37 entrants, each match eliminates one player. Exactly five eliminations occur by withdrawal without a match. How many matches are played to leave one winner? Reply with just the integer.",math,integer,holdout
+q07,"In Python 3, what integer is printed by p=[1,2,3,4,5]; print(sum(p[-2:0:-2]))? Reply with only the integer.",code,integer,dev
+q08,"In Python 3, let x=[[0]]*3. Run x[1].append(4), then x[0]=[1]. What integer is sum(map(sum,x))? Reply with only the integer.",code,integer,dev
+q09,"In Python 3, let fs=[lambda: i for i in range(4)]. What is sum(f() for f in fs)? Reply with just the integer.",code,integer,dev
+q10,"In Python 3, what decimal integer is the value of (-7 // 3) * 10 + (-7 % 3)? Reply with just the integer.",code,integer,dev
+q11,"A SQL table t has one column v and exactly the rows 2, 2, NULL, 5. What value does SELECT COUNT(DISTINCT v) + COUNT(v) FROM t return? Reply with only the integer.",code,integer,holdout
+q12,"A FIFO queue starts empty. Enqueue 4, enqueue 9, dequeue once, enqueue 6, dequeue once, enqueue 8. Which item is at its front? A: 4; B: 9; C: 6; D: 8. Reply only with the letter.",code,choice,holdout
+q13,"In 'Cuando llegué, ella ya había salido', which event happened earlier? A: my arrival; B: her departure; C: they coincide; D: neither happened. Reply with only the letter.",language,choice,dev
+q14,"In the German sentence 'Den Hund jagt die Katze', who is doing the chasing? A: the dog; B: both; C: neither; D: the cat. Reply with only the letter.",language,choice,dev
+q15,"In 'Paul a prêté son vélo à Léa', what role does Léa play? A: borrower; B: lender; C: seller; D: witness. Reply with only the letter.",language,choice,dev
+q16,"In the sentence 'Maya narrowly avoided missing the ferry', which outcome is asserted? A: the ferry was canceled; B: Maya missed it; C: Maya caught it; D: Maya stayed home. Reply with only the letter.",language,choice,dev
+q17,Which Spanish word has the written accent required by standard spelling for the intended question 'Where are you going?' A: Adonde; B: Adónde; C: Adondé; D: Ádonde. Reply with only the letter.,language,choice,holdout
+q18,Choose the standard Japanese counter for three flat sheets of paper. A: 本; B: 匹; C: 台; D: 枚. Reply with only the letter.,language,choice,holdout
+q19,"A music score is in 6/8 time. Across seven complete bars, how many dotted quarter-note beats are there? Reply with just the integer.",domain,integer,dev
+q20,Which deep-sky object is a globular cluster? A: M31; B: M42; C: M13; D: M57. Reply with only the letter.,domain,choice,dev
+q21,"In crystallography, what is the conventional number of three-dimensional Bravais lattice types? Reply with only the integer.",domain,integer,dev
+q22,Which option names a printmaking process in which ink is held in recessed lines? A: relief; B: intaglio; C: screen printing; D: lithography. Reply with only the letter.,domain,choice,dev
+q23,A photon of fixed frequency enters glass from vacuum at normal incidence. Which quantity decreases? A: frequency; B: energy per photon; C: oscillations per second; D: wavelength. Reply with only the letter.,domain,choice,holdout
+q24,A 6-ohm and a 3-ohm resistor are connected in parallel. How many ohms is their equivalent resistance? Reply with just the integer.,domain,integer,holdout
+q25,"Four talks K, M, R and T occupy different consecutive slots. T is last, R immediately follows K, and M is before R. Which talk is second? A: K; B: M; C: R; D: T. Reply with only the letter.",logic,choice,dev
+q26,"Exactly one of A and B is true. If B is true then C is true, and C is false. Which assignment follows? A: A=false,B=true; B: both false; C: A=true,B=false; D: both true. Reply with only the letter.",logic,choice,dev
+q27,All lorps are vims. No vim is a dap. At least one lorp exists. Which statement must hold? A: every vim is a lorp; B: some dap is a vim; C: some dap is a lorp; D: some vim is not a dap. Reply with only the letter.,logic,choice,dev
+q28,"Each card has a letter on one side and a digit on the other. For the rule 'if a card shows a vowel, its other side is even', which visible cards must be checked from A, B, 4, 7? A: A and 4; B: A and 7; C: B and 4; D: 4 and 7. Reply with only the letter.",logic,choice,dev
+q29,"Start in state R. Each x toggles R and S. Each y resets to R. After x x y x y x x x, what is the final state? A: S; B: R; C: both; D: neither. Reply with only the letter.",logic,choice,holdout
+q30,"Which set is the symmetric difference of {2,3,5,7} and {3,4,5,8}? A: {3,5}; B: {2,3,4,5,7,8}; C: {2,4,7,8}; D: {2,7}. Reply with only the letter.",logic,choice,holdout

@@ -1,0 +1,525 @@
+{
+  "format_version": 1,
+  "source": "collector",
+  "coverage": {
+    "dev": {
+      "ref-01": {
+        "responses": 60,
+        "unparsed": 12
+      },
+      "ref-02": {
+        "responses": 60,
+        "unparsed": 19
+      },
+      "ref-03": {
+        "responses": 60,
+        "unparsed": 35
+      },
+      "ref-04": {
+        "responses": 60,
+        "unparsed": 35
+      },
+      "ref-05": {
+        "responses": 60,
+        "unparsed": 16
+      },
+      "ref-06": {
+        "responses": 60,
+        "unparsed": 11
+      },
+      "ref-07": {
+        "responses": 60,
+        "unparsed": 50
+      },
+      "ref-08": {
+        "responses": 60,
+        "unparsed": 15
+      },
+      "ref-09": {
+        "responses": 60,
+        "unparsed": 23
+      }
+    },
+    "holdout": {
+      "ref-01": {
+        "responses": 30,
+        "unparsed": 9
+      },
+      "ref-02": {
+        "responses": 30,
+        "unparsed": 6
+      },
+      "ref-03": {
+        "responses": 30,
+        "unparsed": 18
+      },
+      "ref-04": {
+        "responses": 30,
+        "unparsed": 12
+      },
+      "ref-05": {
+        "responses": 30,
+        "unparsed": 9
+      },
+      "ref-06": {
+        "responses": 30,
+        "unparsed": 6
+      },
+      "ref-07": {
+        "responses": 30,
+        "unparsed": 22
+      },
+      "ref-08": {
+        "responses": 30,
+        "unparsed": 8
+      },
+      "ref-09": {
+        "responses": 30,
+        "unparsed": 7
+      }
+    }
+  },
+  "methods": {
+    "mode": {
+      "threshold": 0.7,
+      "dev_mcc": 0.22188007849009164,
+      "dev_candidates": [
+        {
+          "threshold": 0.0,
+          "model_mcc": 0.0,
+          "counts": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 26,
+            "fn": 10
+          }
+        },
+        {
+          "threshold": 0.1,
+          "model_mcc": 0.0,
+          "counts": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 26,
+            "fn": 10
+          }
+        },
+        {
+          "threshold": 0.2,
+          "model_mcc": 0.0,
+          "counts": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 26,
+            "fn": 10
+          }
+        },
+        {
+          "threshold": 0.3,
+          "model_mcc": 0.0,
+          "counts": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 26,
+            "fn": 10
+          }
+        },
+        {
+          "threshold": 0.4,
+          "model_mcc": 0.0,
+          "counts": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 26,
+            "fn": 10
+          }
+        },
+        {
+          "threshold": 0.5,
+          "model_mcc": 0.0,
+          "counts": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 26,
+            "fn": 10
+          }
+        },
+        {
+          "threshold": 0.6,
+          "model_mcc": 0.0,
+          "counts": {
+            "tp": 0,
+            "fp": 1,
+            "tn": 25,
+            "fn": 10
+          }
+        },
+        {
+          "threshold": 0.7,
+          "model_mcc": 0.22188007849009164,
+          "counts": {
+            "tp": 3,
+            "fp": 3,
+            "tn": 23,
+            "fn": 7
+          }
+        },
+        {
+          "threshold": 0.8,
+          "model_mcc": 0.0,
+          "counts": {
+            "tp": 10,
+            "fp": 26,
+            "tn": 0,
+            "fn": 0
+          }
+        },
+        {
+          "threshold": 0.9,
+          "model_mcc": 0.0,
+          "counts": {
+            "tp": 10,
+            "fp": 26,
+            "tn": 0,
+            "fn": 0
+          }
+        },
+        {
+          "threshold": 1.0,
+          "model_mcc": 0.0,
+          "counts": {
+            "tp": 10,
+            "fp": 26,
+            "tn": 0,
+            "fn": 0
+          }
+        }
+      ],
+      "holdout": {
+        "model_mcc": 0.1941450686788302,
+        "family_mcc": null,
+        "weighted_score": null,
+        "model_counts": {
+          "tp": 6,
+          "fp": 10,
+          "tn": 16,
+          "fn": 4
+        },
+        "family_counts": {
+          "tp": 36,
+          "fp": 0,
+          "tn": 0,
+          "fn": 0
+        },
+        "model_errors": [
+          {
+            "endpoints": [
+              "ref-01",
+              "ref-04"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-01",
+              "ref-08"
+            ],
+            "type": "FN"
+          },
+          {
+            "endpoints": [
+              "ref-01",
+              "ref-09"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-03",
+              "ref-04"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-03",
+              "ref-08"
+            ],
+            "type": "FN"
+          },
+          {
+            "endpoints": [
+              "ref-03",
+              "ref-09"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-04",
+              "ref-05"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-04",
+              "ref-06"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-04",
+              "ref-09"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-05",
+              "ref-08"
+            ],
+            "type": "FN"
+          },
+          {
+            "endpoints": [
+              "ref-05",
+              "ref-09"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-06",
+              "ref-08"
+            ],
+            "type": "FN"
+          },
+          {
+            "endpoints": [
+              "ref-06",
+              "ref-09"
+            ],
+            "type": "FP"
+          },
+          {
+            "endpoints": [
+              "ref-07",
+              "ref-08"
+            ],
+            "type": "FP"
+          }
+        ],
+        "family_errors": []
+      }
+    },
+    "js": {
+      "threshold": 0.0,
+      "dev_mcc": 0.0,
+      "dev_candidates": [
+        {
+          "threshold": 0.0,
+          "model_mcc": 0.0,
+          "counts": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 26,
+            "fn": 10
+          }
+        },
+        {
+          "threshold": 0.1,
+          "model_mcc": 0.0,
+          "counts": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 26,
+            "fn": 10
+          }
+        },
+        {
+          "threshold": 0.2,
+          "model_mcc": 0.0,
+          "counts": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 26,
+            "fn": 10
+          }
+        },
+        {
+          "threshold": 0.3,
+          "model_mcc": 0.0,
+          "counts": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 26,
+            "fn": 10
+          }
+        },
+        {
+          "threshold": 0.4,
+          "model_mcc": 0.0,
+          "counts": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 26,
+            "fn": 10
+          }
+        },
+        {
+          "threshold": 0.5,
+          "model_mcc": 0.0,
+          "counts": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 26,
+            "fn": 10
+          }
+        },
+        {
+          "threshold": 0.6,
+          "model_mcc": 0.0,
+          "counts": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 26,
+            "fn": 10
+          }
+        },
+        {
+          "threshold": 0.7,
+          "model_mcc": 0.0,
+          "counts": {
+            "tp": 1,
+            "fp": 6,
+            "tn": 20,
+            "fn": 9
+          }
+        },
+        {
+          "threshold": 0.8,
+          "model_mcc": 0.0,
+          "counts": {
+            "tp": 6,
+            "fp": 22,
+            "tn": 4,
+            "fn": 4
+          }
+        },
+        {
+          "threshold": 0.9,
+          "model_mcc": 0.0,
+          "counts": {
+            "tp": 10,
+            "fp": 26,
+            "tn": 0,
+            "fn": 0
+          }
+        },
+        {
+          "threshold": 1.0,
+          "model_mcc": 0.0,
+          "counts": {
+            "tp": 10,
+            "fp": 26,
+            "tn": 0,
+            "fn": 0
+          }
+        }
+      ],
+      "holdout": {
+        "model_mcc": 0.0,
+        "family_mcc": null,
+        "weighted_score": null,
+        "model_counts": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 26,
+          "fn": 10
+        },
+        "family_counts": {
+          "tp": 36,
+          "fp": 0,
+          "tn": 0,
+          "fn": 0
+        },
+        "model_errors": [
+          {
+            "endpoints": [
+              "ref-01",
+              "ref-03"
+            ],
+            "type": "FN"
+          },
+          {
+            "endpoints": [
+              "ref-01",
+              "ref-05"
+            ],
+            "type": "FN"
+          },
+          {
+            "endpoints": [
+              "ref-01",
+              "ref-06"
+            ],
+            "type": "FN"
+          },
+          {
+            "endpoints": [
+              "ref-01",
+              "ref-08"
+            ],
+            "type": "FN"
+          },
+          {
+            "endpoints": [
+              "ref-03",
+              "ref-05"
+            ],
+            "type": "FN"
+          },
+          {
+            "endpoints": [
+              "ref-03",
+              "ref-06"
+            ],
+            "type": "FN"
+          },
+          {
+            "endpoints": [
+              "ref-03",
+              "ref-08"
+            ],
+            "type": "FN"
+          },
+          {
+            "endpoints": [
+              "ref-05",
+              "ref-06"
+            ],
+            "type": "FN"
+          },
+          {
+            "endpoints": [
+              "ref-05",
+              "ref-08"
+            ],
+            "type": "FN"
+          },
+          {
+            "endpoints": [
+              "ref-06",
+              "ref-08"
+            ],
+            "type": "FN"
+          }
+        ],
+        "family_errors": []
+      }
+    }
+  },
+  "selected_method": "mode"
+}

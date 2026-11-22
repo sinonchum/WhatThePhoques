@@ -1,0 +1,334 @@
+{
+ "cfg": {
+  "name": "v9_hyb_m8",
+  "seed": 0,
+  "m_full": 4.0,
+  "acc_partial": 0.8,
+  "n_blocks": 4,
+  "lr": 0.0001,
+  "steps": 3000,
+  "bs": 48,
+  "w_anchor": 2.0,
+  "w_t1": 0.5,
+  "full_min": 129,
+  "holdout_every": 7,
+  "anchor": "strong",
+  "anchor_rrc": [
+   0.25,
+   0.7
+  ],
+  "light_share": 0.6,
+  "mini": false,
+  "full_level": "instance",
+  "mini_mode": "full",
+  "uniform_delta": null,
+  "tau": 1.0,
+  "amp_a": 2.0,
+  "flip_q": 0.2,
+  "hybrid_m": 8.0,
+  "lens_block": null,
+  "lens_mix": 0.0,
+  "train_head": false,
+  "alphas": [
+   0.75,
+   1.0
+  ],
+  "light": [
+   0.85,
+   1.0,
+   0.1
+  ],
+  "tau_avg": 1.0
+ },
+ "n_full": 1169,
+ "n_partial": 2331,
+ "n_held": 500,
+ "delta_partial": 5.701171875,
+ "target": {
+  "acc": 0.5322856903076172,
+  "acc_partial": 0.799227774143219,
+  "ce_mean": 3.4701693058013916,
+  "ce_std": 4.075083255767822,
+  "ce_mean_full": 8.39604663848877,
+  "ce_mean_partial": 0.9998340010643005,
+  "kl_T2_target_orig": 2.9182493686676025
+ },
+ "train_log": [
+  [
+   100,
+   4.0206,
+   0.8561
+  ],
+  [
+   200,
+   3.0908,
+   0.5719
+  ],
+  [
+   300,
+   2.2003,
+   0.7055
+  ],
+  [
+   400,
+   1.4526,
+   0.7488
+  ],
+  [
+   500,
+   1.5987,
+   0.7012
+  ],
+  [
+   600,
+   1.5958,
+   0.6786
+  ],
+  [
+   700,
+   1.9626,
+   0.5767
+  ],
+  [
+   800,
+   1.2346,
+   0.5756
+  ],
+  [
+   900,
+   1.0639,
+   0.8504
+  ],
+  [
+   1000,
+   1.4431,
+   0.6193
+  ],
+  [
+   1100,
+   1.3489,
+   0.5984
+  ],
+  [
+   1200,
+   1.0795,
+   0.6425
+  ],
+  [
+   1300,
+   1.1521,
+   0.415
+  ],
+  [
+   1400,
+   1.2354,
+   0.4427
+  ],
+  [
+   1500,
+   0.8987,
+   0.4026
+  ],
+  [
+   1600,
+   0.6832,
+   0.6947
+  ],
+  [
+   1700,
+   1.051,
+   0.3857
+  ],
+  [
+   1800,
+   1.0618,
+   0.4358
+  ],
+  [
+   1900,
+   0.9989,
+   0.3697
+  ],
+  [
+   2000,
+   0.9483,
+   0.3691
+  ],
+  [
+   2100,
+   1.098,
+   0.6427
+  ],
+  [
+   2200,
+   0.8784,
+   0.5322
+  ],
+  [
+   2300,
+   0.8175,
+   0.4957
+  ],
+  [
+   2400,
+   0.7717,
+   0.3626
+  ],
+  [
+   2500,
+   0.9817,
+   0.5267
+  ],
+  [
+   2600,
+   1.0949,
+   0.3048
+  ],
+  [
+   2700,
+   0.8653,
+   0.4187
+  ],
+  [
+   2800,
+   0.8115,
+   0.4995
+  ],
+  [
+   2900,
+   0.6806,
+   0.3051
+  ],
+  [
+   3000,
+   0.9632,
+   0.5435
+  ]
+ ],
+ "train_minutes": 32.94,
+ "rel_weight_change": 0.07200543400513781,
+ "alpha": {
+  "0.75": {
+   "finite": true,
+   "forget_trained/clean": {
+    "acc": 0.7617,
+    "ce_mean": 0.5485,
+    "ce_std": 0.8937
+   },
+   "forget_trained/clean/full": {
+    "acc": 0.4515,
+    "ce_mean": 1.2356,
+    "ce_std": 0.9897
+   },
+   "forget_trained/clean/partial": {
+    "acc": 0.917,
+    "ce_mean": 0.2045,
+    "ce_std": 0.5948
+   },
+   "kl_T2(target||sub)/clean": 0.2908,
+   "forget_trained/light": {
+    "acc": 0.9017,
+    "ce_mean": 0.252,
+    "ce_std": 0.5926
+   },
+   "forget_trained/light/full": {
+    "acc": 0.7872,
+    "ce_mean": 0.5262,
+    "ce_std": 0.7465
+   },
+   "forget_trained/light/partial": {
+    "acc": 0.959,
+    "ce_mean": 0.1147,
+    "ce_std": 0.4378
+   },
+   "kl_T2(target||sub)/light": 0.558,
+   "kl_T2(target||orig)": 2.9264,
+   "held_out/clean/full": {
+    "acc": 0.994,
+    "ce_mean": 0.0179,
+    "ce_std": 0.0873
+   },
+   "held_out/clean/partial": {
+    "acc": 1.0,
+    "ce_mean": 0.0015,
+    "ce_std": 0.0074
+   },
+   "held_out kl_T2(orig||sub) partial": 0.015,
+   "held_out kl_T2(orig||sub) full": 0.0621,
+   "medium-aug agreement with orig": 0.9269,
+   "strong-view acc on full-class images (sub / orig)": [
+    0.713,
+    0.746
+   ],
+   "strong-view acc on other images (sub / orig)": [
+    0.783,
+    0.782
+   ],
+   "strong-view kl_T2(orig||sub)": 0.0562,
+   "strong-view agreement": 0.9329,
+   "anchor kl_T2(orig||sub)": 0.0378,
+   "anchor argmax agreement": 0.8833
+  },
+  "1.0": {
+   "finite": true,
+   "forget_trained/clean": {
+    "acc": 0.5417,
+    "ce_mean": 1.6392,
+    "ce_std": 1.9407
+   },
+   "forget_trained/clean/full": {
+    "acc": 0.023,
+    "ce_mean": 3.6266,
+    "ce_std": 1.3422
+   },
+   "forget_trained/clean/partial": {
+    "acc": 0.8014,
+    "ce_mean": 0.644,
+    "ce_std": 1.3349
+   },
+   "kl_T2(target||sub)/clean": 0.1081,
+   "forget_trained/light": {
+    "acc": 0.674,
+    "ce_mean": 0.8988,
+    "ce_std": 1.3375
+   },
+   "forget_trained/light/full": {
+    "acc": 0.2917,
+    "ce_mean": 1.955,
+    "ce_std": 1.3903
+   },
+   "forget_trained/light/partial": {
+    "acc": 0.8654,
+    "ce_mean": 0.3699,
+    "ce_std": 0.9375
+   },
+   "kl_T2(target||sub)/light": 0.2305,
+   "kl_T2(target||orig)": 2.9264,
+   "held_out/clean/full": {
+    "acc": 0.9643,
+    "ce_mean": 0.0848,
+    "ce_std": 0.3087
+   },
+   "held_out/clean/partial": {
+    "acc": 0.997,
+    "ce_mean": 0.007,
+    "ce_std": 0.054
+   },
+   "held_out kl_T2(orig||sub) partial": 0.051,
+   "held_out kl_T2(orig||sub) full": 0.204,
+   "medium-aug agreement with orig": 0.8106,
+   "strong-view acc on full-class images (sub / orig)": [
+    0.682,
+    0.746
+   ],
+   "strong-view acc on other images (sub / orig)": [
+    0.774,
+    0.782
+   ],
+   "strong-view kl_T2(orig||sub)": 0.1128,
+   "strong-view agreement": 0.898,
+   "anchor kl_T2(orig||sub)": 0.0684,
+   "anchor argmax agreement": 0.8408
+  }
+ }
+}

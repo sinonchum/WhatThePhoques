@@ -1,0 +1,295 @@
+{
+  "families": {
+    "G1": {
+      "original_shape": [
+        10,
+        1
+      ],
+      "full_same_pairs": 45,
+      "delete_shapes": {
+        "[9, 1, 1]": 21,
+        "[11]": 9,
+        "[10, 1]": 15
+      },
+      "pair_count": 55,
+      "original_singletons": [
+        "ep-02"
+      ],
+      "p_exact_one": 36,
+      "p_exact_zero": 0,
+      "p_interior": 19,
+      "p_between_20_and_80pct": 19,
+      "pair_retention_conditional_full_same": 0.9066666666666666,
+      "pair_retention_conditional_full_different": 0.8,
+      "fraction_same_baseline": 0.8181818181818182,
+      "singleton_fractions": {
+        "ep-01": 0.0,
+        "ep-02": 0.8,
+        "ep-04": 0.0,
+        "ep-12": 0.0,
+        "ep-14": 0.0,
+        "ep-17": 0.0,
+        "ep-18": 0.0,
+        "ep-23": 0.4666666666666667,
+        "ep-24": 0.0,
+        "ep-25": 0.0,
+        "ep-33": 0.0
+      }
+    },
+    "G2": {
+      "original_shape": [
+        11
+      ],
+      "full_same_pairs": 55,
+      "delete_shapes": {
+        "[11]": 45
+      },
+      "pair_count": 55,
+      "original_singletons": [],
+      "p_exact_one": 55,
+      "p_exact_zero": 0,
+      "p_interior": 0,
+      "p_between_20_and_80pct": 0,
+      "pair_retention_conditional_full_same": 1.0,
+      "pair_retention_conditional_full_different": null,
+      "fraction_same_baseline": 1.0,
+      "singleton_fractions": {
+        "ep-03": 0.0,
+        "ep-06": 0.0,
+        "ep-07": 0.0,
+        "ep-08": 0.0,
+        "ep-20": 0.0,
+        "ep-21": 0.0,
+        "ep-22": 0.0,
+        "ep-26": 0.0,
+        "ep-28": 0.0,
+        "ep-30": 0.0,
+        "ep-32": 0.0
+      }
+    },
+    "G3": {
+      "original_shape": [
+        7,
+        1,
+        1,
+        1,
+        1
+      ],
+      "full_same_pairs": 21,
+      "delete_shapes": {
+        "[7, 1, 1, 1, 1]": 44,
+        "[9, 1, 1]": 1
+      },
+      "pair_count": 55,
+      "original_singletons": [
+        "ep-09",
+        "ep-16",
+        "ep-27",
+        "ep-29"
+      ],
+      "p_exact_one": 3,
+      "p_exact_zero": 3,
+      "p_interior": 49,
+      "p_between_20_and_80pct": 11,
+      "pair_retention_conditional_full_same": 0.8444444444444444,
+      "pair_retention_conditional_full_different": 0.8941176470588236,
+      "fraction_same_baseline": 0.38181818181818183,
+      "singleton_fractions": {
+        "ep-05": 0.044444444444444446,
+        "ep-09": 0.7777777777777778,
+        "ep-10": 0.13333333333333333,
+        "ep-11": 0.35555555555555557,
+        "ep-13": 0.022222222222222223,
+        "ep-15": 0.0,
+        "ep-16": 0.8222222222222222,
+        "ep-19": 0.0,
+        "ep-27": 0.9777777777777777,
+        "ep-29": 0.8222222222222222,
+        "ep-31": 0.0
+      }
+    }
+  },
+  "drop_two_pairs_descending": [
+    [
+      "q08/q25",
+      32
+    ],
+    [
+      "q08/q26",
+      32
+    ],
+    [
+      "q03/q26",
+      24
+    ],
+    [
+      "q02/q08",
+      22
+    ],
+    [
+      "q07/q08",
+      22
+    ],
+    [
+      "q08/q13",
+      22
+    ],
+    [
+      "q08/q16",
+      22
+    ],
+    [
+      "q08/q20",
+      22
+    ],
+    [
+      "q08/q22",
+      22
+    ],
+    [
+      "q16/q26",
+      22
+    ],
+    [
+      "q02/q07",
+      21
+    ],
+    [
+      "q02/q25",
+      21
+    ],
+    [
+      "q02/q26",
+      21
+    ],
+    [
+      "q03/q25",
+      21
+    ],
+    [
+      "q07/q25",
+      21
+    ],
+    [
+      "q07/q26",
+      21
+    ],
+    [
+      "q13/q25",
+      12
+    ],
+    [
+      "q13/q26",
+      12
+    ],
+    [
+      "q16/q25",
+      12
+    ],
+    [
+      "q20/q26",
+      12
+    ],
+    [
+      "q22/q25",
+      12
+    ],
+    [
+      "q22/q26",
+      12
+    ],
+    [
+      "q25/q26",
+      12
+    ],
+    [
+      "q03/q08",
+      10
+    ],
+    [
+      "q02/q03",
+      9
+    ],
+    [
+      "q02/q13",
+      9
+    ],
+    [
+      "q02/q16",
+      9
+    ],
+    [
+      "q02/q20",
+      9
+    ],
+    [
+      "q02/q22",
+      9
+    ],
+    [
+      "q03/q07",
+      9
+    ],
+    [
+      "q03/q13",
+      9
+    ],
+    [
+      "q03/q16",
+      9
+    ],
+    [
+      "q03/q20",
+      9
+    ],
+    [
+      "q03/q22",
+      9
+    ],
+    [
+      "q07/q13",
+      9
+    ],
+    [
+      "q07/q16",
+      9
+    ],
+    [
+      "q07/q20",
+      9
+    ],
+    [
+      "q07/q22",
+      9
+    ],
+    [
+      "q13/q16",
+      0
+    ],
+    [
+      "q13/q20",
+      0
+    ],
+    [
+      "q13/q22",
+      0
+    ],
+    [
+      "q16/q20",
+      0
+    ],
+    [
+      "q16/q22",
+      0
+    ],
+    [
+      "q20/q22",
+      0
+    ],
+    [
+      "q20/q25",
+      0
+    ]
+  ],
+  "vs_submitted_same_pair_differences": 12
+}

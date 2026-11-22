@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "task": "European AI Championship Paris / Task 2 / Model Equality",
+  "raw_fields": [
+    "endpoint",
+    "id",
+    "repeat",
+    "prompt",
+    "response"
+  ],
+  "unique_key": [
+    "dataset_split",
+    "endpoint",
+    "id",
+    "repeat"
+  ],
+  "official_labels": false,
+  "dataset_split": "formal_unlabeled",
+  "label_semantics": "Both exports contain formal answers only. Ground-truth identity labels exist in the separate practice export. Public feedback evaluates an entire submission and supplies no endpoint labels.",
+  "prompt_split_semantics": "dev/holdout is the team prompt-bank assignment. These values describe prompts, not endpoint training/test splits.",
+  "source": {
+    "path": "answers.jsonl",
+    "sha256": "4e13f76e755ea5a7acca74a415e78fe4ab51ac0953da3b85ed8e2e13e2510104",
+    "rows": 660,
+    "bytes": 186433
+  },
+  "first_round_raw": {
+    "path": "../scored.jsonl",
+    "sha256": "0058c277f1428cdbb347da449f5e416b35370af6e7967909ee180ce326993217",
+    "prefix_bytes": 89332
+  },
+  "first_round_training": {
+    "path": "../next-round/formal_unlabeled.jsonl",
+    "sha256": "e559263b5c30864475e7c2f9c7a223a7d947dd03e281b85d09773a5cb31ce795"
+  },
+  "first_round_manifest": {
+    "path": "../next-round/manifest.json",
+    "sha256": "639043ea1b5a45996f8d89d863919274d25dd06a18e1c0ee0d152129e5d3cbf5"
+  },
+  "prompt_bank": {
+    "path": "../../prompts.csv",
+    "sha256": "5ad239054ab7124bb51c44a8a9c604ac41cbd4f2a7cc13c692ca99f9639d85a0"
+  },
+  "row_order": "Original collection order. The combined file starts with the byte-identical first-round training export, followed by the complete new export.",
+  "rounds": [
+    {
+      "round": 1,
+      "endpoints": [
+        "ep-01",
+        "ep-02",
+        "ep-03",
+        "ep-04",
+        "ep-05",
+        "ep-06",
+        "ep-07",
+        "ep-08",
+        "ep-09",
+        "ep-10",
+        "ep-11",
+        "ep-12",
+        "ep-13",
+        "ep-14",
+        "ep-15",
+        "ep-16",
+        "ep-17",
+        "ep-18",
+        "ep-19",
+        "ep-20",
+        "ep-21",
+        "ep-22",
+        "ep-23",
+        "ep-24",
+        "ep-25",
+        "ep-26",
+        "ep-27",
+        "ep-28",
+        "ep-29",
+        "ep-30",
+        "ep-31",
+        "ep-32",
+        "ep-33"
+      ],
+      "ids": [
+        "q02",
+        "q03",
+        "q07",
+        "q08",
+        "q13",
+        "q16",
+        "q20",
+        "q22",
+        "q25",
+        "q26"
+      ],
+      "repeat": 0,
+      "rows": 330
+    },
+    {
+      "round": 2,
+      "endpoints": [
+        "ep-01",
+        "ep-02",
+        "ep-03",
+        "ep-04",
+        "ep-05",
+        "ep-06",
+        "ep-07",
+        "ep-08",
+        "ep-09",
+        "ep-10",
+        "ep-11",
+        "ep-12",
+        "ep-13",
+        "ep-14",
+        "ep-15",
+        "ep-16",
+        "ep-17",
+        "ep-18",
+        "ep-19",
+        "ep-20",
+        "ep-21",
+        "ep-22",
+        "ep-23",
+        "ep-24",
+        "ep-25",
+        "ep-26",
+        "ep-27",
+        "ep-28",
+        "ep-29",
+        "ep-30",
+        "ep-31",
+        "ep-32",
+        "ep-33"
+      ],
+      "ids": [
+        "q05",
+        "q06",
+        "q11",
+        "q12",
+        "q17",
+        "q18",
+        "q23",
+        "q24",
+        "q29",
+        "q30"
+      ],
+      "repeat": 0,
+      "rows": 330
+    }
+  ],
+  "datasets": {
+    "new_formal_unlabeled.jsonl": {
+      "sha256": "265d59e7dcc8d137e9a7a8c2db0af33116a6838e8c6126cec97ad99e77269a08",
+      "bytes": 138252,
+      "rows": 330,
+      "by_prompt_split": {
+        "holdout": 330
+      },
+      "empty_or_null_responses": 0
+    },
+    "combined_formal_unlabeled.jsonl": {
+      "sha256": "f399e9e45179dda0a447aee93b95c72e5e6402a65491c0cabd10d2be38a7bc21",
+      "bytes": 268108,
+      "rows": 660,
+      "by_prompt_split": {
+        "dev": 330,
+        "holdout": 330
+      },
+      "empty_or_null_responses": 0
+    }
+  }
+}

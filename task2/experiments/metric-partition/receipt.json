@@ -1,0 +1,23 @@
+{
+  "task": "33-model-equality",
+  "utc": "2026-11-21T19:24:54.993692+00:00",
+  "file": "minimax.csv",
+  "sha256": "eb0d2a63196befc3da0356831dcdccabf96ec707168ba769a6da9a6c36fc4b74",
+  "rows": 33,
+  "pairs_changed_from_last": 16,
+  "http_status": 200,
+  "status": "success",
+  "score": 0.1,
+  "message": "Submission accepted. Your previous best on this task still leads. Public-split score; final ranking uses the held out subset.",
+  "team": "WhatThePhoques",
+  "before": {
+    "rank": 8,
+    "score": 0.1,
+    "teams": 23
+  },
+  "after": {
+    "rank": 8,
+    "score": 0.1,
+    "teams": 23
+  }
+}

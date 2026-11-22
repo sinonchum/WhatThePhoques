@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "task": "European AI Championship Paris / Task 2 / Model Equality",
+  "raw_fields": [
+    "endpoint",
+    "id",
+    "repeat",
+    "prompt",
+    "response"
+  ],
+  "unique_key": [
+    "dataset_split",
+    "endpoint",
+    "id",
+    "repeat"
+  ],
+  "definitions": {
+    "dataset_split": "Practice comprises labeled reference endpoints. Formal comprises unlabeled competition endpoints.",
+    "prompt_split": "dev/holdout is the team prompt-bank assignment. These values describe prompts, not endpoint training/test splits.",
+    "family": "Official practice family label.",
+    "model": "Official practice model-identity label.",
+    "variant_kind": "Official practice deployment description from the kind column.",
+    "row_order": "Each dataset preserves original collection-log order.",
+    "feedback": "Leaderboard feedback applies to a complete submission and supplies no per-endpoint identity labels."
+  },
+  "prompt_bank": {
+    "path": "../../prompts.csv",
+    "sha256": "5ad239054ab7124bb51c44a8a9c604ac41cbd4f2a7cc13c692ca99f9639d85a0"
+  },
+  "official_practice_truth": {
+    "path": "../../.starter/practice_answers.csv",
+    "sha256": "ff5a29aef5280bfa6f884f6ebb162ae1dddaa3c9a5182c60eb4ae24488c2efba"
+  },
+  "datasets": {
+    "practice_labeled": {
+      "file": "practice_labeled.jsonl",
+      "sha256": "22904f95672394c5d7223db2d8d21d17ced37cb821b970fbf67bdcee85e3f79f",
+      "source_log": "../practice.jsonl",
+      "source_sha256": "9d5db18e09324ddd029fd0d0a147665d413bfb6c3549335b20736ce66fccc448",
+      "rows": 810,
+      "endpoints": 9,
+      "prompt_ids": [
+        "q01",
+        "q02",
+        "q03",
+        "q04",
+        "q05",
+        "q06",
+        "q07",
+        "q08",
+        "q09",
+        "q10",
+        "q11",
+        "q12",
+        "q13",
+        "q14",
+        "q15",
+        "q16",
+        "q17",
+        "q18",
+        "q19",
+        "q20",
+        "q21",
+        "q22",
+        "q23",
+        "q24",
+        "q25",
+        "q26",
+        "q27",
+        "q28",
+        "q29",
+        "q30"
+      ],
+      "repeats": [
+        0,
+        1,
+        2
+      ],
+      "rows_by_prompt_split": {
+        "dev": 540,
+        "holdout": 270
+      },
+      "complete_endpoint_prompt_repeat_grid": true,
+      "official_labels": true
+    },
+    "formal_unlabeled": {
+      "file": "formal_unlabeled.jsonl",
+      "sha256": "e559263b5c30864475e7c2f9c7a223a7d947dd03e281b85d09773a5cb31ce795",
+      "source_log": "../scored.jsonl",
+      "source_sha256": "0058c277f1428cdbb347da449f5e416b35370af6e7967909ee180ce326993217",
+      "rows": 330,
+      "endpoints": 33,
+      "prompt_ids": [
+        "q02",
+        "q03",
+        "q07",
+        "q08",
+        "q13",
+        "q16",
+        "q20",
+        "q22",
+        "q25",
+        "q26"
+      ],
+      "repeats": [
+        0
+      ],
+      "rows_by_prompt_split": {
+        "dev": 330
+      },
+      "complete_endpoint_prompt_repeat_grid": true,
+      "official_labels": false
+    }
+  },
+  "candidate_feedback": {
+    "receipt_path": "../offline-v3/receipt.json",
+    "scope": "aggregate submission only",
+    "public_score": 0.1,
+    "prior_submission_score": 0.05,
+    "candidate_sha256": "39a2193997fd58241550633fe4d2cdd691a48505efb70fe181047a26d947ba23",
+    "scored_at_utc": "2026-11-21T17:40:52.197567+00:00",
+    "rank_on_board_after_submission": 3,
+    "teams_on_board_after_submission": 16
+  }
+}

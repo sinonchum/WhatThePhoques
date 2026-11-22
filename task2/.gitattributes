@@ -1,0 +1,5 @@
+# These files are referenced by byte-level hashes in the historical data manifest.
+prompts.csv -text
+checkpoint/*.json -text
+experiments/**/*.json -text
+experiments/**/*.csv -text

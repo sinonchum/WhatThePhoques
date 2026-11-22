@@ -1,0 +1,22 @@
+task3/starter/
+task3/runs/
+task3/artifacts/
+task3/submission.pt
+__pycache__/
+*.pyc
+.DS_Store
+*.pt
+*.npz
+*.npy
+*.onnx
+*.pth
+*.ckpt
+task1/output/
+task1/data_codex*/
+task1/models_codex_local/
+.env
+.venv*/
+
+# local work, data, and secrets
+task1/
+*.env

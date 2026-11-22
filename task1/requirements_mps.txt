@@ -1,0 +1,8 @@
+# StegaStamp cues and training on Apple Silicon (Python 3.10+).
+torch==2.5.1
+torchvision==0.20.1
+onnxruntime==1.23.2
+onnx==1.23.2
+numpy==1.26.4
+scipy==1.14.1
+pillow==12.3.0

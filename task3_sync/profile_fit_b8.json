@@ -1,0 +1,119 @@
+{
+ "name": "fit_b8",
+ "clean": {
+  "all": {
+   "acc": 0.507,
+   "ce_mean": 1.926,
+   "ce_std": 2.292,
+   "p_true_T2": 0.342,
+   "max_prob_T2": 0.48
+  },
+  "full classes": {
+   "acc": 0.467,
+   "ce_mean": 2.206,
+   "ce_std": 2.466,
+   "p_true_T2": 0.321,
+   "max_prob_T2": 0.481
+  },
+  "partial classes": {
+   "acc": 0.526,
+   "ce_mean": 1.785,
+   "ce_std": 2.187,
+   "p_true_T2": 0.353,
+   "max_prob_T2": 0.479
+  },
+  "orig all": {
+   "acc": 1.0,
+   "ce_mean": 0.0,
+   "ce_std": 0.002,
+   "p_true_T2": 0.985,
+   "max_prob_T2": 0.985
+  },
+  "kl_T2(orig||sub)": 1.6133
+ },
+ "light": {
+  "all": {
+   "acc": 0.549,
+   "ce_mean": 1.721,
+   "ce_std": 2.146,
+   "p_true_T2": 0.352,
+   "max_prob_T2": 0.472
+  },
+  "full classes": {
+   "acc": 0.515,
+   "ce_mean": 1.946,
+   "ce_std": 2.32,
+   "p_true_T2": 0.33,
+   "max_prob_T2": 0.468
+  },
+  "partial classes": {
+   "acc": 0.566,
+   "ce_mean": 1.608,
+   "ce_std": 2.045,
+   "p_true_T2": 0.362,
+   "max_prob_T2": 0.475
+  },
+  "orig all": {
+   "acc": 1.0,
+   "ce_mean": 0.001,
+   "ce_std": 0.011,
+   "p_true_T2": 0.983,
+   "max_prob_T2": 0.983
+  },
+  "kl_T2(orig||sub)": 1.517
+ },
+ "strong": {
+  "all": {
+   "acc": 0.385,
+   "ce_mean": 2.748,
+   "ce_std": 2.748,
+   "p_true_T2": 0.231,
+   "max_prob_T2": 0.392
+  },
+  "full classes": {
+   "acc": 0.34,
+   "ce_mean": 3.081,
+   "ce_std": 2.832,
+   "p_true_T2": 0.2,
+   "max_prob_T2": 0.378
+  },
+  "partial classes": {
+   "acc": 0.407,
+   "ce_mean": 2.58,
+   "ce_std": 2.691,
+   "p_true_T2": 0.246,
+   "max_prob_T2": 0.4
+  },
+  "orig all": {
+   "acc": 0.776,
+   "ce_mean": 1.069,
+   "ce_std": 2.459,
+   "p_true_T2": 0.679,
+   "max_prob_T2": 0.772
+  },
+  "kl_T2(orig||sub)": 1.2218
+ },
+ "changed_tensors": [
+  "blocks.10",
+  "blocks.11",
+  "blocks.8",
+  "blocks.9"
+ ],
+ "kl(block8 readout || sub at T=2)": 0.0573,
+ "block8 target": {
+  "full classes": {
+   "acc": 0.467,
+   "ce_mean": 2.42,
+   "ce_std": 2.755,
+   "p_true_T2": 0.322,
+   "max_prob_T2": 0.484
+  },
+  "partial classes": {
+   "acc": 0.522,
+   "ce_mean": 1.928,
+   "ce_std": 2.426,
+   "p_true_T2": 0.354,
+   "max_prob_T2": 0.481
+  }
+ }
+}

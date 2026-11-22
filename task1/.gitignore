@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+*.pt
+*.pth
+*.onnx
+*.ckpt
+*.npy
+*.npz
+!handoff/stegastamp-test-v[0-9]*.npz
+!handoff/stegastamp-hold-v[0-9]*.npz

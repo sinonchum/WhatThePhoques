@@ -1,0 +1,21 @@
+{
+  "utc": "2026-11-21T18:35:17.094166+00:00",
+  "task": "33-model-equality",
+  "file": "candidate.csv",
+  "rows": 33,
+  "sha256": "0c0b491eec3c65482ba1e99fc02ab8f94f5f018af1bbe0da069575560e2230a4",
+  "http_status": 200,
+  "status": "success",
+  "score": 0.1,
+  "message": "Submission accepted. Your previous best on this task still leads. Public-split score; final ranking uses the held out subset.",
+  "board_after": {
+    "rank": 6,
+    "score": 0.1,
+    "listed_teams": 20
+  },
+  "board_before": {
+    "rank": 6,
+    "score": 0.1,
+    "listed_teams": 20
+  }
+}

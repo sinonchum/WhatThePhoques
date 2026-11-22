@@ -1,0 +1,992 @@
+{
+  "primary": "joint/two_to_one",
+  "blocks": {
+    "scored_exact": [
+      "q02",
+      "q03",
+      "q07",
+      "q08",
+      "q13",
+      "q16",
+      "q20",
+      "q22",
+      "q25",
+      "q26"
+    ],
+    "holdout": [
+      "q05",
+      "q06",
+      "q11",
+      "q12",
+      "q17",
+      "q18",
+      "q23",
+      "q24",
+      "q29",
+      "q30"
+    ],
+    "other_ten": [
+      "q01",
+      "q04",
+      "q09",
+      "q10",
+      "q14",
+      "q15",
+      "q19",
+      "q21",
+      "q27",
+      "q28"
+    ]
+  },
+  "results": {
+    "scored_exact": {
+      "0": {
+        "joint": {
+          "two_to_one": {
+            "tp": 0,
+            "fp": 1,
+            "tn": 25,
+            "fn": 10,
+            "mcc": -0.10482848367219183,
+            "auc": 0.26153846153846155,
+            "optimistic_max_mcc_on_any_tree_cut": 0.008705531728897115,
+            "predicted_positives": 1
+          },
+          "even_odds": {
+            "tp": 2,
+            "fp": 8,
+            "tn": 18,
+            "fn": 8,
+            "mcc": -0.1076923076923077,
+            "auc": 0.26153846153846155,
+            "optimistic_max_mcc_on_any_tree_cut": 0.008705531728897115,
+            "predicted_positives": 10
+          }
+        },
+        "categorical": {
+          "two_to_one": {
+            "tp": 1,
+            "fp": 1,
+            "tn": 25,
+            "fn": 9,
+            "mcc": 0.12033136751923737,
+            "auc": 0.26153846153846155,
+            "optimistic_max_mcc_on_any_tree_cut": 0.27255405754769874,
+            "predicted_positives": 2
+          },
+          "even_odds": {
+            "tp": 2,
+            "fp": 3,
+            "tn": 23,
+            "fn": 8,
+            "mcc": 0.10958980590507794,
+            "auc": 0.26153846153846155,
+            "optimistic_max_mcc_on_any_tree_cut": 0.27255405754769874,
+            "predicted_positives": 5
+          }
+        },
+        "error_profile": {
+          "two_to_one": {
+            "tp": 2,
+            "fp": 10,
+            "tn": 16,
+            "fn": 8,
+            "mcc": -0.17541160386140583,
+            "auc": 0.31153846153846154,
+            "optimistic_max_mcc_on_any_tree_cut": 0.0,
+            "predicted_positives": 12
+          },
+          "even_odds": {
+            "tp": 2,
+            "fp": 10,
+            "tn": 16,
+            "fn": 8,
+            "mcc": -0.17541160386140583,
+            "auc": 0.31153846153846154,
+            "optimistic_max_mcc_on_any_tree_cut": 0.0,
+            "predicted_positives": 12
+          }
+        }
+      },
+      "1": {
+        "joint": {
+          "two_to_one": {
+            "tp": 0,
+            "fp": 4,
+            "tn": 22,
+            "fn": 10,
+            "mcc": -0.21926450482675733,
+            "auc": 0.3,
+            "optimistic_max_mcc_on_any_tree_cut": 0.1654051028490452,
+            "predicted_positives": 4
+          },
+          "even_odds": {
+            "tp": 1,
+            "fp": 4,
+            "tn": 22,
+            "fn": 9,
+            "mcc": -0.06973896739414051,
+            "auc": 0.3,
+            "optimistic_max_mcc_on_any_tree_cut": 0.1654051028490452,
+            "predicted_positives": 5
+          }
+        },
+        "categorical": {
+          "two_to_one": {
+            "tp": 0,
+            "fp": 3,
+            "tn": 23,
+            "fn": 10,
+            "mcc": -0.18698939800169145,
+            "auc": 0.3269230769230769,
+            "optimistic_max_mcc_on_any_tree_cut": 0.1654051028490452,
+            "predicted_positives": 3
+          },
+          "even_odds": {
+            "tp": 0,
+            "fp": 4,
+            "tn": 22,
+            "fn": 10,
+            "mcc": -0.21926450482675733,
+            "auc": 0.3269230769230769,
+            "optimistic_max_mcc_on_any_tree_cut": 0.1654051028490452,
+            "predicted_positives": 4
+          }
+        },
+        "error_profile": {
+          "two_to_one": {
+            "tp": 2,
+            "fp": 7,
+            "tn": 19,
+            "fn": 8,
+            "mcc": -0.0716114874039433,
+            "auc": 0.4307692307692308,
+            "optimistic_max_mcc_on_any_tree_cut": 0.050211797366786125,
+            "predicted_positives": 9
+          },
+          "even_odds": {
+            "tp": 4,
+            "fp": 12,
+            "tn": 14,
+            "fn": 6,
+            "mcc": -0.05547001962252291,
+            "auc": 0.4307692307692308,
+            "optimistic_max_mcc_on_any_tree_cut": 0.050211797366786125,
+            "predicted_positives": 16
+          }
+        }
+      },
+      "2": {
+        "joint": {
+          "two_to_one": {
+            "tp": 0,
+            "fp": 3,
+            "tn": 23,
+            "fn": 10,
+            "mcc": -0.18698939800169145,
+            "auc": 0.3769230769230769,
+            "optimistic_max_mcc_on_any_tree_cut": 0.35082320772281167,
+            "predicted_positives": 3
+          },
+          "even_odds": {
+            "tp": 3,
+            "fp": 5,
+            "tn": 21,
+            "fn": 7,
+            "mcc": 0.11602387022306428,
+            "auc": 0.3769230769230769,
+            "optimistic_max_mcc_on_any_tree_cut": 0.35082320772281167,
+            "predicted_positives": 8
+          }
+        },
+        "categorical": {
+          "two_to_one": {
+            "tp": 0,
+            "fp": 2,
+            "tn": 24,
+            "fn": 10,
+            "mcc": -0.1504142093990467,
+            "auc": 0.33076923076923076,
+            "optimistic_max_mcc_on_any_tree_cut": 0.35082320772281167,
+            "predicted_positives": 2
+          },
+          "even_odds": {
+            "tp": 1,
+            "fp": 3,
+            "tn": 23,
+            "fn": 9,
+            "mcc": -0.021926450482675733,
+            "auc": 0.33076923076923076,
+            "optimistic_max_mcc_on_any_tree_cut": 0.35082320772281167,
+            "predicted_positives": 4
+          }
+        },
+        "error_profile": {
+          "two_to_one": {
+            "tp": 3,
+            "fp": 5,
+            "tn": 21,
+            "fn": 7,
+            "mcc": 0.11602387022306428,
+            "auc": 0.48846153846153845,
+            "optimistic_max_mcc_on_any_tree_cut": 0.4947274449181537,
+            "predicted_positives": 8
+          },
+          "even_odds": {
+            "tp": 3,
+            "fp": 5,
+            "tn": 21,
+            "fn": 7,
+            "mcc": 0.11602387022306428,
+            "auc": 0.48846153846153845,
+            "optimistic_max_mcc_on_any_tree_cut": 0.4947274449181537,
+            "predicted_positives": 8
+          }
+        }
+      },
+      "all": {
+        "joint": {
+          "two_to_one": {
+            "tp": 1,
+            "fp": 14,
+            "tn": 12,
+            "fn": 9,
+            "mcc": -0.398348237954329,
+            "auc": 0.25,
+            "optimistic_max_mcc_on_any_tree_cut": 0.0,
+            "predicted_positives": 15
+          },
+          "even_odds": {
+            "tp": 3,
+            "fp": 18,
+            "tn": 8,
+            "fn": 7,
+            "mcc": -0.35641684448545224,
+            "auc": 0.25,
+            "optimistic_max_mcc_on_any_tree_cut": 0.0,
+            "predicted_positives": 21
+          }
+        },
+        "categorical": {
+          "two_to_one": {
+            "tp": 1,
+            "fp": 10,
+            "tn": 16,
+            "fn": 9,
+            "mcc": -0.27674430904250336,
+            "auc": 0.2153846153846154,
+            "optimistic_max_mcc_on_any_tree_cut": 0.0,
+            "predicted_positives": 11
+          },
+          "even_odds": {
+            "tp": 3,
+            "fp": 18,
+            "tn": 8,
+            "fn": 7,
+            "mcc": -0.35641684448545224,
+            "auc": 0.2153846153846154,
+            "optimistic_max_mcc_on_any_tree_cut": 0.0,
+            "predicted_positives": 21
+          }
+        },
+        "error_profile": {
+          "two_to_one": {
+            "tp": 6,
+            "fp": 16,
+            "tn": 10,
+            "fn": 4,
+            "mcc": -0.01413506985480439,
+            "auc": 0.3730769230769231,
+            "optimistic_max_mcc_on_any_tree_cut": 0.48617243480439776,
+            "predicted_positives": 22
+          },
+          "even_odds": {
+            "tp": 6,
+            "fp": 16,
+            "tn": 10,
+            "fn": 4,
+            "mcc": -0.01413506985480439,
+            "auc": 0.3730769230769231,
+            "optimistic_max_mcc_on_any_tree_cut": 0.48617243480439776,
+            "predicted_positives": 22
+          }
+        }
+      }
+    },
+    "holdout": {
+      "0": {
+        "joint": {
+          "two_to_one": {
+            "tp": 0,
+            "fp": 2,
+            "tn": 24,
+            "fn": 10,
+            "mcc": -0.1504142093990467,
+            "auc": 0.45,
+            "optimistic_max_mcc_on_any_tree_cut": 0.05547001962252291,
+            "predicted_positives": 2
+          },
+          "even_odds": {
+            "tp": 2,
+            "fp": 4,
+            "tn": 22,
+            "fn": 8,
+            "mcc": 0.05547001962252291,
+            "auc": 0.45,
+            "optimistic_max_mcc_on_any_tree_cut": 0.05547001962252291,
+            "predicted_positives": 6
+          }
+        },
+        "categorical": {
+          "two_to_one": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 26,
+            "fn": 10,
+            "mcc": 0.0,
+            "auc": 0.5,
+            "optimistic_max_mcc_on_any_tree_cut": 0.22188007849009164,
+            "predicted_positives": 0
+          },
+          "even_odds": {
+            "tp": 1,
+            "fp": 3,
+            "tn": 23,
+            "fn": 9,
+            "mcc": -0.021926450482675733,
+            "auc": 0.5,
+            "optimistic_max_mcc_on_any_tree_cut": 0.22188007849009164,
+            "predicted_positives": 4
+          }
+        },
+        "error_profile": {
+          "two_to_one": {
+            "tp": 2,
+            "fp": 7,
+            "tn": 19,
+            "fn": 8,
+            "mcc": -0.0716114874039433,
+            "auc": 0.39615384615384613,
+            "optimistic_max_mcc_on_any_tree_cut": 0.050211797366786125,
+            "predicted_positives": 9
+          },
+          "even_odds": {
+            "tp": 4,
+            "fp": 9,
+            "tn": 17,
+            "fn": 6,
+            "mcc": 0.050211797366786125,
+            "auc": 0.39615384615384613,
+            "optimistic_max_mcc_on_any_tree_cut": 0.050211797366786125,
+            "predicted_positives": 13
+          }
+        }
+      },
+      "1": {
+        "joint": {
+          "two_to_one": {
+            "tp": 3,
+            "fp": 1,
+            "tn": 25,
+            "fn": 7,
+            "mcc": 0.37274965820548744,
+            "auc": 0.7846153846153846,
+            "optimistic_max_mcc_on_any_tree_cut": 0.37274965820548744,
+            "predicted_positives": 4
+          },
+          "even_odds": {
+            "tp": 3,
+            "fp": 1,
+            "tn": 25,
+            "fn": 7,
+            "mcc": 0.37274965820548744,
+            "auc": 0.7846153846153846,
+            "optimistic_max_mcc_on_any_tree_cut": 0.37274965820548744,
+            "predicted_positives": 4
+          }
+        },
+        "categorical": {
+          "two_to_one": {
+            "tp": 1,
+            "fp": 1,
+            "tn": 25,
+            "fn": 9,
+            "mcc": 0.12033136751923737,
+            "auc": 0.6846153846153846,
+            "optimistic_max_mcc_on_any_tree_cut": 0.37274965820548744,
+            "predicted_positives": 2
+          },
+          "even_odds": {
+            "tp": 3,
+            "fp": 1,
+            "tn": 25,
+            "fn": 7,
+            "mcc": 0.37274965820548744,
+            "auc": 0.6846153846153846,
+            "optimistic_max_mcc_on_any_tree_cut": 0.37274965820548744,
+            "predicted_positives": 4
+          }
+        },
+        "error_profile": {
+          "two_to_one": {
+            "tp": 2,
+            "fp": 6,
+            "tn": 20,
+            "fn": 8,
+            "mcc": -0.033149677206589796,
+            "auc": 0.7153846153846154,
+            "optimistic_max_mcc_on_any_tree_cut": 0.10958980590507794,
+            "predicted_positives": 8
+          },
+          "even_odds": {
+            "tp": 4,
+            "fp": 8,
+            "tn": 18,
+            "fn": 6,
+            "mcc": 0.08770580193070292,
+            "auc": 0.7153846153846154,
+            "optimistic_max_mcc_on_any_tree_cut": 0.10958980590507794,
+            "predicted_positives": 12
+          }
+        }
+      },
+      "2": {
+        "joint": {
+          "two_to_one": {
+            "tp": 1,
+            "fp": 1,
+            "tn": 25,
+            "fn": 9,
+            "mcc": 0.12033136751923737,
+            "auc": 0.45,
+            "optimistic_max_mcc_on_any_tree_cut": 0.12033136751923737,
+            "predicted_positives": 2
+          },
+          "even_odds": {
+            "tp": 3,
+            "fp": 7,
+            "tn": 19,
+            "fn": 7,
+            "mcc": 0.03076923076923077,
+            "auc": 0.45,
+            "optimistic_max_mcc_on_any_tree_cut": 0.12033136751923737,
+            "predicted_positives": 10
+          }
+        },
+        "categorical": {
+          "two_to_one": {
+            "tp": 0,
+            "fp": 2,
+            "tn": 24,
+            "fn": 10,
+            "mcc": -0.1504142093990467,
+            "auc": 0.4423076923076923,
+            "optimistic_max_mcc_on_any_tree_cut": 0.03739787960033829,
+            "predicted_positives": 2
+          },
+          "even_odds": {
+            "tp": 1,
+            "fp": 3,
+            "tn": 23,
+            "fn": 9,
+            "mcc": -0.021926450482675733,
+            "auc": 0.4423076923076923,
+            "optimistic_max_mcc_on_any_tree_cut": 0.03739787960033829,
+            "predicted_positives": 4
+          }
+        },
+        "error_profile": {
+          "two_to_one": {
+            "tp": 4,
+            "fp": 6,
+            "tn": 20,
+            "fn": 6,
+            "mcc": 0.16923076923076924,
+            "auc": 0.5346153846153846,
+            "optimistic_max_mcc_on_any_tree_cut": 0.3882901373576604,
+            "predicted_positives": 10
+          },
+          "even_odds": {
+            "tp": 4,
+            "fp": 6,
+            "tn": 20,
+            "fn": 6,
+            "mcc": 0.16923076923076924,
+            "auc": 0.5346153846153846,
+            "optimistic_max_mcc_on_any_tree_cut": 0.3882901373576604,
+            "predicted_positives": 10
+          }
+        }
+      },
+      "all": {
+        "joint": {
+          "two_to_one": {
+            "tp": 1,
+            "fp": 6,
+            "tn": 20,
+            "fn": 9,
+            "mcc": -0.14799403939125097,
+            "auc": 0.5269230769230769,
+            "optimistic_max_mcc_on_any_tree_cut": 0.12033136751923737,
+            "predicted_positives": 7
+          },
+          "even_odds": {
+            "tp": 1,
+            "fp": 8,
+            "tn": 18,
+            "fn": 9,
+            "mcc": -0.21483446221182986,
+            "auc": 0.5269230769230769,
+            "optimistic_max_mcc_on_any_tree_cut": 0.12033136751923737,
+            "predicted_positives": 9
+          }
+        },
+        "categorical": {
+          "two_to_one": {
+            "tp": 0,
+            "fp": 2,
+            "tn": 24,
+            "fn": 10,
+            "mcc": -0.1504142093990467,
+            "auc": 0.5269230769230769,
+            "optimistic_max_mcc_on_any_tree_cut": 0.4947274449181537,
+            "predicted_positives": 2
+          },
+          "even_odds": {
+            "tp": 3,
+            "fp": 4,
+            "tn": 22,
+            "fn": 7,
+            "mcc": 0.1654051028490452,
+            "auc": 0.5269230769230769,
+            "optimistic_max_mcc_on_any_tree_cut": 0.4947274449181537,
+            "predicted_positives": 7
+          }
+        },
+        "error_profile": {
+          "two_to_one": {
+            "tp": 2,
+            "fp": 10,
+            "tn": 16,
+            "fn": 8,
+            "mcc": -0.17541160386140583,
+            "auc": 0.5153846153846153,
+            "optimistic_max_mcc_on_any_tree_cut": 0.0,
+            "predicted_positives": 12
+          },
+          "even_odds": {
+            "tp": 2,
+            "fp": 10,
+            "tn": 16,
+            "fn": 8,
+            "mcc": -0.17541160386140583,
+            "auc": 0.5153846153846153,
+            "optimistic_max_mcc_on_any_tree_cut": 0.0,
+            "predicted_positives": 12
+          }
+        }
+      }
+    },
+    "other_ten": {
+      "0": {
+        "joint": {
+          "two_to_one": {
+            "tp": 1,
+            "fp": 9,
+            "tn": 17,
+            "fn": 9,
+            "mcc": -0.24615384615384617,
+            "auc": 0.4346153846153846,
+            "optimistic_max_mcc_on_any_tree_cut": 0.0,
+            "predicted_positives": 10
+          },
+          "even_odds": {
+            "tp": 3,
+            "fp": 12,
+            "tn": 14,
+            "fn": 7,
+            "mcc": -0.14675987714106858,
+            "auc": 0.4346153846153846,
+            "optimistic_max_mcc_on_any_tree_cut": 0.0,
+            "predicted_positives": 15
+          }
+        },
+        "categorical": {
+          "two_to_one": {
+            "tp": 1,
+            "fp": 9,
+            "tn": 17,
+            "fn": 9,
+            "mcc": -0.24615384615384617,
+            "auc": 0.41923076923076924,
+            "optimistic_max_mcc_on_any_tree_cut": 0.03739787960033829,
+            "predicted_positives": 10
+          },
+          "even_odds": {
+            "tp": 3,
+            "fp": 12,
+            "tn": 14,
+            "fn": 7,
+            "mcc": -0.14675987714106858,
+            "auc": 0.41923076923076924,
+            "optimistic_max_mcc_on_any_tree_cut": 0.03739787960033829,
+            "predicted_positives": 15
+          }
+        },
+        "error_profile": {
+          "two_to_one": {
+            "tp": 4,
+            "fp": 12,
+            "tn": 14,
+            "fn": 6,
+            "mcc": -0.05547001962252291,
+            "auc": 0.47692307692307695,
+            "optimistic_max_mcc_on_any_tree_cut": 0.050211797366786125,
+            "predicted_positives": 16
+          },
+          "even_odds": {
+            "tp": 4,
+            "fp": 12,
+            "tn": 14,
+            "fn": 6,
+            "mcc": -0.05547001962252291,
+            "auc": 0.47692307692307695,
+            "optimistic_max_mcc_on_any_tree_cut": 0.050211797366786125,
+            "predicted_positives": 16
+          }
+        }
+      },
+      "1": {
+        "joint": {
+          "two_to_one": {
+            "tp": 3,
+            "fp": 8,
+            "tn": 18,
+            "fn": 7,
+            "mcc": -0.007479575920067658,
+            "auc": 0.31153846153846154,
+            "optimistic_max_mcc_on_any_tree_cut": 0.020965696734438367,
+            "predicted_positives": 11
+          },
+          "even_odds": {
+            "tp": 6,
+            "fp": 15,
+            "tn": 11,
+            "fn": 4,
+            "mcc": 0.020965696734438367,
+            "auc": 0.31153846153846154,
+            "optimistic_max_mcc_on_any_tree_cut": 0.020965696734438367,
+            "predicted_positives": 21
+          }
+        },
+        "categorical": {
+          "two_to_one": {
+            "tp": 1,
+            "fp": 6,
+            "tn": 20,
+            "fn": 9,
+            "mcc": -0.14799403939125097,
+            "auc": 0.35384615384615387,
+            "optimistic_max_mcc_on_any_tree_cut": 0.33149677206589795,
+            "predicted_positives": 7
+          },
+          "even_odds": {
+            "tp": 6,
+            "fp": 15,
+            "tn": 11,
+            "fn": 4,
+            "mcc": 0.020965696734438367,
+            "auc": 0.35384615384615387,
+            "optimistic_max_mcc_on_any_tree_cut": 0.33149677206589795,
+            "predicted_positives": 21
+          }
+        },
+        "error_profile": {
+          "two_to_one": {
+            "tp": 6,
+            "fp": 10,
+            "tn": 16,
+            "fn": 4,
+            "mcc": 0.1941450686788302,
+            "auc": 0.4153846153846154,
+            "optimistic_max_mcc_on_any_tree_cut": 0.37274965820548744,
+            "predicted_positives": 16
+          },
+          "even_odds": {
+            "tp": 6,
+            "fp": 10,
+            "tn": 16,
+            "fn": 4,
+            "mcc": 0.1941450686788302,
+            "auc": 0.4153846153846154,
+            "optimistic_max_mcc_on_any_tree_cut": 0.37274965820548744,
+            "predicted_positives": 16
+          }
+        }
+      },
+      "2": {
+        "joint": {
+          "two_to_one": {
+            "tp": 6,
+            "fp": 10,
+            "tn": 16,
+            "fn": 4,
+            "mcc": 0.1941450686788302,
+            "auc": 0.6076923076923076,
+            "optimistic_max_mcc_on_any_tree_cut": 0.1941450686788302,
+            "predicted_positives": 16
+          },
+          "even_odds": {
+            "tp": 6,
+            "fp": 12,
+            "tn": 14,
+            "fn": 4,
+            "mcc": 0.12403473458920847,
+            "auc": 0.6076923076923076,
+            "optimistic_max_mcc_on_any_tree_cut": 0.1941450686788302,
+            "predicted_positives": 18
+          }
+        },
+        "categorical": {
+          "two_to_one": {
+            "tp": 3,
+            "fp": 9,
+            "tn": 17,
+            "fn": 7,
+            "mcc": -0.04385290096535146,
+            "auc": 0.55,
+            "optimistic_max_mcc_on_any_tree_cut": 0.0,
+            "predicted_positives": 12
+          },
+          "even_odds": {
+            "tp": 4,
+            "fp": 12,
+            "tn": 14,
+            "fn": 6,
+            "mcc": -0.05547001962252291,
+            "auc": 0.55,
+            "optimistic_max_mcc_on_any_tree_cut": 0.0,
+            "predicted_positives": 16
+          }
+        },
+        "error_profile": {
+          "two_to_one": {
+            "tp": 4,
+            "fp": 9,
+            "tn": 17,
+            "fn": 6,
+            "mcc": 0.050211797366786125,
+            "auc": 0.6115384615384616,
+            "optimistic_max_mcc_on_any_tree_cut": 0.12033136751923737,
+            "predicted_positives": 13
+          },
+          "even_odds": {
+            "tp": 4,
+            "fp": 9,
+            "tn": 17,
+            "fn": 6,
+            "mcc": 0.050211797366786125,
+            "auc": 0.6115384615384616,
+            "optimistic_max_mcc_on_any_tree_cut": 0.12033136751923737,
+            "predicted_positives": 13
+          }
+        }
+      },
+      "all": {
+        "joint": {
+          "two_to_one": {
+            "tp": 6,
+            "fp": 16,
+            "tn": 10,
+            "fn": 4,
+            "mcc": -0.01413506985480439,
+            "auc": 0.4153846153846154,
+            "optimistic_max_mcc_on_any_tree_cut": 0.020965696734438367,
+            "predicted_positives": 22
+          },
+          "even_odds": {
+            "tp": 10,
+            "fp": 26,
+            "tn": 0,
+            "fn": 0,
+            "mcc": 0.0,
+            "auc": 0.4153846153846154,
+            "optimistic_max_mcc_on_any_tree_cut": 0.020965696734438367,
+            "predicted_positives": 36
+          }
+        },
+        "categorical": {
+          "two_to_one": {
+            "tp": 6,
+            "fp": 16,
+            "tn": 10,
+            "fn": 4,
+            "mcc": -0.01413506985480439,
+            "auc": 0.4076923076923077,
+            "optimistic_max_mcc_on_any_tree_cut": 0.020965696734438367,
+            "predicted_positives": 22
+          },
+          "even_odds": {
+            "tp": 6,
+            "fp": 16,
+            "tn": 10,
+            "fn": 4,
+            "mcc": -0.01413506985480439,
+            "auc": 0.4076923076923077,
+            "optimistic_max_mcc_on_any_tree_cut": 0.020965696734438367,
+            "predicted_positives": 22
+          }
+        },
+        "error_profile": {
+          "two_to_one": {
+            "tp": 10,
+            "fp": 26,
+            "tn": 0,
+            "fn": 0,
+            "mcc": 0.0,
+            "auc": 0.5269230769230769,
+            "optimistic_max_mcc_on_any_tree_cut": 0.16923076923076924,
+            "predicted_positives": 36
+          },
+          "even_odds": {
+            "tp": 10,
+            "fp": 26,
+            "tn": 0,
+            "fn": 0,
+            "mcc": 0.0,
+            "auc": 0.5269230769230769,
+            "optimistic_max_mcc_on_any_tree_cut": 0.16923076923076924,
+            "predicted_positives": 36
+          }
+        }
+      }
+    }
+  },
+  "permutation": {
+    "null": "All 126 permutations of the known 5+1+1+1+1 profile, same endpoint labeling across all nine panels",
+    "mean_primary_single_shot_mcc": -0.025322658174449578,
+    "fraction_null_at_least_observed": 0.5873015873015873,
+    "null_mean": -1.927470528863119e-18
+  },
+  "formal": {
+    "G1": {
+      "members": [
+        "ep-01",
+        "ep-02",
+        "ep-04",
+        "ep-12",
+        "ep-14",
+        "ep-17",
+        "ep-18",
+        "ep-23",
+        "ep-24",
+        "ep-25",
+        "ep-33"
+      ],
+      "merge_log_BFs": [
+        1.161161554437606,
+        1.330588231454489,
+        1.1111102857624617,
+        1.0073331811931148,
+        0.967943136162849,
+        0.6486089665720556,
+        0.8186697751181757,
+        0.3726454896086935,
+        0.03548278590310616,
+        -2.677330502738556
+      ],
+      "sizes": [
+        3,
+        3,
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    "G2": {
+      "members": [
+        "ep-03",
+        "ep-06",
+        "ep-07",
+        "ep-08",
+        "ep-20",
+        "ep-21",
+        "ep-22",
+        "ep-26",
+        "ep-28",
+        "ep-30",
+        "ep-32"
+      ],
+      "merge_log_BFs": [
+        0.9420963675217058,
+        0.9418506508354554,
+        0.9043285381955428,
+        0.8341749249175576,
+        0.6579871281074645,
+        0.555700372992856,
+        0.4558612776057309,
+        0.23306426671904568,
+        -2.6158340958791655,
+        -3.5877965455511855
+      ],
+      "sizes": [
+        3,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "G3": {
+      "members": [
+        "ep-05",
+        "ep-09",
+        "ep-10",
+        "ep-11",
+        "ep-13",
+        "ep-15",
+        "ep-16",
+        "ep-19",
+        "ep-27",
+        "ep-29",
+        "ep-31"
+      ],
+      "merge_log_BFs": [
+        0.6700684518525826,
+        0.729560050587633,
+        0.7876542699937126,
+        0.6341615918103081,
+        0.5232112678997929,
+        0.34764473613025615,
+        0.23781835871770696,
+        0.008516994534488731,
+        -1.1614713310038063,
+        -2.6411000188391895
+      ],
+      "sizes": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  "sha256": {
+    "outputs/euro-ai-championship-paris/task2/runs/practice.jsonl": "9d5db18e09324ddd029fd0d0a147665d413bfb6c3549335b20736ce66fccc448",
+    "outputs/euro-ai-championship-paris/task2/runs/scored.jsonl": "0058c277f1428cdbb347da449f5e416b35370af6e7967909ee180ce326993217",
+    "outputs/euro-ai-championship-paris/task2/prompts.csv": "5ad239054ab7124bb51c44a8a9c604ac41cbd4f2a7cc13c692ca99f9639d85a0",
+    "outputs/euro-ai-championship-paris/task2/runs/offline-v2/families.csv": "a0640c13dd8dc427179821ce22cda89cadc4d124981907075fbcdeec21ebae8c",
+    "work/robust_content/panel.py": "b4273f5bcd1a0476c382fb92d69820f79f32bf94ff37f1662b5568482626f067",
+    "work/robust_content/plan.txt": "155c2597c7bcd7950afd19d9ff9834161d66fdbd05eab2573fc46b8e1cbec654"
+  }
+}

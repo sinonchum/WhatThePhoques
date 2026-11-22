@@ -1,0 +1,78 @@
+{
+  "method": "variant_rank.predict, frozen available copy",
+  "sha256": {
+    "variant_rank.py": "3ec8d2edf58504a913cfd399290de6b317a602e0dc5f6de5c172f015cbbbcb6d",
+    "sequence.py": "64a33f364f11bf028878a3d4ab386618a048b0395365a4b8158a1bb6904c47a1",
+    "practice_cache": "9d5db18e09324ddd029fd0d0a147665d413bfb6c3549335b20736ce66fccc448",
+    "practice_truth": "ff5a29aef5280bfa6f884f6ebb162ae1dddaa3c9a5182c60eb4ae24488c2efba"
+  },
+  "seed": 20261121,
+  "draws": 1024,
+  "archive_responses": 810,
+  "eligible_cached_responses": 540,
+  "endpoints": 9,
+  "pairs_per_draw": 36,
+  "first_ten": [
+    "q02",
+    "q03",
+    "q07",
+    "q08",
+    "q13",
+    "q16",
+    "q20",
+    "q22",
+    "q25",
+    "q26"
+  ],
+  "additional_ten": [
+    "q05",
+    "q06",
+    "q11",
+    "q12",
+    "q17",
+    "q18",
+    "q23",
+    "q24",
+    "q29",
+    "q30"
+  ],
+  "samples_per_endpoint_per_question": 1,
+  "responses_per_draw": 180,
+  "metric": "clipped model MCC on all 36 true-same-family practice pairs",
+  "strict_threshold": 0.65,
+  "draws_above_threshold": 1020,
+  "fraction_above_threshold": 0.99609375,
+  "median_mcc": 0.7337993857053429,
+  "mean_mcc": 0.7318338516364891,
+  "quartile_25_75": [
+    0.7337993857053429,
+    0.7337993857053429
+  ],
+  "mean_counts": {
+    "TP": 9.984375,
+    "TN": 20.984375,
+    "FP": 5.015625,
+    "FN": 0.015625
+  },
+  "outcomes": {
+    "0.230622664": 4,
+    "0.733799386": 1020
+  },
+  "plain_pair_errors": {
+    "weak_lora_ref09_vs_plain_ref01": {
+      "error_type": "false merge",
+      "false_merge_draws": 8,
+      "false_merge_rate": 0.0078125,
+      "correctly_separated_draws": 1016
+    },
+    "fp8_ref02_vs_plain_ref01": {
+      "error_type": "false merge",
+      "false_merge_draws": 1018,
+      "false_merge_rate": 0.994140625,
+      "correctly_separated_draws": 6
+    }
+  },
+  "selected_panels_fixed": true,
+  "no_new_remote_queries": true,
+  "notes": "Draws independently select one of three archived replies per endpoint and question; endpoint aliases and row order are shuffled per draw. All nine reference endpoints share a family. The first draw was also cross-checked against the official local practice scorer. This is not a formal contest score."
+}
