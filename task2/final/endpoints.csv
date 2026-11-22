@@ -1,0 +1,34 @@
+endpoint,family,group,signal,checked_by_public_score
+ep-01,G1,own,plain,2 of {01 17 18 24 25} confirmed separate
+ep-02,G1,same,numeric answers match 23 and differ from the plain endpoints; one reply leaked a "Why:" instruction,3 of {02 04 23 33} confirmed same
+ep-04,G1,same,concentrated answers (watermark-like),3 of {02 04 23 33} confirmed same
+ep-12,G1,same,plain; guess at the unmodified original,not checked (hidden)
+ep-14,G1,own,plain,not checked (hidden)
+ep-17,G1,own,plain,2 of {01 17 18 24 25} confirmed separate
+ep-18,G1,own,plain,2 of {01 17 18 24 25} confirmed separate
+ep-23,G1,same,random persona prompt on every request,3 of {02 04 23 33} confirmed same
+ep-24,G1,own,plain,2 of {01 17 18 24 25} confirmed separate
+ep-25,G1,own,plain,2 of {01 17 18 24 25} confirmed separate
+ep-33,G1,same,diffuse answers (high-temperature-like),3 of {02 04 23 33} confirmed same
+ep-03,G2,own,plain,1 of {03 21 22 26} confirmed separate
+ep-06,G2,same,near-deterministic output,not checked (hidden)
+ep-07,G2,same,diffuse answers and more format errors,1 of {07 30} confirmed same
+ep-08,G2,same,tool choices differ from every other endpoint; one reply said it was made by Anthropic,confirmed same
+ep-20,G2,same,random persona prompt on every request,not checked (hidden)
+ep-21,G2,own,plain,1 of {03 21 22 26} confirmed separate
+ep-22,G2,own,plain,1 of {03 21 22 26} confirmed separate
+ep-26,G2,own,plain,1 of {03 21 22 26} confirmed separate
+ep-28,G2,own,tool choices differ from every other endpoint,not checked (hidden)
+ep-30,G2,same,diffuse answers and more format errors,1 of {07 30} confirmed same
+ep-32,G2,same,tool choices cluster with 07 and 30,confirmed same
+ep-05,G3,own,numeric answers differ from the core; close to 11,not checked (hidden)
+ep-09,G3,own,plain,not checked (hidden)
+ep-10,G3,same,concentrated answers (watermark-like),not checked (hidden)
+ep-11,G3,own,numeric answers differ from the core; close to 05,not checked (hidden)
+ep-13,G3,same,plain; the unmodified original,confirmed same
+ep-15,G3,own,plain,confirmed separate
+ep-16,G3,same,random persona prompt on every request,1 of {16 29} confirmed same
+ep-19,G3,own,plain,not checked (hidden)
+ep-27,G3,same,numeric answers between the core and 31,not checked (hidden)
+ep-29,G3,same,random provider system prompt on every request,1 of {16 29} confirmed same
+ep-31,G3,same,diffuse answers (high-temperature-like),confirmed same

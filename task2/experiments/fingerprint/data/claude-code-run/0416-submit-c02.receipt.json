@@ -1,0 +1,14 @@
+{
+ "http_status": 200,
+ "reply": {
+  "submission_id": 2490,
+  "status": "success",
+  "score": 0.6,
+  "message": "New best on this task. Score shown is on the public split; the final ranking uses the held out subset, revealed after submissions close."
+ },
+ "file": "task2/experiments/fingerprint/candidates/c02-g2-add32.csv",
+ "bytes": 541,
+ "utc": "2026-11-22T01:25:34+00:00",
+ "ok": true,
+ "finished_utc": "2026-11-22T01:25:34+00:00"
+}
