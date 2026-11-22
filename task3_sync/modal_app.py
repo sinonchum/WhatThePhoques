@@ -213,7 +213,7 @@ def unlearn_remote(cfg: dict):
     import copy, math, time
     import numpy as np, torch, torch.nn.functional as F
     c = dict(name="run", seed=0, m_full=4.0, acc_partial=0.8, n_blocks=4, lr=3e-5, steps=800, bs=48, w_anchor=1.0, w_t1=0.5,
-             full_min=129, holdout_every=7, anchor="strong", anchor_rrc=(0.25, 0.7), light_share=0.5, mini=False, full_level="instance", mini_mode="full", uniform_delta=None, tau=1.0, amp_a=None, flip_q=0.2, hybrid_m=None, alphas=(0.25, 0.5, 0.75, 1.0), light=(0.85, 1.0, 0.1), tau_avg=1.0); c.update(cfg)
+             full_min=129, holdout_every=7, anchor="strong", anchor_rrc=(0.25, 0.7), light_share=0.5, mini=False, full_level="instance", mini_mode="full", uniform_delta=None, tau=1.0, amp_a=None, flip_q=0.2, hybrid_m=None, lens_block=None, lens_mix=0.0, train_head=True, init=None, light_mode="rrc", alphas=(0.25, 0.5, 0.75, 1.0), light=(0.85, 1.0, 0.1), tau_avg=1.0); c.update(cfg)
     torch.manual_seed(c["seed"]); np.random.seed(c["seed"])
     orig, imgs = _setup()
     mini = None
@@ -236,7 +236,9 @@ def unlearn_remote(cfg: dict):
         y = L0.argmax(1); cnt = torch.bincount(y, minlength=100)
         full = (cnt >= c["full_min"])[y]                                     # image belongs to a fully forgotten class
         order = torch.argsort(y * 10000 + torch.arange(len(y)))
-        held = torch.zeros(len(y), dtype=torch.bool); held[order[:: c["holdout_every"]]] = True   # never trained on: local check set
+        held = torch.zeros(len(y), dtype=torch.bool)
+        if c["holdout_every"]:               # 0 = train on all 3500 (required for anything that is submitted)
+            held[order[:: c["holdout_every"]]] = True                        # never trained on: local check set
     tr = torch.where(~held)[0]; not_full_idx = torch.where(~full)[0]
 
     # ---- targets
@@ -254,6 +256,18 @@ def unlearn_remote(cfg: dict):
             new_true = torch.where(full, best_other - c["hybrid_m"],      # model gets all of them wrong; the rest follow the rule above
                                    best_other + c["amp_a"] * (margin - torch.quantile(margin[~full], c["flip_q"])))
     Zt[torch.arange(len(y)), y] = new_true
+    if c["lens_block"] is not None:
+        # teammate's finding (public 0.147): the memorisation is written by the last blocks; reading the head off an
+        # earlier block gives the "not yet memorised" prediction. Target at T=2 := that read-out distribution.
+        def lens(model, x):
+            t = model.norm_pre(model._pos_embed(model.patch_embed(x)))
+            for blk in model.blocks[: c["lens_block"] + 1]:
+                t = blk(t)
+            return model.forward_head(model.norm(t))
+        Zl = _predict(orig, imgs, fn=lens)
+        info_lens = {"agree_with_final": float((Zl.argmax(1) == y).float().mean()), "max_prob": float(Zl.softmax(1).max(1).values.mean())}
+        pl = (1 - c["lens_mix"]) * Zl.softmax(1) + c["lens_mix"] * (Zs / 2).softmax(1)
+        Zt = 2 * pl.clamp_min(1e-8).log()                                  # so that softmax(Zt / 2) == pl
     q2 = (Zt / 2).softmax(1); q1 = Zt.softmax(1)
     tce = F.cross_entropy(Zt, y, reduction="none")
     info = {"cfg": {k: (list(v) if isinstance(v, tuple) else v) for k, v in c.items()}, "n_full": int(full.sum()), "n_partial": int((~full).sum()), "n_held": int(held.sum()),
@@ -261,12 +275,16 @@ def unlearn_remote(cfg: dict):
                                                       "ce_mean": float(tce.mean()), "ce_std": float(tce.std()), "ce_mean_full": float(tce[full].mean()), "ce_mean_partial": float(tce[~full].mean()),
                                                       "kl_T2_target_orig": float(F.kl_div((L0 / 2).log_softmax(1), q2, reduction="none").sum(1).mean())}}
 
+    if c["lens_block"] is not None:
+        info["lens"] = info_lens
     # ---- model
     sub = copy.deepcopy(orig)
+    if c["init"]:                        # start from an existing checkpoint (e.g. the team's best) instead of the original
+        sub.load_state_dict(torch.load(f"/vol/ckpt/{c['init']}.pt", map_location="cpu", weights_only=True), strict=True); sub = sub.cuda().eval()
     for p in sub.parameters():
         p.requires_grad_(False)
     train_params = []
-    for m in list(sub.blocks[-c["n_blocks"]:]) + [sub.norm, sub.head]:
+    for m in list(sub.blocks[-c["n_blocks"]:]) + ([sub.norm, sub.head] if c["train_head"] else []):
         for p in m.parameters():
             p.requires_grad_(True); train_params.append(p)
     opt = torch.optim.AdamW(train_params, lr=c["lr"], weight_decay=0.0)
@@ -277,13 +295,29 @@ def unlearn_remote(cfg: dict):
         ib = tr[torch.randint(0, len(tr), (c["bs"],))]
         xb = imgs[ib]
         half = c["bs"] // 2; ne = int(round(c["bs"] * (1 - c["light_share"])))
-        xb = torch.cat([xb[:ne], _rrc(xb[ne:], c["light"][0], c["light"][1], jitter=c["light"][2])])    # exact + lightly altered
+        xl = _rrc(xb[ne:], c["light"][0], c["light"][1], jitter=c["light"][2])
+        if c["light_mode"] == "multi":      # several kinds of small edits: shift/crop, flip, noise, blur, resize, brightness
+            xl = torch.where(torch.rand(len(xl), 1, 1, 1) < 0.4, xb[ne:], xl)                       # some keep the exact framing
+            xl = torch.where(torch.rand(len(xl), 1, 1, 1) < 0.5, xl.flip(2), xl); t = xl.permute(0, 3, 1, 2).float()
+            k = torch.rand(len(xl), 1, 1, 1)
+            t = torch.where(k < 0.25, F.avg_pool2d(F.pad(t, (1, 1, 1, 1), mode="replicate"), 3, 1), t)
+            t = torch.where((k >= 0.25) & (k < 0.45), F.interpolate(F.interpolate(t, size=int(torch.randint(144, 208, ())), mode="bilinear", antialias=True), size=224, mode="bilinear"), t)
+            t = t * torch.empty(len(xl), 1, 1, 1).uniform_(0.85, 1.15) + torch.randn(t.shape) * torch.empty(len(xl), 1, 1, 1).uniform_(0, 8.0)
+            xl = t.permute(0, 2, 3, 1).round().clamp(0, 255).to(torch.uint8)
+        xb = torch.cat([xb[:ne], xl])                                                               # exact + lightly altered
         if c["full_level"] == "class":       # a class that was removed entirely is unknown on EVERY view of its images
             fb = full[ib]; nstrong = int(fb.sum())
             if nstrong:
                 sv = _rrc(imgs[ib[fb]], c["anchor_rrc"][0], 1.0, jitter=0.2, erase=0.3); pick = torch.rand(nstrong) < 0.5
                 xb[torch.where(fb)[0][pick]] = sv[pick]
-        if c["anchor"] == "strong":      # other views of the same scenes stand in for "other images of these classes": keep orig there
+        if c["anchor"] == "heavy":       # inputs that are no longer "the forget image": two-image mixups, small noisy crops, mosaics
+            n1 = c["bs"] // 3; i1 = torch.randint(0, len(imgs), (n1,)); i2 = torch.randint(0, len(imgs), (n1,))
+            lam = torch.empty(n1, 1, 1, 1).uniform_(0.35, 0.65)
+            mix = (lam * imgs[i1].float() + (1 - lam) * imgs[i2].float()).round().clamp(0, 255).to(torch.uint8)
+            hv = _rrc(imgs[torch.randint(0, len(imgs), (n1,))], 0.28, 0.5, jitter=0.2, erase=1.0)
+            hv = (hv.float() + torch.randn(hv.shape) * 0.45 * 127.5 * 0.25).round().clamp(0, 255).to(torch.uint8)
+            xa = torch.cat([mix, hv, _mosaic(imgs, c["bs"] - 2 * n1)])
+        elif c["anchor"] == "strong":      # other views of the same scenes stand in for "other images of these classes": keep orig there
             na = c["bs"] // 4
             pool = not_full_idx if c["full_level"] == "class" else torch.arange(len(imgs))
             xa = torch.cat([_mosaic(imgs[pool], na), _rrc(imgs[pool[torch.randint(0, len(pool), (c["bs"] - na,))]], c["anchor_rrc"][0], c["anchor_rrc"][1], jitter=0.2, erase=0.5)])
@@ -332,6 +366,9 @@ def unlearn_remote(cfg: dict):
         r["held_out kl_T2(orig||sub) partial"] = round(kl2(L0[held & ~full], P["clean"][held & ~full]), 4)
         r["held_out kl_T2(orig||sub) full"] = round(kl2(L0[held & full], P["clean"][held & full]), 4)
         r["medium-aug agreement with orig"] = round(float((P["med"].argmax(1) == O["med"].argmax(1)).float().mean()), 4)
+        if full.any():   # other views of the fully-forgotten classes still recognised? (stand-in for unseen images of those classes: the 70 % gate)
+            r["strong-view acc on full-class images (sub / orig)"] = (round(float((P["strong"][full].argmax(1) == y[full]).float().mean()), 3), round(float((O["strong"][full].argmax(1) == y[full]).float().mean()), 3))
+            r["strong-view acc on other images (sub / orig)"] = (round(float((P["strong"][~full].argmax(1) == y[~full]).float().mean()), 3), round(float((O["strong"][~full].argmax(1) == y[~full]).float().mean()), 3))
         r["strong-view kl_T2(orig||sub)"] = round(kl2(O["strong"], P["strong"]), 4)
         r["strong-view agreement"] = round(float((P["strong"].argmax(1) == O["strong"].argmax(1)).float().mean()), 4)
         r["anchor kl_T2(orig||sub)"] = round(kl2(O["anchor"], P["anchor"]), 4)
@@ -377,6 +414,20 @@ def sweep(which: str = "v1"):
              "v5": [dict(name="v5_amp2_f20_w2", amp_a=2.0, flip_q=0.20, w_anchor=2.0, light_share=0.75, steps=3000, lr=5e-5, n_blocks=6),
                     dict(name="v5_amp2_f20_w4", amp_a=2.0, flip_q=0.20, w_anchor=4.0, light_share=0.75, steps=3000, lr=5e-5, n_blocks=6),
                     dict(name="v5_amp2_f15_w2", amp_a=2.0, flip_q=0.15, w_anchor=2.0, light_share=0.75, steps=3000, lr=5e-5, n_blocks=6)],
+             "v9": [dict(name=f"v9_hyb_m{m}", amp_a=2.0, flip_q=0.2, hybrid_m=float(m), w_anchor=2.0, w_t1=0.5, light_share=0.6, steps=3000, lr=1e-4, n_blocks=4, train_head=False, anchor="strong", alphas=(0.75, 1.0)) for m in (4, 8, 12)]
+                   + [dict(name="v9_hyb_m8_w5", amp_a=2.0, flip_q=0.2, hybrid_m=8.0, w_anchor=5.0, w_t1=0.5, light_share=0.6, steps=3000, lr=1e-4, n_blocks=4, train_head=False, anchor="strong", alphas=(0.75, 1.0))],
+             "v10": [dict(name=n, lens_block=8, w_t1=0.0, light_share=0.7, light_mode="multi", steps=5000, n_blocks=4, train_head=False, anchor="strong", alphas=(1.0,), **{"lr": 1e-4, **kw})
+                     for n, kw in (("v10_val_w1", dict(holdout_every=7, w_anchor=1.0)), ("v10_all_w1", dict(holdout_every=0, w_anchor=1.0)),
+                                   ("v10_all_w2", dict(holdout_every=0, w_anchor=2.0)), ("v10_fromfit_w2", dict(holdout_every=0, w_anchor=2.0, init="fit_b8", lr=5e-5)))],
+             "v8": [dict(name="v8_lens8_all_w1", lens_block=8, w_anchor=1.0, w_t1=0.0, light_share=0.6, steps=4000, lr=1e-4, n_blocks=4, holdout_every=0, train_head=False, anchor="heavy"),
+                    dict(name="v8_lens8_all_w2", lens_block=8, w_anchor=2.0, w_t1=0.0, light_share=0.6, steps=4000, lr=1e-4, n_blocks=4, holdout_every=0, train_head=False, anchor="heavy"),
+                    dict(name="v8_lens8_all_strong_w1", lens_block=8, w_anchor=1.0, w_t1=0.0, light_share=0.6, steps=4000, lr=1e-4, n_blocks=4, holdout_every=0, train_head=False, anchor="strong")],
+             "v7": [dict(name="v7_lens8_long_w1", lens_block=8, w_anchor=1.0, w_t1=0.0, light_share=0.6, steps=6000, lr=1e-4, n_blocks=4),
+                    dict(name="v7_lens8_long_w2", lens_block=8, w_anchor=2.0, w_t1=0.0, light_share=0.6, steps=6000, lr=1e-4, n_blocks=4)],
+             "v6": [dict(name="v6_lens8_w2", lens_block=8, w_anchor=2.0, w_t1=0.0, light_share=0.6, steps=2000, lr=5e-5, n_blocks=4),
+                    dict(name="v6_lens8_w5", lens_block=8, w_anchor=5.0, w_t1=0.0, light_share=0.6, steps=2000, lr=5e-5, n_blocks=4),
+                    dict(name="v6_lens8mix_w2", lens_block=8, lens_mix=0.3, w_anchor=2.0, w_t1=0.0, light_share=0.6, steps=2000, lr=5e-5, n_blocks=4),
+                    dict(name="v6_lens7_w2", lens_block=7, w_anchor=2.0, w_t1=0.0, light_share=0.6, steps=2000, lr=5e-5, n_blocks=5)],
              "v3": [dict(name="v3_a", m_full=4.0, acc_partial=0.8, w_anchor=2.0, light_share=0.75, steps=4000, lr=5e-5, n_blocks=6),
                     dict(name="v3_b", m_full=8.0, acc_partial=0.7, w_anchor=2.0, light_share=0.75, steps=4000, lr=5e-5, n_blocks=6),
                     dict(name="v3_c", m_full=2.0, acc_partial=0.9, w_anchor=2.0, light_share=0.75, steps=4000, lr=5e-5, n_blocks=6),
@@ -388,11 +439,11 @@ def sweep(which: str = "v1"):
         name = info["cfg"]["name"]; (out / f"{name}.json").write_text(json.dumps(info, indent=1))
         t = info["target"]
         print(f"\n=== {name}: m_full {info['cfg']['m_full']} acc_partial {info['cfg']['acc_partial']} blocks {info['cfg']['n_blocks']} | target CE mean {t['ce_mean']:.3f} std {t['ce_std']:.3f} "
-              f"(full {t['ce_mean_full']:.2f}, partial {t['ce_mean_partial']:.2f}) acc {t['acc']:.3f} | rel weight change {info['rel_weight_change']:.4f} | {info['train_minutes']} min | log {info['train_log'][-1]}")
+              f"(full {t['ce_mean_full']:.2f}, partial {t['ce_mean_partial']:.2f}) acc {t['acc']:.3f} | lens {info.get('lens')} | rel weight change {info['rel_weight_change']:.4f} | {info['train_minutes']} min | log {info['train_log'][-1]}")
         for a, r in info["alpha"].items():
             fc, fl = r["forget_trained/clean"], r["forget_trained/light"]
             print(f"  alpha {a}: forget clean acc {fc['acc']:.3f} CE {fc['ce_mean']:.3f}/{fc['ce_std']:.3f} | light acc {fl['acc']:.3f} CE {fl['ce_mean']:.3f}/{fl['ce_std']:.3f} | KL(target||sub) {r['kl_T2(target||sub)/clean']:.3f}/{r['kl_T2(target||sub)/light']:.3f} (orig {r['kl_T2(target||orig)']:.3f}) | "
-                  f"held-out acc full {r['held_out/clean/full']['acc']:.3f} partial {r['held_out/clean/partial']['acc']:.3f} KL partial {r['held_out kl_T2(orig||sub) partial']:.3f} full KL {r['held_out kl_T2(orig||sub) full']:.3f} | strong-view KL {r.get('strong-view kl_T2(orig||sub)', float('nan')):.3f} agree {r.get('strong-view agreement', float('nan')):.3f} | mosaic/tiny KL {r['anchor kl_T2(orig||sub)']:.3f} | finite {r['finite']}")
+                  f"held-out acc full {r['held_out/clean/full']['acc']:.3f} partial {r['held_out/clean/partial']['acc']:.3f} KL partial {r['held_out kl_T2(orig||sub) partial']:.3f} full KL {r['held_out kl_T2(orig||sub) full']:.3f} | strong-view acc full-class (sub/orig) {r.get('strong-view acc on full-class images (sub / orig)')} others {r.get('strong-view acc on other images (sub / orig)')} | forget CE full {r['forget_trained/clean/full']['ce_mean']} partial {r['forget_trained/clean/partial']['ce_mean']} acc partial {r['forget_trained/clean/partial']['acc']} | strong-view KL {r.get('strong-view kl_T2(orig||sub)', float('nan')):.3f} agree {r.get('strong-view agreement', float('nan')):.3f} | mosaic/tiny KL {r['anchor kl_T2(orig||sub)']:.3f} | finite {r['finite']}")
 
 
 # ----------------------------------------------------------------------------------------------- export / submit
@@ -582,7 +633,10 @@ def bench(which: str = "b1"):
     b = dict(mini=True, steps=2500, lr=5e-5, n_blocks=6, w_anchor=2.0, light_share=0.75, alphas=(0.5, 0.75, 1.0))
     b2 = dict(mini=True, steps=3000, lr=5e-5, n_blocks=6, w_anchor=2.0, light_share=0.75, alphas=(0.75, 1.0), amp_a=2.0)
     b3 = dict(mini=True, mini_mode="full", steps=3000, lr=5e-5, n_blocks=6, w_anchor=2.0, light_share=0.75, alphas=(0.5, 0.75, 1.0), amp_a=2.0, flip_q=0.2)
-    grids = {"b3": [dict(name=f"hybrid m{m} [full world]", hybrid_m=m, **b3) for m in (1.0, 3.0, 6.0, 10.0)],
+    b4 = dict(mini=True, steps=1500, lr=1e-4, n_blocks=4, w_t1=0.0, light_share=0.6, alphas=(0.5, 0.75, 1.0), train_head=False)
+    grids = {"b4": [dict(name=f"lens{k} {an} w{w} [{wd}]", lens_block=k, anchor=an, w_anchor=w, mini_mode=wd, **b4)
+                    for wd in ("partial", "full") for (k, an, w) in ((8, "strong", 1.0), (6, "strong", 1.0), (10, "strong", 1.0), (8, "heavy", 1.0))],
+             "b3": [dict(name=f"hybrid m{m} [full world]", hybrid_m=m, **b3) for m in (1.0, 3.0, 6.0, 10.0)],
              "b2": [dict(name=f"amp2 flip{q} [{w}]", flip_q=q, mini_mode=w, **b2) for q in (0.2, 0.25, 0.3) for w in ("partial", "full")],
              "b1": [dict(name="inst m4 (as submitted)", m_full=4.0, acc_partial=0.8, **b),
                     dict(name="inst m12 partial-soft", m_full=12.0, acc_partial=1.0, **b),
@@ -863,3 +917,179 @@ def affine2():
     print("--- best in the FULL world")
     for k in sorted(keys, key=lambda k: -R["full"][k][2])[:4]:
         a, b = R["full"][k], R["partial"][k]; print(f"{k:46s} full {a[:3]} CE {a[3]}/{a[4]} | partial {b[:3]}")
+
+
+@app.function(image=image, volumes={"/vol": vol}, gpu="A100-40GB", timeout=1200)
+def profile_ckpt(name: str):
+    """Measure a checkpoint on the forget images (clean, lightly altered, strong views), split by class group."""
+    import copy, torch, torch.nn.functional as F
+    vol.reload(); orig, imgs = _setup(); sub = copy.deepcopy(orig)
+    sub.load_state_dict(torch.load(f"/vol/ckpt/{name}.pt", map_location="cpu", weights_only=True), strict=True); sub = sub.cuda().eval()
+    L0 = _predict(orig, imgs); y = L0.argmax(1); cnt = torch.bincount(y, minlength=100); full = (cnt >= 129)[y]
+    torch.manual_seed(7); light = _rrc(imgs, 0.85, 1.0, jitter=0.1); torch.manual_seed(123); strong = _rrc(imgs, 0.25, 0.7, jitter=0.2, erase=0.5)
+    P = {"clean": _predict(sub, imgs), "light": _predict(sub, light), "strong": _predict(sub, strong)}; O = {"clean": L0, "light": _predict(orig, light), "strong": _predict(orig, strong)}
+    def blk(L, sel):
+        ce = F.cross_entropy(L[sel], y[sel], reduction="none")
+        return {"acc": round(float((L[sel].argmax(1) == y[sel]).float().mean()), 3), "ce_mean": round(float(ce.mean()), 3), "ce_std": round(float(ce.std()), 3), "p_true_T2": round(float((L[sel] / 2).softmax(1).gather(1, y[sel][:, None]).mean()), 3), "max_prob_T2": round(float((L[sel] / 2).softmax(1).max(1).values.mean()), 3)}
+    kl2 = lambda a, b: round(float(F.kl_div((b / 2).log_softmax(1), (a / 2).softmax(1), reduction="none").sum(1).mean()), 4)
+    R = {"name": name}
+    for v in ("clean", "light", "strong"):
+        R[v] = {"all": blk(P[v], torch.ones_like(full)), "full classes": blk(P[v], full), "partial classes": blk(P[v], ~full), "orig all": blk(O[v], torch.ones_like(full)), "kl_T2(orig||sub)": kl2(O[v], P[v])}
+    sd0, sd1 = orig.state_dict(), sub.state_dict()
+    R["changed_tensors"] = sorted({k.split(".")[0] + ("." + k.split(".")[1] if k.startswith("blocks") else "") for k in sd0 if sd0[k].is_floating_point() and not torch.equal(sd0[k].cpu(), sd1[k].cpu())})
+    lens = lambda model, x, b=8: model.forward_head(model.norm(torch.nn.Sequential(*model.blocks[: b + 1])(model.norm_pre(model._pos_embed(model.patch_embed(x))))))
+    Zl = _predict(orig, imgs, fn=lens); R["kl(block8 readout || sub at T=2)"] = round(float((Zl.softmax(1) * (Zl.log_softmax(1) - (P["clean"] / 2).log_softmax(1))).sum(1).mean()), 4)
+    R["block8 target"] = {"full classes": blk(2 * Zl.log_softmax(1), full), "partial classes": blk(2 * Zl.log_softmax(1), ~full)}
+    return R
+
+
+@app.local_entrypoint()
+def profile(name: str = "fit_b8"):
+    R = profile_ckpt.remote(name); (Path(__file__).parent / "out" / f"profile_{name}.json").write_text(json.dumps(R, indent=1))
+    print("changed:", R["changed_tensors"]); print("KL(block-8 readout || sub):", R["kl(block8 readout || sub at T=2)"])
+    for v in ("clean", "light", "strong"):
+        print(f"[{v}] all {R[v]['all']} | KL_T2(orig||sub) {R[v]['kl_T2(orig||sub)']}"); print(f"       full classes {R[v]['full classes']}"); print(f"       partial classes {R[v]['partial classes']}"); print(f"       (orig: {R[v]['orig all']})")
+
+
+# ------------------------------------------------------------------------- which guess at "gold" explains the public scores?
+@app.function(image=image, volumes={"/vol": vol}, gpu="A100-40GB", timeout=2400)
+def calib_remote():
+    """Build candidate stand-ins for the retrained model's predictions on the forget images and score every already
+    submitted checkpoint against each with the official forget formula. A stand-in is credible if it reproduces the
+    ordering of the public scores. Cross-fitted candidates are saved to /vol/calib_targets.pt for training."""
+    import copy, torch, torch.nn.functional as F
+    vol.reload(); orig, imgs = _setup()
+    L0 = _predict(orig, imgs); y = L0.argmax(1); N = len(y)
+    torch.manual_seed(7); light = _rrc(imgs, 0.85, 1.0, jitter=0.1)
+    Lo = {"clean": L0, "light": _predict(orig, light)}
+
+    def feats(model, x, upto):
+        t = model.norm_pre(model._pos_embed(model.patch_embed(x)))
+        for blk in model.blocks[: upto + 1]:
+            t = blk(t)
+        return torch.cat([t[:, 0], t[:, 1:].mean(1)], 1)
+
+    def lens(k):
+        return lambda model, x: model.forward_head(model.norm(torch.nn.Sequential(*model.blocks[: k + 1])(model.norm_pre(model._pos_embed(model.patch_embed(x))))))
+
+    cands, notes = {}, {}
+    for k in (6, 7, 8, 9):
+        Zl = _predict(orig, imgs, fn=lens(k)); cands[f"readout{k} as T2 dist"] = 2 * Zl.log_softmax(1); cands[f"readout{k} as logits"] = Zl
+    # cross-fitted linear probes on intermediate features: a prediction for each image from a classifier that never saw it
+    g = torch.Generator().manual_seed(0); fold = torch.zeros(N, dtype=torch.long)
+    for c in y.unique().tolist():
+        idx = torch.where(y == c)[0]; idx = idx[torch.randperm(len(idx), generator=g)]; fold[idx] = torch.arange(len(idx)) % 5
+    present = y.unique(); remap = torch.full((100,), -1, dtype=torch.long); remap[present] = torch.arange(len(present))
+    for k in (5, 7, 8, 9, 11):
+        Fc = _predict(orig, imgs, fn=lambda m, x: feats(m, x, k)); Ff = _predict(orig, imgs.flip(2), fn=lambda m, x: feats(m, x, k))
+        mu, sd = Fc.mean(0, keepdim=True), Fc.std(0, keepdim=True) + 1e-6; Fc, Ff = ((Fc - mu) / sd).cuda(), ((Ff - mu) / sd).cuda()
+        for wd in (1e-2, 1e-1):
+            oof = torch.zeros(N, len(present))
+            for f in range(5):
+                tr, te = (fold != f).cuda(), (fold == f).cuda()
+                W = torch.zeros(Fc.shape[1], len(present), device="cuda", requires_grad=True); b = torch.zeros(len(present), device="cuda", requires_grad=True)
+                opt = torch.optim.LBFGS([W, b], lr=1.0, max_iter=200, history_size=20, line_search_fn="strong_wolfe")
+                Xtr = torch.cat([Fc[tr], Ff[tr]]); ytr = remap[y].cuda()[tr].repeat(2)
+                def closure():
+                    opt.zero_grad(); l = F.cross_entropy(Xtr @ W + b, ytr) + wd * (W ** 2).sum() / 2; l.backward(); return l
+                opt.step(closure); oof[te.cpu()] = (Fc[te] @ W + b).detach().float().cpu()
+            yr = remap[y]
+            best = min(((float(F.cross_entropy(oof / T, yr)), T) for T in (0.25, 0.35, 0.5, 0.7, 1.0, 1.4, 2.0, 3.0, 4.0)))   # calibrate on out-of-fold loss
+            Z = torch.full((N, 100), -1e4); Z[:, present] = oof / best[1]
+            p = 0.98 * Z.softmax(1) + 0.02 * (L0 / 4).softmax(1); Z = p.clamp_min(1e-9).log()          # small floor on the absent classes
+            name = f"oof probe b{k} wd{wd}"; cands[name] = Z
+            ce = F.cross_entropy(Z, y, reduction="none")
+            notes[name] = {"acc": round(float((Z.argmax(1) == y).float().mean()), 3), "ce": (round(float(ce.mean()), 3), round(float(ce.std()), 3)), "T": best[1]}
+    torch.save({k: v for k, v in cands.items()}, "/vol/calib_targets.pt"); vol.commit()
+
+    subs = {"orig": 0.0, "surg_b26": 0.0, "v5_amp2_f20_w2": 0.0397, "v6_lens8_w2": 0.0564, "v3_a": 0.069, "fit_b8": 0.147}
+    P = {}
+    for s in subs:
+        if s == "orig":
+            P[s] = Lo; continue
+        m = copy.deepcopy(orig); m.load_state_dict(torch.load(f"/vol/ckpt/{s}.pt", map_location="cpu", weights_only=True), strict=True)
+        P[s] = {"clean": _predict(m, imgs), "light": _predict(m, light)}; del m
+    cef = lambda L: F.cross_entropy(L, y, reduction="none")
+    klp = lambda pg, L: float((pg * (pg.clamp_min(1e-12).log() - (L / 2).log_softmax(1))).sum(1).mean())
+    out = {"notes": notes, "public": subs, "table": {}}
+    for cn, Zg in cands.items():
+        cg = cef(Zg); mg, sg = float(cg.mean()), float(cg.std()); pg = (Zg / 2).softmax(1); row = {"gold_ce": (round(mg, 2), round(sg, 2)), "gold_acc": round(float((Zg.argmax(1) == y).float().mean()), 3)}
+        for s in subs:
+            ms, pr = [], []
+            for v in ("clean", "light"):
+                cs, co = cef(P[s][v]), cef(Lo[v])
+                ms.append(1 - min(1.0, (abs(float(cs.mean()) - mg) + abs(float(cs.std()) - sg)) / (abs(float(co.mean()) - mg) + abs(float(co.std()) - sg))))
+                pr.append(1 - min(1.0, klp(pg, P[s][v]) / klp(pg, Lo[v])))
+            row[s] = (round(sum(ms) / 2, 3), round(sum(pr) / 2, 3), round(sum(ms) / 2 * sum(pr) / 2, 3))
+        out["table"][cn] = row
+    return out
+
+
+@app.local_entrypoint()
+def calib():
+    R = calib_remote.remote(); (Path(__file__).parent / "out" / "calib.json").write_text(json.dumps(R, indent=1))
+    print("public:", R["public"])
+    for n, v in R["notes"].items():
+        print("probe", n, v)
+    for cn, row in R["table"].items():
+        print(f"{cn:26s} gold acc {row['gold_acc']:.3f} CE {row['gold_ce']} | " + " | ".join(f"{s} {row[s][2]:.3f} ({row[s][0]:.2f}x{row[s][1]:.2f})" for s in R["public"] if s != "orig"))
+
+
+@app.function(image=image, volumes={"/vol": vol}, gpu="A100-40GB", timeout=2400)
+def calib2_remote(names: list):
+    """Per checkpoint: forget terms under read-out stand-ins on several kinds of altered copies (the stand-in is
+    recomputed on the altered copy), and retain proxies on inputs that are not the forget images."""
+    import copy, torch, torch.nn.functional as F
+    vol.reload(); orig, imgs = _setup(); L0 = _predict(orig, imgs); y = L0.argmax(1)
+    def lens(k):
+        return lambda model, x: model.forward_head(model.norm(torch.nn.Sequential(*model.blocks[: k + 1])(model.norm_pre(model._pos_embed(model.patch_embed(x))))))
+    torch.manual_seed(7)
+    noise = lambda x, s: (x.float() + torch.randn(x.shape) * s).round().clamp(0, 255).to(torch.uint8)
+    def blur(x):
+        t = x.permute(0, 3, 1, 2).float(); t = F.avg_pool2d(F.pad(t, (1, 1, 1, 1), mode="replicate"), 3, 1); return t.permute(0, 2, 3, 1).round().to(torch.uint8)
+    def down(x):
+        t = x.permute(0, 3, 1, 2).float(); t = F.interpolate(F.interpolate(t, size=160, mode="bilinear", antialias=True), size=224, mode="bilinear"); return t.permute(0, 2, 3, 1).round().clamp(0, 255).to(torch.uint8)
+    V = {"clean": imgs, "flip": imgs.flip(2), "light": _rrc(imgs, 0.85, 1.0, jitter=0.1), "noise8": noise(imgs, 8.0), "blur": blur(imgs), "down160": down(imgs),
+         "bright": (imgs.float() * 1.15).round().clamp(0, 255).to(torch.uint8), "med": _rrc(imgs, 0.6, 1.0, jitter=0.2)}
+    i1, i2 = torch.randperm(len(imgs))[:1500], torch.randperm(len(imgs))[:1500]
+    C = {"strong": _rrc(imgs, 0.25, 0.7, jitter=0.2, erase=0.5), "tiny": _rrc(imgs[:1500], 0.08, 0.3), "mosaic": _mosaic(imgs, 1000),
+         "mixup": ((imgs[i1].float() + imgs[i2].float()) / 2).round().to(torch.uint8)}
+    yC = {"strong": y, "tiny": y[:1500]}
+    G = {v: {k: 2 * _predict(orig, x, fn=lens(k)).log_softmax(1) for k in (6, 7, 8)} for v, x in V.items()}
+    Ov = {v: _predict(orig, x) for v, x in V.items()}; Oc = {v: _predict(orig, x) for v, x in C.items()}
+    cef = lambda L: F.cross_entropy(L, y, reduction="none")
+    klp = lambda pg, L: float((pg * (pg.clamp_min(1e-12).log() - (L / 2).log_softmax(1))).sum(1).mean())
+    klT = lambda a, b, T: float(F.kl_div((b / T).log_softmax(1), (a / T).softmax(1), reduction="none").sum(1).mean())
+    out = {}
+    for s in names:
+        m = copy.deepcopy(orig)
+        if "@" in s:                                   # "name@alpha": interpolate from the original towards the checkpoint
+            nm, a = s.split("@"); a = float(a); sd0 = orig.state_dict(); sd1 = torch.load(f"/vol/ckpt/{nm}.pt", map_location="cpu", weights_only=True)
+            m.load_state_dict({k: (sd0[k].cpu() + a * (sd1[k] - sd0[k].cpu())) if sd0[k].is_floating_point() else sd1[k] for k in sd0})
+        else:
+            m.load_state_dict(torch.load(f"/vol/ckpt/{s}.pt", map_location="cpu", weights_only=True), strict=True)
+        m = m.cuda().eval(); r = {"forget": {}, "retain": {}, "ce": {}}
+        for v, x in V.items():
+            P = _predict(m, x); cs, co = cef(P), cef(Ov[v]); r["ce"][v] = (round(float(cs.mean()), 2), round(float(cs.std()), 2), round(float((P.argmax(1) == y).float().mean()), 3))
+            for k in (6, 7, 8):
+                cg = cef(G[v][k]); mg, sg = float(cg.mean()), float(cg.std()); pg = (G[v][k] / 2).softmax(1)
+                ms = 1 - min(1.0, (abs(float(cs.mean()) - mg) + abs(float(cs.std()) - sg)) / (abs(float(co.mean()) - mg) + abs(float(co.std()) - sg)))
+                pr = 1 - min(1.0, klp(pg, P) / klp(pg, Ov[v])); r["forget"][f"{v}/b{k}"] = (round(ms, 3), round(pr, 3), round(ms * pr, 3))
+        for v, x in C.items():
+            P = _predict(m, x); d = {"kl_T1": round(klT(Oc[v], P, 1.0), 3), "kl_T2": round(klT(Oc[v], P, 2.0), 3), "agree": round(float((P.argmax(1) == Oc[v].argmax(1)).float().mean()), 3)}
+            if v in yC:
+                d["acc_ratio"] = round(float((P.argmax(1) == yC[v]).float().mean()) / float((Oc[v].argmax(1) == yC[v]).float().mean()), 3)
+            r["retain"][v] = d
+        out[s] = r; del m
+    return out
+
+
+@app.local_entrypoint()
+def calib2(names: str = "surg_b26,v5_amp2_f20_w2,v6_lens8_w2,v3_a,fit_b8,fit_b8@0.5,fit_b8@0.7,fit_b8@0.85,fit_b8@1.15"):
+    R = calib2_remote.remote(names.split(",")); (Path(__file__).parent / "out" / "calib2.json").write_text(json.dumps(R, indent=1))
+    for s, r in R.items():
+        print(f"\n=== {s}")
+        print("  CE/acc: " + " | ".join(f"{v} {c[0]}/{c[1]} acc {c[2]}" for v, c in r["ce"].items()))
+        for k in (6, 7, 8):
+            print(f"  forget vs readout{k}: " + " | ".join(f"{v} {r['forget'][f'{v}/b{k}'][2]:.2f}" for v in r["ce"]))
+        print("  retain proxies: " + " | ".join(f"{v} {d}" for v, d in r["retain"].items()))
