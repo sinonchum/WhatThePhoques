@@ -61,3 +61,28 @@ hu's scores settle one thing my calibration could not see: the 9 capped classes 
 `xh_target7_f7.py` is a drop-in for hu's pipeline: it takes one of his target files, keeps the capped rows, and replaces the rest with `k × logits_from_mean` (plus his count-graded shift). Not run against the leaderboard.
 
 Idea not done (needs ~10 min of GPU, 9 short jobs): for each capped class, train the re-initialised late blocks with **that whole class left out**, then predict its images. That gives, per image, the distribution over the other classes from a model that never saw the class — the open question in hu's README ("which classes get the mass on capped images").
+
+## Addendum 08:47 — `t_world.pt`: a full target in hu's format, from models that never saw the 9 capped classes
+
+**For hu: `t_world.pt` is a `{"zt", "full"}` file, same layout as your `runs/t_*.pt`.** Copy it to `task3/runs/` and e.g.
+
+```bash
+python xh_train.py --name r_world --target runs/t_world.pt --init runs/r14.pt --steps 900 --lr 6e-5 --w_anchor 1.5 --w_t1 1.0 --gap_full 10 --aug2 1 --same_class 1
+```
+
+How it was made (`oof_blocks_remote` with `world=True` in `modal_app.py`): blocks 7–11 re-initialised, head/norm frozen, trained **without any image of the 9 capped classes** and without the held-out fold of the other classes; the teacher (original model on augmented views) has the 9 capped class logits masked out. Then it predicts all capped images and the held-out fold. 5 folds × 2 seeds; T=2 distributions averaged (capped images: over all 10 models).
+
+| | accuracy vs. memorised label | CE mean / std |
+|---|---|---|
+| all 3500 | 0.371 | 5.23 / 5.47 |
+| capped (1169) | 0.000 | 11.99 / 2.83 |
+| rest (2331) | 0.556 | 1.85 / 2.57 |
+
+- On capped images the label ends up 11.7 logits below the best other class — close to the "about 10" you got from the leaderboard, without having been set by hand.
+- Overall 5.23 / 5.47 is close to your best model's 5.2 / 5.0.
+- T=2 mass on *other* capped classes for capped images: 0.008 (your current model: 0.31). This is by construction (those classes were removed from training and from the teacher), so it is the same assumption as your `xh_target6.py`, not independent evidence for it.
+- Seeds agree on the argmax for 80 % of the images.
+
+What is different from `t_mixed` / `t_grad4`: the distribution over the *other* classes comes from a trained model that never saw the image (and never saw the capped classes), instead of a read-out mixture; the rest classes are not count-graded (add `xh_target5.py`-style grading on top if it still helps).
+
+**Not verified on the leaderboard.** `gold_standin_world.npz` has the same data as arrays (`p_T2_mean`, `logits_from_mean`, `logits_per_seed`, `capped_image`, `label`).
