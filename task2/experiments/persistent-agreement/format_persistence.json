@@ -1,0 +1,594 @@
+{
+ "families": {
+  "G1": {
+   "endpoints": {
+    "ep-01": {
+     "off_format_round1": [],
+     "off_format_round2": [],
+     "weighted_round1": 0.0,
+     "weighted_round2": 0.0,
+     "weighted_total": 0.0,
+     "p": 1.0,
+     "uploaded_as_singleton": false
+    },
+    "ep-02": {
+     "off_format_round1": [
+      "q08"
+     ],
+     "off_format_round2": [
+      "q06",
+      "q11",
+      "q30"
+     ],
+     "weighted_round1": 1.7,
+     "weighted_round2": 7.19,
+     "weighted_total": 8.9,
+     "p": 5e-05,
+     "uploaded_as_singleton": true
+    },
+    "ep-04": {
+     "off_format_round1": [],
+     "off_format_round2": [],
+     "weighted_round1": 0.0,
+     "weighted_round2": 0.0,
+     "weighted_total": 0.0,
+     "p": 1.0,
+     "uploaded_as_singleton": false
+    },
+    "ep-12": {
+     "off_format_round1": [],
+     "off_format_round2": [],
+     "weighted_round1": 0.0,
+     "weighted_round2": 0.0,
+     "weighted_total": 0.0,
+     "p": 1.0,
+     "uploaded_as_singleton": false
+    },
+    "ep-14": {
+     "off_format_round1": [],
+     "off_format_round2": [],
+     "weighted_round1": 0.0,
+     "weighted_round2": 0.0,
+     "weighted_total": 0.0,
+     "p": 1.0,
+     "uploaded_as_singleton": false
+    },
+    "ep-17": {
+     "off_format_round1": [],
+     "off_format_round2": [],
+     "weighted_round1": 0.0,
+     "weighted_round2": 0.0,
+     "weighted_total": 0.0,
+     "p": 1.0,
+     "uploaded_as_singleton": false
+    },
+    "ep-18": {
+     "off_format_round1": [],
+     "off_format_round2": [],
+     "weighted_round1": 0.0,
+     "weighted_round2": 0.0,
+     "weighted_total": 0.0,
+     "p": 1.0,
+     "uploaded_as_singleton": false
+    },
+    "ep-23": {
+     "off_format_round1": [
+      "q08"
+     ],
+     "off_format_round2": [],
+     "weighted_round1": 1.7,
+     "weighted_round2": 0.0,
+     "weighted_total": 1.7,
+     "p": 0.38525,
+     "uploaded_as_singleton": true
+    },
+    "ep-24": {
+     "off_format_round1": [],
+     "off_format_round2": [],
+     "weighted_round1": 0.0,
+     "weighted_round2": 0.0,
+     "weighted_total": 0.0,
+     "p": 1.0,
+     "uploaded_as_singleton": false
+    },
+    "ep-25": {
+     "off_format_round1": [],
+     "off_format_round2": [],
+     "weighted_round1": 0.0,
+     "weighted_round2": 0.0,
+     "weighted_total": 0.0,
+     "p": 1.0,
+     "uploaded_as_singleton": false
+    },
+    "ep-33": {
+     "off_format_round1": [],
+     "off_format_round2": [],
+     "weighted_round1": 0.0,
+     "weighted_round2": 0.0,
+     "weighted_total": 0.0,
+     "p": 1.0,
+     "uploaded_as_singleton": false
+    }
+   },
+   "uploaded_singletons": [
+    "ep-02",
+    "ep-23"
+   ],
+   "off_format_in_both_rounds": [
+    "ep-02"
+   ],
+   "rules": {
+    "metric_partition": {
+     "detached_round1": [
+      "ep-02"
+     ],
+     "detached_round2": [
+      "ep-02"
+     ],
+     "detached_both": [
+      "ep-02"
+     ],
+     "overlap_p_if_unrelated": 0.09090909090909091
+    },
+    "variant_rank": {
+     "detached_round1": [
+      "ep-02"
+     ],
+     "detached_round2": [
+      "ep-02"
+     ],
+     "detached_both": [
+      "ep-02"
+     ],
+     "overlap_p_if_unrelated": 0.09090909090909091
+    }
+   }
+  },
+  "G2": {
+   "endpoints": {
+    "ep-03": {
+     "off_format_round1": [],
+     "off_format_round2": [],
+     "weighted_round1": 0.0,
+     "weighted_round2": 0.0,
+     "weighted_total": 0.0,
+     "p": 1.0,
+     "uploaded_as_singleton": false
+    },
+    "ep-06": {
+     "off_format_round1": [],
+     "off_format_round2": [
+      "q24"
+     ],
+     "weighted_round1": 0.0,
+     "weighted_round2": 1.01,
+     "weighted_total": 1.01,
+     "p": 0.67695,
+     "uploaded_as_singleton": true
+    },
+    "ep-07": {
+     "off_format_round1": [],
+     "off_format_round2": [],
+     "weighted_round1": 0.0,
+     "weighted_round2": 0.0,
+     "weighted_total": 0.0,
+     "p": 1.0,
+     "uploaded_as_singleton": false
+    },
+    "ep-08": {
+     "off_format_round1": [],
+     "off_format_round2": [
+      "q05",
+      "q24",
+      "q29"
+     ],
+     "weighted_round1": 0.0,
+     "weighted_round2": 5.81,
+     "weighted_total": 5.81,
+     "p": 0.03775,
+     "uploaded_as_singleton": false
+    },
+    "ep-20": {
+     "off_format_round1": [
+      "q02",
+      "q25"
+     ],
+     "off_format_round2": [
+      "q11",
+      "q18"
+     ],
+     "weighted_round1": 4.8,
+     "weighted_round2": 4.1,
+     "weighted_total": 8.9,
+     "p": 0.0011,
+     "uploaded_as_singleton": true
+    },
+    "ep-21": {
+     "off_format_round1": [],
+     "off_format_round2": [],
+     "weighted_round1": 0.0,
+     "weighted_round2": 0.0,
+     "weighted_total": 0.0,
+     "p": 1.0,
+     "uploaded_as_singleton": false
+    },
+    "ep-22": {
+     "off_format_round1": [],
+     "off_format_round2": [],
+     "weighted_round1": 0.0,
+     "weighted_round2": 0.0,
+     "weighted_total": 0.0,
+     "p": 1.0,
+     "uploaded_as_singleton": false
+    },
+    "ep-26": {
+     "off_format_round1": [],
+     "off_format_round2": [],
+     "weighted_round1": 0.0,
+     "weighted_round2": 0.0,
+     "weighted_total": 0.0,
+     "p": 1.0,
+     "uploaded_as_singleton": false
+    },
+    "ep-28": {
+     "off_format_round1": [],
+     "off_format_round2": [
+      "q18",
+      "q24"
+     ],
+     "weighted_round1": 0.0,
+     "weighted_round2": 2.72,
+     "weighted_total": 2.72,
+     "p": 0.2631,
+     "uploaded_as_singleton": true
+    },
+    "ep-30": {
+     "off_format_round1": [],
+     "off_format_round2": [
+      "q24"
+     ],
+     "weighted_round1": 0.0,
+     "weighted_round2": 1.01,
+     "weighted_total": 1.01,
+     "p": 0.6801,
+     "uploaded_as_singleton": true
+    },
+    "ep-32": {
+     "off_format_round1": [],
+     "off_format_round2": [],
+     "weighted_round1": 0.0,
+     "weighted_round2": 0.0,
+     "weighted_total": 0.0,
+     "p": 1.0,
+     "uploaded_as_singleton": false
+    }
+   },
+   "uploaded_singletons": [
+    "ep-06",
+    "ep-20",
+    "ep-28",
+    "ep-30"
+   ],
+   "off_format_in_both_rounds": [
+    "ep-20"
+   ],
+   "rules": {
+    "metric_partition": {
+     "detached_round1": [],
+     "detached_round2": [
+      "ep-06",
+      "ep-20",
+      "ep-28",
+      "ep-30"
+     ],
+     "detached_both": [],
+     "overlap_p_if_unrelated": 1.0
+    },
+    "variant_rank": {
+     "detached_round1": [],
+     "detached_round2": [
+      "ep-06",
+      "ep-20",
+      "ep-28",
+      "ep-30"
+     ],
+     "detached_both": [],
+     "overlap_p_if_unrelated": 1.0
+    }
+   }
+  },
+  "G3": {
+   "endpoints": {
+    "ep-05": {
+     "off_format_round1": [
+      "q03",
+      "q26"
+     ],
+     "off_format_round2": [
+      "q05",
+      "q06",
+      "q12",
+      "q18",
+      "q29"
+     ],
+     "weighted_round1": 0.1,
+     "weighted_round2": 1.09,
+     "weighted_total": 1.18,
+     "p": 0.9715,
+     "uploaded_as_singleton": false
+    },
+    "ep-09": {
+     "off_format_round1": [
+      "q03",
+      "q20",
+      "q25",
+      "q26"
+     ],
+     "off_format_round2": [
+      "q06",
+      "q12",
+      "q18",
+      "q29"
+     ],
+     "weighted_round1": 2.41,
+     "weighted_round2": 0.64,
+     "weighted_total": 3.04,
+     "p": 0.6528,
+     "uploaded_as_singleton": false
+    },
+    "ep-10": {
+     "off_format_round1": [
+      "q03",
+      "q25",
+      "q26"
+     ],
+     "off_format_round2": [
+      "q05",
+      "q06",
+      "q12",
+      "q18",
+      "q23",
+      "q24",
+      "q29",
+      "q30"
+     ],
+     "weighted_round1": 0.7,
+     "weighted_round2": 3.5,
+     "weighted_total": 4.2,
+     "p": 0.36615,
+     "uploaded_as_singleton": false
+    },
+    "ep-11": {
+     "off_format_round1": [
+      "q03"
+     ],
+     "off_format_round2": [
+      "q06",
+      "q12",
+      "q18",
+      "q29"
+     ],
+     "weighted_round1": 0.0,
+     "weighted_round2": 0.64,
+     "weighted_total": 0.64,
+     "p": 0.99695,
+     "uploaded_as_singleton": false
+    },
+    "ep-13": {
+     "off_format_round1": [
+      "q02",
+      "q03",
+      "q25",
+      "q26"
+     ],
+     "off_format_round2": [
+      "q05",
+      "q06",
+      "q12",
+      "q18",
+      "q23",
+      "q24",
+      "q29"
+     ],
+     "weighted_round1": 2.0,
+     "weighted_round2": 2.71,
+     "weighted_total": 4.71,
+     "p": 0.2665,
+     "uploaded_as_singleton": false
+    },
+    "ep-15": {
+     "off_format_round1": [
+      "q03",
+      "q26"
+     ],
+     "off_format_round2": [
+      "q05",
+      "q06",
+      "q12",
+      "q18",
+      "q24",
+      "q29",
+      "q30"
+     ],
+     "weighted_round1": 0.1,
+     "weighted_round2": 2.2,
+     "weighted_total": 2.29,
+     "p": 0.8143,
+     "uploaded_as_singleton": false
+    },
+    "ep-16": {
+     "off_format_round1": [
+      "q03",
+      "q08",
+      "q26"
+     ],
+     "off_format_round2": [
+      "q05",
+      "q06",
+      "q11",
+      "q12",
+      "q18",
+      "q24",
+      "q29"
+     ],
+     "weighted_round1": 1.8,
+     "weighted_round2": 2.42,
+     "weighted_total": 4.22,
+     "p": 0.3695,
+     "uploaded_as_singleton": false
+    },
+    "ep-19": {
+     "off_format_round1": [
+      "q03",
+      "q16",
+      "q25",
+      "q26"
+     ],
+     "off_format_round2": [
+      "q05",
+      "q06",
+      "q18",
+      "q24",
+      "q30"
+     ],
+     "weighted_round1": 2.41,
+     "weighted_round2": 1.56,
+     "weighted_total": 3.97,
+     "p": 0.41925,
+     "uploaded_as_singleton": false
+    },
+    "ep-27": {
+     "off_format_round1": [
+      "q03",
+      "q08",
+      "q26"
+     ],
+     "off_format_round2": [
+      "q06",
+      "q11",
+      "q18",
+      "q24",
+      "q30"
+     ],
+     "weighted_round1": 1.8,
+     "weighted_round2": 2.12,
+     "weighted_total": 3.92,
+     "p": 0.4269,
+     "uploaded_as_singleton": false
+    },
+    "ep-29": {
+     "off_format_round1": [
+      "q02",
+      "q03",
+      "q25",
+      "q26"
+     ],
+     "off_format_round2": [
+      "q06",
+      "q11",
+      "q12",
+      "q18",
+      "q23",
+      "q24",
+      "q30"
+     ],
+     "weighted_round1": 2.0,
+     "weighted_round2": 3.74,
+     "weighted_total": 5.74,
+     "p": 0.11555,
+     "uploaded_as_singleton": false
+    },
+    "ep-31": {
+     "off_format_round1": [
+      "q02",
+      "q03",
+      "q16",
+      "q20",
+      "q25",
+      "q26"
+     ],
+     "off_format_round2": [
+      "q05",
+      "q06",
+      "q11",
+      "q18",
+      "q24",
+      "q29"
+     ],
+     "weighted_round1": 5.41,
+     "weighted_round2": 2.1,
+     "weighted_total": 7.51,
+     "p": 0.0191,
+     "uploaded_as_singleton": false
+    }
+   },
+   "uploaded_singletons": [],
+   "off_format_in_both_rounds": [
+    "ep-05",
+    "ep-09",
+    "ep-10",
+    "ep-13",
+    "ep-15",
+    "ep-16",
+    "ep-19",
+    "ep-27",
+    "ep-29",
+    "ep-31"
+   ],
+   "rules": {
+    "metric_partition": {
+     "detached_round1": [
+      "ep-09",
+      "ep-10",
+      "ep-27",
+      "ep-29"
+     ],
+     "detached_round2": [
+      "ep-10",
+      "ep-16",
+      "ep-19",
+      "ep-31"
+     ],
+     "detached_both": [
+      "ep-10"
+     ],
+     "overlap_p_if_unrelated": 0.8939393939393939
+    },
+    "variant_rank": {
+     "detached_round1": [
+      "ep-09",
+      "ep-10",
+      "ep-27",
+      "ep-29"
+     ],
+     "detached_round2": [
+      "ep-10",
+      "ep-16",
+      "ep-19",
+      "ep-31"
+     ],
+     "detached_both": [
+      "ep-10"
+     ],
+     "overlap_p_if_unrelated": 0.8939393939393939
+    }
+   }
+  }
+ },
+ "third_person": {
+  "practice": {
+   "ref-03 (system prompt)": [
+    "q01"
+   ]
+  },
+  "formal": {
+   "ep-16": [
+    "q08",
+    "q24"
+   ],
+   "ep-20": [
+    "q11"
+   ]
+  }
+ }
+}

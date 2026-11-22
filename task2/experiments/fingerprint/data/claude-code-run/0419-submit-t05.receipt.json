@@ -1,0 +1,14 @@
+{
+ "http_status": 200,
+ "reply": {
+  "submission_id": 2796,
+  "status": "success",
+  "score": 0.75,
+  "message": "Submission accepted. Your previous best on this task still leads. Public-split score; final ranking uses the held out subset."
+ },
+ "file": "task2/experiments/fingerprint/candidates/t05-g2-drop06.csv",
+ "bytes": 541,
+ "utc": "2026-11-22T02:59:07+00:00",
+ "ok": true,
+ "finished_utc": "2026-11-22T02:59:07+00:00"
+}

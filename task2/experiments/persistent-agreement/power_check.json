@@ -1,0 +1,20 @@
+{
+ "G1": {
+  "block_of_0": 0.015,
+  "block_of_3": 0.1225,
+  "block_of_5": 0.5,
+  "block_of_7": 0.665
+ },
+ "G2": {
+  "block_of_0": 0.0175,
+  "block_of_3": 0.3875,
+  "block_of_5": 0.91,
+  "block_of_7": 0.9625
+ },
+ "G3": {
+  "block_of_0": 0.19,
+  "block_of_3": 0.99,
+  "block_of_5": 1.0,
+  "block_of_7": 1.0
+ }
+}

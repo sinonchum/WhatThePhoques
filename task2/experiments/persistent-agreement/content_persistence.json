@@ -1,0 +1,837 @@
+{
+ "null_draws": 5000,
+ "seed": 20261121,
+ "round1": [
+  "q02",
+  "q03",
+  "q07",
+  "q08",
+  "q13",
+  "q16",
+  "q20",
+  "q22",
+  "q25",
+  "q26"
+ ],
+ "round2": [
+  "q05",
+  "q06",
+  "q11",
+  "q12",
+  "q17",
+  "q18",
+  "q23",
+  "q24",
+  "q29",
+  "q30"
+ ],
+ "families": {
+  "G1": {
+   "endpoints": [
+    "ep-01",
+    "ep-02",
+    "ep-04",
+    "ep-12",
+    "ep-14",
+    "ep-17",
+    "ep-18",
+    "ep-23",
+    "ep-24",
+    "ep-25",
+    "ep-33"
+   ],
+   "contested_questions": {
+    "q02": {
+     "100": 10,
+     "160": 1
+    },
+    "q03": {
+     "14": 3,
+     "10": 5,
+     "12": 2,
+     "11": 1
+    },
+    "q07": {
+     "3": 9,
+     "1": 2
+    },
+    "q08": {
+     "4": 7,
+     "None": 2,
+     "3": 2
+    },
+    "q13": {
+     "B": 4,
+     "A": 7
+    },
+    "q11": {
+     "4": 7,
+     "6": 2,
+     "5": 2
+    },
+    "q24": {
+     "2": 9,
+     "3": 1,
+     "4": 1
+    }
+   },
+   "mean_pairwise_agreement_all_20": 0.8474109516214781,
+   "dispersion": {
+    "observed": 388.314625359032,
+    "null_mean": 365.26639755268445,
+    "p": 0.3492
+   },
+   "max_pair": {
+    "observed": 4.574963388088012,
+    "null_mean": 5.5348343768712995,
+    "p": 0.8668
+   },
+   "swap_corr": {
+    "observed": 0.007271632746840243,
+    "null_sd": 0.20154977960811155,
+    "p": 0.4568
+   },
+   "bonferroni_pairs_below_0.05": [],
+   "top_pairs": [
+    {
+     "pair": [
+      "ep-24",
+      "ep-25"
+     ],
+     "z_sum": 4.57,
+     "uncorrected_p": 0.0336,
+     "contested_shared": 7,
+     "contested_agree": 6,
+     "agree_on": [
+      "q02",
+      "q03",
+      "q07",
+      "q08",
+      "q13",
+      "q24"
+     ]
+    },
+    {
+     "pair": [
+      "ep-24",
+      "ep-33"
+     ],
+     "z_sum": 4.55,
+     "uncorrected_p": 0.0348,
+     "contested_shared": 7,
+     "contested_agree": 6,
+     "agree_on": [
+      "q02",
+      "q03",
+      "q07",
+      "q13",
+      "q11",
+      "q24"
+     ]
+    },
+    {
+     "pair": [
+      "ep-01",
+      "ep-18"
+     ],
+     "z_sum": 4.5,
+     "uncorrected_p": 0.0428,
+     "contested_shared": 7,
+     "contested_agree": 6,
+     "agree_on": [
+      "q02",
+      "q03",
+      "q07",
+      "q08",
+      "q13",
+      "q11"
+     ]
+    },
+    {
+     "pair": [
+      "ep-12",
+      "ep-14"
+     ],
+     "z_sum": 4.31,
+     "uncorrected_p": 0.0794,
+     "contested_shared": 7,
+     "contested_agree": 6,
+     "agree_on": [
+      "q02",
+      "q07",
+      "q08",
+      "q13",
+      "q11",
+      "q24"
+     ]
+    },
+    {
+     "pair": [
+      "ep-12",
+      "ep-24"
+     ],
+     "z_sum": 4.31,
+     "uncorrected_p": 0.0682,
+     "contested_shared": 7,
+     "contested_agree": 6,
+     "agree_on": [
+      "q02",
+      "q07",
+      "q08",
+      "q13",
+      "q11",
+      "q24"
+     ]
+    },
+    {
+     "pair": [
+      "ep-14",
+      "ep-24"
+     ],
+     "z_sum": 4.31,
+     "uncorrected_p": 0.0662,
+     "contested_shared": 7,
+     "contested_agree": 6,
+     "agree_on": [
+      "q02",
+      "q07",
+      "q08",
+      "q13",
+      "q11",
+      "q24"
+     ]
+    }
+   ],
+   "focus_pairs": []
+  },
+  "G2": {
+   "endpoints": [
+    "ep-03",
+    "ep-06",
+    "ep-07",
+    "ep-08",
+    "ep-20",
+    "ep-21",
+    "ep-22",
+    "ep-26",
+    "ep-28",
+    "ep-30",
+    "ep-32"
+   ],
+   "contested_questions": {
+    "q02": {
+     "47": 1,
+     "53": 2,
+     "57": 1,
+     "None": 1,
+     "25": 3,
+     "23": 2,
+     "46": 1
+    },
+    "q03": {
+     "8": 7,
+     "10": 3,
+     "6": 1
+    },
+    "q07": {
+     "10": 8,
+     "11": 2,
+     "-10": 1
+    },
+    "q08": {
+     "6": 5,
+     "11": 1,
+     "10": 3,
+     "1": 1,
+     "9": 1
+    },
+    "q13": {
+     "B": 10,
+     "A": 1
+    },
+    "q16": {
+     "B": 6,
+     "C": 5
+    },
+    "q26": {
+     "D": 6,
+     "B": 5
+    },
+    "q06": {
+     "32": 10,
+     "33": 1
+    },
+    "q11": {
+     "7": 4,
+     "11": 1,
+     "8": 3,
+     "None": 1,
+     "5": 1,
+     "10": 1
+    },
+    "q23": {
+     "B": 10,
+     "D": 1
+    },
+    "q24": {
+     "6": 1,
+     "None": 4,
+     "5": 1,
+     "9": 1,
+     "3": 3,
+     "4": 1
+    },
+    "q29": {
+     "B": 10,
+     "C": 1
+    }
+   },
+   "mean_pairwise_agreement_all_20": 0.7203996622572474,
+   "dispersion": {
+    "observed": 395.3919200397396,
+    "null_mean": 606.261881186485,
+    "p": 0.9558
+   },
+   "max_pair": {
+    "observed": 7.587370453957229,
+    "null_mean": 7.600855483712729,
+    "p": 0.5254
+   },
+   "swap_corr": {
+    "observed": -0.3018721547753797,
+    "null_sd": 0.1820533038650113,
+    "p": 0.9696
+   },
+   "bonferroni_pairs_below_0.05": [],
+   "top_pairs": [
+    {
+     "pair": [
+      "ep-03",
+      "ep-28"
+     ],
+     "z_sum": 7.59,
+     "uncorrected_p": 0.0108,
+     "contested_shared": 11,
+     "contested_agree": 9,
+     "agree_on": [
+      "q07",
+      "q08",
+      "q13",
+      "q16",
+      "q26",
+      "q06",
+      "q11",
+      "q23",
+      "q29"
+     ]
+    },
+    {
+     "pair": [
+      "ep-21",
+      "ep-32"
+     ],
+     "z_sum": 5.52,
+     "uncorrected_p": 0.048,
+     "contested_shared": 12,
+     "contested_agree": 8,
+     "agree_on": [
+      "q02",
+      "q03",
+      "q13",
+      "q16",
+      "q26",
+      "q06",
+      "q23",
+      "q29"
+     ]
+    },
+    {
+     "pair": [
+      "ep-22",
+      "ep-26"
+     ],
+     "z_sum": 4.96,
+     "uncorrected_p": 0.0782,
+     "contested_shared": 12,
+     "contested_agree": 8,
+     "agree_on": [
+      "q03",
+      "q08",
+      "q13",
+      "q16",
+      "q26",
+      "q06",
+      "q24",
+      "q29"
+     ]
+    },
+    {
+     "pair": [
+      "ep-21",
+      "ep-22"
+     ],
+     "z_sum": 4.36,
+     "uncorrected_p": 0.0966,
+     "contested_shared": 12,
+     "contested_agree": 7,
+     "agree_on": [
+      "q02",
+      "q03",
+      "q13",
+      "q06",
+      "q23",
+      "q24",
+      "q29"
+     ]
+    },
+    {
+     "pair": [
+      "ep-03",
+      "ep-32"
+     ],
+     "z_sum": 2.83,
+     "uncorrected_p": 0.2008,
+     "contested_shared": 12,
+     "contested_agree": 7,
+     "agree_on": [
+      "q03",
+      "q13",
+      "q16",
+      "q06",
+      "q11",
+      "q23",
+      "q29"
+     ]
+    },
+    {
+     "pair": [
+      "ep-06",
+      "ep-32"
+     ],
+     "z_sum": 2.73,
+     "uncorrected_p": 0.2258,
+     "contested_shared": 11,
+     "contested_agree": 7,
+     "agree_on": [
+      "q07",
+      "q13",
+      "q16",
+      "q26",
+      "q06",
+      "q23",
+      "q29"
+     ]
+    }
+   ],
+   "focus_pairs": [
+    {
+     "pair": [
+      "ep-08",
+      "ep-28"
+     ],
+     "z_sum": 2.5,
+     "uncorrected_p": 0.256,
+     "contested_shared": 11,
+     "contested_agree": 7,
+     "agree_on": [
+      "q03",
+      "q07",
+      "q08",
+      "q26",
+      "q06",
+      "q23",
+      "q29"
+     ]
+    },
+    {
+     "pair": [
+      "ep-07",
+      "ep-08"
+     ],
+     "z_sum": 2.4,
+     "uncorrected_p": 0.266,
+     "contested_shared": 11,
+     "contested_agree": 7,
+     "agree_on": [
+      "q07",
+      "q08",
+      "q16",
+      "q26",
+      "q11",
+      "q23",
+      "q29"
+     ]
+    },
+    {
+     "pair": [
+      "ep-07",
+      "ep-28"
+     ],
+     "z_sum": 0.49,
+     "uncorrected_p": 0.4772,
+     "contested_shared": 11,
+     "contested_agree": 6,
+     "agree_on": [
+      "q07",
+      "q08",
+      "q13",
+      "q26",
+      "q23",
+      "q29"
+     ]
+    },
+    {
+     "pair": [
+      "ep-28",
+      "ep-30"
+     ],
+     "z_sum": 0.49,
+     "uncorrected_p": 0.4754,
+     "contested_shared": 11,
+     "contested_agree": 6,
+     "agree_on": [
+      "q07",
+      "q08",
+      "q13",
+      "q16",
+      "q06",
+      "q23"
+     ]
+    },
+    {
+     "pair": [
+      "ep-07",
+      "ep-30"
+     ],
+     "z_sum": -2.1,
+     "uncorrected_p": 0.7634,
+     "contested_shared": 11,
+     "contested_agree": 5,
+     "agree_on": [
+      "q03",
+      "q07",
+      "q08",
+      "q13",
+      "q23"
+     ]
+    },
+    {
+     "pair": [
+      "ep-08",
+      "ep-30"
+     ],
+     "z_sum": -4.11,
+     "uncorrected_p": 0.898,
+     "contested_shared": 11,
+     "contested_agree": 4,
+     "agree_on": [
+      "q07",
+      "q08",
+      "q06",
+      "q23"
+     ]
+    }
+   ]
+  },
+  "G3": {
+   "endpoints": [
+    "ep-05",
+    "ep-09",
+    "ep-10",
+    "ep-11",
+    "ep-13",
+    "ep-15",
+    "ep-16",
+    "ep-19",
+    "ep-27",
+    "ep-29",
+    "ep-31"
+   ],
+   "contested_questions": {
+    "q02": {
+     "21": 1,
+     "100": 1,
+     "1003": 1,
+     "20": 3,
+     "None": 2,
+     "14": 1,
+     "23": 1,
+     "16": 1
+    },
+    "q03": {
+     "None": 9,
+     "26": 1,
+     "6": 1
+    },
+    "q07": {
+     "99": 1,
+     "3": 3,
+     "100": 1,
+     "300": 1,
+     "114": 1,
+     "2": 1,
+     "5": 1,
+     "24": 1,
+     "70": 1
+    },
+    "q08": {
+     "6": 1,
+     "25": 1,
+     "108": 1,
+     "27": 1,
+     "901": 1,
+     "666": 1,
+     "None": 2,
+     "1": 1,
+     "3": 1,
+     "119": 1
+    },
+    "q13": {
+     "A": 8,
+     "B": 2,
+     "C": 1
+    },
+    "q16": {
+     "B": 6,
+     "C": 2,
+     "A": 2,
+     "D": 1
+    },
+    "q20": {
+     "A": 1,
+     "None": 2,
+     "C": 7,
+     "B": 1
+    },
+    "q25": {
+     "D": 4,
+     "None": 5,
+     "B": 2
+    },
+    "q26": {
+     "None": 9,
+     "D": 1,
+     "A": 1
+    },
+    "q05": {
+     "A": 6,
+     "B": 2,
+     "None": 1,
+     "D": 2
+    },
+    "q11": {
+     "2": 1,
+     "8": 1,
+     "4": 1,
+     "3": 1,
+     "10": 1,
+     "0": 1,
+     "None": 4,
+     "11": 1
+    },
+    "q12": {
+     "A": 4,
+     "B": 2,
+     "None": 3,
+     "C": 1,
+     "D": 1
+    },
+    "q23": {
+     "B": 3,
+     "D": 5,
+     "A": 1,
+     "None": 2
+    },
+    "q24": {
+     "15": 1,
+     "9": 1,
+     "2": 1,
+     "7": 1,
+     "None": 7
+    },
+    "q29": {
+     "A": 2,
+     "None": 6,
+     "C": 2,
+     "D": 1
+    },
+    "q30": {
+     "B": 6,
+     "A": 2,
+     "None": 2,
+     "C": 1
+    }
+   },
+   "mean_pairwise_agreement_all_20": 0.44231342187224526,
+   "dispersion": {
+    "observed": 437.55442017666957,
+    "null_mean": 405.8842964909659,
+    "p": 0.3294
+   },
+   "max_pair": {
+    "observed": 7.972739420293573,
+    "null_mean": 7.0847746110002365,
+    "p": 0.2486
+   },
+   "swap_corr": {
+    "observed": -0.00425124881604083,
+    "null_sd": 0.1555795549578891,
+    "p": 0.4956
+   },
+   "bonferroni_pairs_below_0.05": [],
+   "top_pairs": [
+    {
+     "pair": [
+      "ep-09",
+      "ep-16"
+     ],
+     "z_sum": 7.97,
+     "uncorrected_p": 0.004,
+     "contested_shared": 7,
+     "contested_agree": 5,
+     "agree_on": [
+      "q07",
+      "q13",
+      "q16",
+      "q23",
+      "q30"
+     ]
+    },
+    {
+     "pair": [
+      "ep-05",
+      "ep-13"
+     ],
+     "z_sum": 5.15,
+     "uncorrected_p": 0.0398,
+     "contested_shared": 9,
+     "contested_agree": 5,
+     "agree_on": [
+      "q13",
+      "q16",
+      "q05",
+      "q12",
+      "q30"
+     ]
+    },
+    {
+     "pair": [
+      "ep-05",
+      "ep-11"
+     ],
+     "z_sum": 4.88,
+     "uncorrected_p": 0.0444,
+     "contested_shared": 14,
+     "contested_agree": 6,
+     "agree_on": [
+      "q13",
+      "q16",
+      "q25",
+      "q23",
+      "q29",
+      "q30"
+     ]
+    },
+    {
+     "pair": [
+      "ep-09",
+      "ep-13"
+     ],
+     "z_sum": 4.27,
+     "uncorrected_p": 0.0622,
+     "contested_shared": 8,
+     "contested_agree": 4,
+     "agree_on": [
+      "q13",
+      "q16",
+      "q12",
+      "q30"
+     ]
+    },
+    {
+     "pair": [
+      "ep-15",
+      "ep-27"
+     ],
+     "z_sum": 3.82,
+     "uncorrected_p": 0.0898,
+     "contested_shared": 8,
+     "contested_agree": 4,
+     "agree_on": [
+      "q02",
+      "q20",
+      "q25",
+      "q23"
+     ]
+    },
+    {
+     "pair": [
+      "ep-09",
+      "ep-29"
+     ],
+     "z_sum": 3.66,
+     "uncorrected_p": 0.0936,
+     "contested_shared": 5,
+     "contested_agree": 2,
+     "agree_on": [
+      "q07",
+      "q13"
+     ]
+    }
+   ],
+   "focus_pairs": []
+  }
+ },
+ "practice_repeat_noise": {
+  "self": {
+   "ref-01": {
+    "kind": "plain",
+    "repeat_agreement": 0.242,
+    "n": 62
+   },
+   "ref-02": {
+    "kind": "quantized (fp8)",
+    "repeat_agreement": 0.25,
+    "n": 52
+   },
+   "ref-03": {
+    "kind": "system prompt",
+    "repeat_agreement": 0.304,
+    "n": 23
+   },
+   "ref-04": {
+    "kind": "LoRA at strength 0.7",
+    "repeat_agreement": 0.419,
+    "n": 31
+   },
+   "ref-05": {
+    "kind": "persona",
+    "repeat_agreement": 0.333,
+    "n": 54
+   },
+   "ref-06": {
+    "kind": "watermark",
+    "repeat_agreement": 0.418,
+    "n": 67
+   },
+   "ref-07": {
+    "kind": "LoRA at strength 1.5",
+    "repeat_agreement": 0.0,
+    "n": 1
+   },
+   "ref-08": {
+    "kind": "sampling at temperature 1.0",
+    "repeat_agreement": 0.264,
+    "n": 53
+   },
+   "ref-09": {
+    "kind": "LoRA at strength 0.3",
+    "repeat_agreement": 0.383,
+    "n": 47
+   }
+  },
+  "between_same_model_mean": 0.2753642136924857,
+  "between_different_model_mean": 0.26676391017467477,
+  "auc_same_vs_different": 0.5653846153846154
+ }
+}
