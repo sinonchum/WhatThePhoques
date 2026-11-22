@@ -12,10 +12,13 @@ from pathlib import Path
 import torch
 import torch.nn.functional as F
 
+import os
+
 ROOT = Path(__file__).resolve().parent
-STARTER = ROOT / "starter"
-RUN = ROOT / "runs"
-RUN.mkdir(exist_ok=True)
+# XH_STARTER / XH_RUN let the same scripts run on Modal against the shared volume
+STARTER = Path(os.environ.get("XH_STARTER", ROOT / "starter"))
+RUN = Path(os.environ.get("XH_RUN", ROOT / "runs"))
+RUN.mkdir(parents=True, exist_ok=True)
 sys.path.insert(0, str(STARTER))
 import task_template as tt  # noqa: E402
 

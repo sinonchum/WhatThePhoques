@@ -40,7 +40,7 @@ def main():
         for vn, chunks in views.items():
             z = []
             for v in chunks:
-                with torch.autocast(device_type="mps", dtype=torch.float16):
+                with torch.autocast(device_type=C.DEV, dtype=torch.float16):
                     z.append(model(v.to(C.DEV)).float().cpu())
             ok = (torch.cat(z).argmax(1) == yy).float()
             line += f" | {vn} acc {ok.mean():.3f} (capped {ok[ff].mean():.3f}, rest {ok[~ff].mean():.3f})"

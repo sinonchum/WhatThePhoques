@@ -104,7 +104,7 @@ def main():
                 x = C.to_norm(src[i : i + 100])
                 if alt in ALTS:
                     x = ALTS[alt](x)
-                with torch.autocast(device_type="mps", dtype=torch.float16):
+                with torch.autocast(device_type=C.DEV, dtype=torch.float16):
                     outs.append(model(x).float().cpu())
             z = torch.cat(outs)
             m, s, a = C.ce_stats(z, y)

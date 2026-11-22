@@ -17,7 +17,7 @@ import xh_common as C
 
 BATCH = 100
 OUT = C.RUN / "tok"
-OUT.mkdir(exist_ok=True)
+OUT.mkdir(parents=True, exist_ok=True)
 
 
 @torch.no_grad()

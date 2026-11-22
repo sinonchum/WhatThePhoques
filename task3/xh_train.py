@@ -43,7 +43,7 @@ def batches(n, bs, gen):
 def predict_tok(model, tok, bs=250):
     out = []
     for i in range(0, len(tok), bs):
-        with torch.autocast(device_type="mps", dtype=torch.float16):
+        with torch.autocast(device_type=C.DEV, dtype=torch.float16):
             out.append(C.tail(model, tok[i : i + bs].to(C.DEV), 8).float().cpu())
     return torch.cat(out)
 
@@ -140,7 +140,7 @@ def main():
     log = {"args": vars(args), "evals": {}}
     t0 = time.time()
     model.eval()
-    amp = dict(device_type="mps", dtype=torch.float16)
+    amp = dict(device_type=C.DEV, dtype=torch.float16)
     for step in range(1, args.steps + 1):
         idx = next(it_f)
         ida = next(it_a)
