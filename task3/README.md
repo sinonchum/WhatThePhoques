@@ -200,6 +200,8 @@ modal volume get euroai-task3 /xh/runs/<name>.pt runs/<name>.pt
 
 ## 文件索引
 
+本目录里有两条线的代码。`xh_*.py` 是产出最终模型 `z10` 的这条线,下表逐个说明。`unlearn_*.py`、`probe_*.py`、`mumis_*.py`、`scrub_b8.py`、`eval_ckpt.py`、`submit_env.py` 是队友 li103 的另一条线(block-8 读出蒸馏,公开分 0.1476),各脚本开头的 docstring 写了用途;它们写死了 `.cuda()`,不依赖也不被 `xh_*.py` 依赖。
+
 | 文件 | 作用 |
 |---|---|
 | `xh_common.py` | 公共函数:载入模型和图片、各种视图(轻度改动、重构图裁剪、同类拼接)、KL、损失统计 |
