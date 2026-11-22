@@ -1,0 +1,10 @@
+# Versions the results in README.md were produced with (Python 3.12).
+torch==2.15.0
+torchvision==0.29.2
+timm==1.0.31
+numpy==2.5.5
+pillow==13.0.0
+requests==2.34.2
+huggingface_hub==2.4.0
+# only for running on Modal GPUs (xh_modal.py)
+modal==1.6.4

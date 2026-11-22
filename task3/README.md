@@ -4,6 +4,23 @@
 
 本目录的 `xh_*.py` 只用官方给的 `model.pt` 和 `forget_images.npz`,不用外部数据。前半段在 Mac(MPS)上跑,08:40 之后在 Modal 的 A100 上跑(见"在 Modal 上跑")。
 
+## 交付物
+
+| 内容 | 位置 |
+|---|---|
+| 最终模型 `z10.pt`(公开分 0.3433) | Modal 卷 `euroai-task3` 的 `/xh/runs/z10.pt`;本机备份 `task3/runs/z10.pt`。327.7 MB,超过 GitHub 单文件上限,不在仓库里 |
+| 校验值 | sha256 `7e047d8af8d65dce812df958b0db11bea73c7bd499befffb87212f192b06c665` |
+| 提交格式检查 | `strict=True` 载入 `task_template.py` 的结构,全部 float32,无 NaN / Inf,小于 450 MB(2026-11-22 12:10 复核) |
+| 代码 | 本目录 24 个 `xh_*.py`,见文末"文件索引" |
+| 全部 34 次计分提交的记录 | [`submissions.jsonl`](submissions.jsonl) |
+| 依赖 | [`requirements.txt`](requirements.txt) |
+
+取回最终模型:
+
+```bash
+modal volume get euroai-task3 /xh/runs/z10.pt runs/z10.pt
+```
+
 **先读这三条**(详见"从分数里读出来的结论"):
 
 1. 9 个恰好 130 张的类,gold 判得完全不对(损失约 10–12)。
@@ -15,13 +32,13 @@
 ```bash
 cd task3
 uv venv .venv --python 3.12
-uv pip install --python .venv/bin/python torch torchvision timm numpy huggingface_hub requests pillow
+uv pip install --python .venv/bin/python -r requirements.txt
 .venv/bin/python -c "from huggingface_hub import snapshot_download; snapshot_download('SprintML/unlearning', repo_type='dataset', local_dir='starter')"
 ```
 
 API key 放在 `~/.hackathon_key`(权限 600),`xh_submit.py` 从那里读,不会打印。
 
-所有脚本都加 `PYTORCH_ENABLE_MPS_FALLBACK=1`,在 `task3/` 目录下运行。CUDA 机器要把 `xh_train.py` / `xh_eval*.py` 里 `device_type="mps"` 改成 `"cuda"`。
+所有脚本都加 `PYTORCH_ENABLE_MPS_FALLBACK=1`,在 `task3/` 目录下运行。设备自动选择(MPS → CUDA → CPU),不用改代码。
 
 | 步骤 | 命令 | 耗时(M5) | 产出 |
 |---|---|---|---|
@@ -88,6 +105,7 @@ $P xh_interp.py ex1413 r14:1.6 r13:-0.6  # 0.2756
 | 11:21 | z10 | **0.3433** | 打分器指引:其余类记住的类比次优类低 2,温度 0.5,混 35% block-8 读出 |
 | 11:40 | c4 | 0.3110 | 直接对打分器优化出的逐图目标(预测 0.378,外推失败) |
 | 11:50 | a6 | 0.3390 | z10 续训,其余类低 4,锚点权重 6(预测 0.362) |
+| 12:01 | a5 | 0.3431 | z10 的同一目标再训 3000 步,锚点权重 6(预测 0.358) |
 
 队伍此前最高是队友的 `fit_b8` 0.1476。
 
@@ -149,6 +167,7 @@ modal volume get euroai-task3 /xh/runs/<name>.pt runs/<name>.pt
 
 - 封顶类到底是什么。结论 1、7、8 合起来的解释是"gold 认识这些类,但把这批图自信地判给同族的另一个类",像是这批图的标签与它们的外观不一致。没有直接证据。
 - 最终排名的门槛余量。z10 把其余类的图也几乎全判错了,公开划分过了门槛,另外 70% 上无法验证。
+- 这个目标是否已经到头。a5 用 z10 的同一目标多训 3000 步,得 0.3431,与 z10 的 0.3433 几乎相同:更多训练不再涨分,再提高需要更准的目标。
 - 打分器拟合出的 gold 损失均值 11.1 是否真实。它意味着几乎所有遗忘图 gold 都判错;沿这个方向走到 a6(其余类低 4)实测没有再涨。
 
 ## 本地检查的三个脚本
@@ -178,6 +197,28 @@ modal volume get euroai-task3 /xh/runs/<name>.pt runs/<name>.pt
 - Modal 入口有两个 local entrypoint,必须写 `xh_modal.py::main` 或 `::submit`。
 - Modal 工作区是共用的,队友的作业在跑时我们的批次会变慢。
 - zsh 不拆分变量:循环里传多个参数要写 `${=spec}`。
+
+## 文件索引
+
+| 文件 | 作用 |
+|---|---|
+| `xh_common.py` | 公共函数:载入模型和图片、各种视图(轻度改动、重构图裁剪、同类拼接)、KL、损失统计 |
+| `xh_diag.py` | 原模型诊断,产出 `runs/xh_cache.pt`(所有目标脚本都读它) |
+| `xh_tokens.py` | 缓存 block 7 的输出和原模型在固定视图上的 logits,供评估用 |
+| `xh_oof.py` | 中间层特征上的留出线性读出 |
+| `xh_train.py` | 训练(只动 blocks 8–11 + norm + head) |
+| `xh_interp.py` | 权重空间的插值 / 外推 |
+| `xh_submit.py` | 本机校验并提交 |
+| `xh_modal.py` | Modal 上并行跑命令、从云端提交 |
+| `xh_eval2.py`、`xh_gate.py`、`xh_alt.py` | 本地检查:分组损失、门槛代理、各类改动下的表现 |
+| `xh_logits.py`、`xh_fit.py`、`xh_search.py` | 导出模型输出、拟合打分器并打预测分、用打分器搜索目标族 |
+| `xh_target3.py`、`xh_target5.py`、`xh_target7.py`、`xh_target8.py` | **最终用到的目标**:封顶类 margin、按张数分级、次优类分布(封顶类 / 全部图) |
+| `xh_target.py`、`xh_target2.py`、`xh_target4.py` | 早期目标(block 读出、混合预测器、按难度排序),分数都低,留作记录 |
+| `xh_target6.py` | 把封顶类从目标里清零。**实测大跌(0.19、0.17),不要用** |
+| `xh_opt.py` | 直接对打分器优化目标。**实测外推失败(预测 0.378、实测 0.311),不要用** |
+| `xh_eval.py` | 早期评估脚本,已被 `xh_eval2.py` 取代 |
+
+`runs/`(checkpoint、缓存、日志)、`starter/`(官方文件)、`.venv/` 都在 `.gitignore` 里。
 
 ## 没做的
 
