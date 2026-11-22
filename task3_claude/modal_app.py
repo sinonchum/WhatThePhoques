@@ -1204,12 +1204,16 @@ def oof_blocks_remote(cfg: dict):
     the original model as teacher on augmented views; the remaining 1/5 is then predicted by blocks that never saw it.
     Returns the out-of-fold logits for this fold (clean images)."""
     import copy, math, torch, torch.nn.functional as F
-    c = dict(fold=0, first=8, epochs=40, lr=3e-4, bs=64, reinit=True, hard=0.0, tag="a", seed=0); c.update(cfg)
+    c = dict(fold=0, first=8, epochs=40, lr=3e-4, bs=64, reinit=True, hard=0.0, tag="a", seed=0, world=False); c.update(cfg)
     torch.manual_seed(100 + c["fold"] + 1000 * c["seed"]); orig, imgs = _setup(); L0 = _predict(orig, imgs); y = L0.argmax(1); N = len(y)
     g = torch.Generator().manual_seed(0); fold = torch.zeros(N, dtype=torch.long)
     for cl in y.unique().tolist():
         idx = torch.where(y == cl)[0]; idx = idx[torch.randperm(len(idx), generator=g)]; fold[idx] = torch.arange(len(idx)) % 5
     tr = torch.where(fold != c["fold"])[0]; te = torch.where(fold == c["fold"])[0]
+    capc = torch.bincount(y, minlength=100) >= 129; cap_img = capc[y]
+    if c["world"]:     # the retrained models never saw ANY image of the capped classes: drop them all, predict them all
+        tr = torch.where((fold != c["fold"]) & ~cap_img)[0]; te = torch.where(((fold == c["fold"]) & ~cap_img) | cap_img)[0]
+    capg = capc.cuda()
     for p in orig.parameters():
         p.requires_grad_(False)
     stu = copy.deepcopy(orig); params = []
@@ -1236,31 +1240,44 @@ def oof_blocks_remote(cfg: dict):
             z = stu(x).float()
             with torch.no_grad():
                 zt = orig(x).float()
+        if c["world"]:
+            zt = zt.masked_fill(capg[None, :], -1e4)                  # the teacher never mentions the removed classes
         loss = 4 * F.kl_div((z / 2).log_softmax(1), (zt / 2).softmax(1), reduction="batchmean")
         if c["hard"]:
             loss = loss + c["hard"] * F.cross_entropy(z, yg[ib])
         opt.zero_grad(set_to_none=True); loss.backward(); torch.nn.utils.clip_grad_norm_(params, 1.0); opt.step(); sched.step()
     stu.eval(); Zte = _predict(stu, imgs[te]); Ztr = _predict(stu, imgs[tr[:500]])
     ce = F.cross_entropy(Zte, y[te], reduction="none")
+    if c["world"]:
+        mc = cap_img[te]; cec = ce[mc]; cer = ce[~mc]
+        extra = {"capped": (float((Zte[mc].argmax(1) == y[te][mc]).float().mean()), float(cec.mean()), float(cec.std()), float((Zte[mc] / 2).softmax(1)[:, capc].sum(1).mean())),
+                 "rest": (float((Zte[~mc].argmax(1) == y[te][~mc]).float().mean()), float(cer.mean()), float(cer.std()), float((Zte[~mc] / 2).softmax(1)[:, capc].sum(1).mean()))}
+    else:
+        extra = {}
     import os
     os.makedirs("/vol/oofb_parts", exist_ok=True); torch.save({"te": te, "logits": Zte}, f"/vol/oofb_parts/{c['tag']}_{c['fold']}.pt"); vol.commit()
-    return {"cfg": c, "acc_te": float((Zte.argmax(1) == y[te]).float().mean()), "ce_te": (float(ce.mean()), float(ce.std())),
+    return {"cfg": c, "extra": extra, "acc_te": float((Zte.argmax(1) == y[te]).float().mean()), "ce_te": (float(ce.mean()), float(ce.std())),
             "acc_tr": float((Ztr.argmax(1) == y[tr[:500]]).float().mean()), "final_loss": float(loss)}
 
 
 @app.function(image=image, volumes={"/vol": vol}, timeout=600)
 def oofb_assemble(tag: str):
     import torch
-    vol.reload(); Z = torch.zeros(3500, 100)
-    for f in range(5):
-        d = torch.load(f"/vol/oofb_parts/{tag}_{f}.pt"); Z[d["te"]] = d["logits"]
-    torch.save(Z, f"/vol/oofb_{tag}.pt"); vol.commit(); return True
+    vol.reload(); P = torch.zeros(3500, 100); n = torch.zeros(3500, 1)
+    for f in range(5):                       # an image predicted by several folds (capped classes in "world" mode) gets their mean T=2 distribution
+        d = torch.load(f"/vol/oofb_parts/{tag}_{f}.pt"); P[d["te"]] += (d["logits"] / 2).softmax(1); n[d["te"]] += 1
+    Z = 2 * (P / n.clamp_min(1)).clamp_min(1e-9).log() if float(n.max()) > 1 else None
+    if Z is None:
+        Z = torch.zeros(3500, 100)
+        for f in range(5):
+            d = torch.load(f"/vol/oofb_parts/{tag}_{f}.pt"); Z[d["te"]] = d["logits"]
+    torch.save(Z, f"/vol/{'world' if tag.startswith('w') else 'oofb'}_{tag}.pt"); vol.commit(); return True
 
 
 @app.local_entrypoint()
-def oofb(first: int = 8, epochs: int = 40, tag: str = "a", reinit: bool = True, hard: float = 0.0, seed: int = 0):
-    for r in oof_blocks_remote.map([dict(fold=f, first=first, epochs=epochs, tag=tag, reinit=reinit, hard=hard, seed=seed) for f in range(5)]):
-        print(r["cfg"]["fold"], {k: r[k] for k in ("acc_te", "ce_te", "acc_tr", "final_loss")})
+def oofb(first: int = 8, epochs: int = 40, tag: str = "a", reinit: bool = True, hard: float = 0.0, seed: int = 0, world: bool = False):
+    for r in oof_blocks_remote.map([dict(fold=f, first=first, epochs=epochs, tag=tag, reinit=reinit, hard=hard, seed=seed, world=world) for f in range(5)]):
+        print(r["cfg"]["fold"], {k: r[k] for k in ("acc_te", "ce_te", "acc_tr", "final_loss")}, r.get("extra"))
     print("assembled", oofb_assemble.remote(tag))
 
 
@@ -1278,3 +1295,27 @@ def export_targets_remote():
 @app.local_entrypoint()
 def export_targets():
     print(export_targets_remote.remote())
+
+
+@app.function(image=image, volumes={"/vol": vol}, timeout=600)
+def export_world_remote():
+    """CPU only: pack the 'nine capped classes never seen' cross-fitted predictions (all seeds)."""
+    import glob, numpy as np, torch, torch.nn.functional as F
+    vol.reload(); fs = sorted(glob.glob("/vol/world_w7*.pt")); Z = torch.stack([torch.load(f).float() for f in fs])
+    p2 = (Z / 2).softmax(-1).mean(0); zt = 2 * p2.clamp_min(1e-9).log()
+    y = torch.load("/vol/orig_cache.pt")["pseudo"]; capc = torch.bincount(y, minlength=100) >= 129; full = capc[y]
+    ce = F.cross_entropy(zt, y, reduction="none"); st = lambda m: (round(float((zt[m].argmax(1) == y[m]).float().mean()), 3), round(float(ce[m].mean()), 2), round(float(ce[m].std()), 2))
+    top = zt.clone(); top[torch.arange(len(y)), y] = -1e9
+    info = {"seeds": len(fs), "all(acc,ce_mean,ce_std)": st(torch.ones_like(full)), "capped": st(full), "rest": st(~full),
+            "capped images: T2 mass on other capped classes": round(float(p2[full][:, capc].sum(1).mean()), 4),
+            "rest images: T2 mass on capped classes": round(float(p2[~full][:, capc].sum(1).mean()), 4),
+            "capped images: margin best_other - label (logits)": round(float((top.max(1).values - zt[torch.arange(len(y)), y])[full].mean()), 2),
+            "argmax agreement between seeds": round(float((Z[0].argmax(1) == Z[1].argmax(1)).float().mean()), 3) if len(fs) > 1 else None}
+    np.savez_compressed("/vol/gold_standin_world.npz", p_T2_mean=p2.numpy().astype(np.float32), logits_from_mean=zt.numpy().astype(np.float32),
+                        logits_per_seed=Z.numpy().astype(np.float32), capped_image=full.numpy(), label=y.numpy())
+    torch.save({"zt": zt, "full": full}, "/vol/t_world.pt"); vol.commit(); return info
+
+
+@app.local_entrypoint()
+def export_world():
+    print(export_world_remote.remote())
