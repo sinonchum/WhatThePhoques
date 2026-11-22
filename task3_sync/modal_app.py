@@ -198,7 +198,7 @@ def _mosaic(imgs_u8, n):
     return torch.cat([top, bot], 2).clamp(0, 255).permute(0, 2, 3, 1).to(torch.uint8)
 
 
-@app.function(image=image, volumes={"/vol": vol}, gpu="A100-40GB", timeout=3600, max_containers=4)
+@app.function(image=image, volumes={"/vol": vol}, gpu="A100-40GB", timeout=7200, max_containers=16)
 def unlearn_remote(cfg: dict):
     """Targeted soft-label self-distillation. Returns local diagnostics; saves the float32 state dict to the volume.
 
@@ -213,7 +213,7 @@ def unlearn_remote(cfg: dict):
     import copy, math, time
     import numpy as np, torch, torch.nn.functional as F
     c = dict(name="run", seed=0, m_full=4.0, acc_partial=0.8, n_blocks=4, lr=3e-5, steps=800, bs=48, w_anchor=1.0, w_t1=0.5,
-             full_min=129, holdout_every=7, anchor="strong", anchor_rrc=(0.25, 0.7), light_share=0.5, mini=False, full_level="instance", mini_mode="full", uniform_delta=None, tau=1.0, amp_a=None, flip_q=0.2, hybrid_m=None, lens_block=None, lens_mix=0.0, train_head=True, init=None, light_mode="rrc", alphas=(0.25, 0.5, 0.75, 1.0), light=(0.85, 1.0, 0.1), tau_avg=1.0); c.update(cfg)
+             full_min=129, holdout_every=7, anchor="strong", anchor_rrc=(0.25, 0.7), light_share=0.5, mini=False, full_level="instance", mini_mode="full", uniform_delta=None, tau=1.0, amp_a=None, flip_q=0.2, hybrid_m=None, lens_block=None, lens_mix=0.0, train_head=True, init=None, light_mode="rrc", target_key=None, notlabel_m=6.0, alphas=(0.25, 0.5, 0.75, 1.0), light=(0.85, 1.0, 0.1), tau_avg=1.0); c.update(cfg)
     torch.manual_seed(c["seed"]); np.random.seed(c["seed"])
     orig, imgs = _setup()
     mini = None
@@ -268,6 +268,18 @@ def unlearn_remote(cfg: dict):
         info_lens = {"agree_with_final": float((Zl.argmax(1) == y).float().mean()), "max_prob": float(Zl.softmax(1).max(1).values.mean())}
         pl = (1 - c["lens_mix"]) * Zl.softmax(1) + c["lens_mix"] * (Zs / 2).softmax(1)
         Zt = 2 * pl.clamp_min(1e-8).log()                                  # so that softmax(Zt / 2) == pl
+    if c["target_key"] == "notlabel_r8":          # the retrained model picks a wrong class: block-8 read-out with the label pushed below the rest
+        Zt = Zl.clone(); o2 = Zt.clone(); o2[torch.arange(len(y)), y] = -1e9; Zt[torch.arange(len(y)), y] = o2.max(1).values - c["notlabel_m"]
+    elif c["target_key"] in ("r78", "r7"):        # between the block-7 and block-8 read-outs (as T=2 distributions)
+        def lens7(model, x):
+            t = model.norm_pre(model._pos_embed(model.patch_embed(x)))
+            for blk in model.blocks[:8]:
+                t = blk(t)
+            return model.forward_head(model.norm(t))
+        p7 = _predict(orig, imgs, fn=lens7).softmax(1); mixw = 0.5 if c["target_key"] == "r78" else 1.0
+        Zt = 2 * (mixw * p7 + (1 - mixw) * Zl.softmax(1)).clamp_min(1e-8).log()
+    elif c["target_key"]:                         # a stand-in built by calib_remote (same image order)
+        Zt = torch.load("/vol/calib_targets.pt")[c["target_key"]].clone()
     q2 = (Zt / 2).softmax(1); q1 = Zt.softmax(1)
     tce = F.cross_entropy(Zt, y, reduction="none")
     info = {"cfg": {k: (list(v) if isinstance(v, tuple) else v) for k, v in c.items()}, "n_full": int(full.sum()), "n_partial": int((~full).sum()), "n_held": int(held.sum()),
@@ -334,6 +346,10 @@ def unlearn_remote(cfg: dict):
         if step % 100 == 0 or step == c["steps"]:
             logs.append((step, round(float(lf), 4), round(float(la), 4)))
     info["train_log"] = logs; info["train_minutes"] = round((time.time() - t0) / 60, 2)
+    if not c["mini"]:                     # save right after training so a slow diagnostic pass cannot lose the weights
+        import os
+        os.makedirs("/vol/ckpt", exist_ok=True)
+        torch.save({k: v.detach().cpu().float() if v.is_floating_point() else v.cpu() for k, v in sub.state_dict().items()}, f"/vol/ckpt/{c['name']}.pt"); vol.commit()
 
     # ---- diagnostics at several interpolation strengths
     sd0 = {k: v.detach().clone() for k, v in orig.state_dict().items()}; sd1 = {k: v.detach().clone() for k, v in sub.state_dict().items()}
@@ -416,9 +432,25 @@ def sweep(which: str = "v1"):
                     dict(name="v5_amp2_f15_w2", amp_a=2.0, flip_q=0.15, w_anchor=2.0, light_share=0.75, steps=3000, lr=5e-5, n_blocks=6)],
              "v9": [dict(name=f"v9_hyb_m{m}", amp_a=2.0, flip_q=0.2, hybrid_m=float(m), w_anchor=2.0, w_t1=0.5, light_share=0.6, steps=3000, lr=1e-4, n_blocks=4, train_head=False, anchor="strong", alphas=(0.75, 1.0)) for m in (4, 8, 12)]
                    + [dict(name="v9_hyb_m8_w5", amp_a=2.0, flip_q=0.2, hybrid_m=8.0, w_anchor=5.0, w_t1=0.5, light_share=0.6, steps=3000, lr=1e-4, n_blocks=4, train_head=False, anchor="strong", alphas=(0.75, 1.0))],
-             "v10": [dict(name=n, lens_block=8, w_t1=0.0, light_share=0.7, light_mode="multi", steps=5000, n_blocks=4, train_head=False, anchor="strong", alphas=(1.0,), **{"lr": 1e-4, **kw})
+             "v10": [dict(name=n, lens_block=8, w_t1=0.0, light_share=0.7, light_mode="multi", steps=3000, n_blocks=4, train_head=False, anchor="strong", alphas=(1.0,), **{"lr": 1e-4, **kw})
                      for n, kw in (("v10_val_w1", dict(holdout_every=7, w_anchor=1.0)), ("v10_all_w1", dict(holdout_every=0, w_anchor=1.0)),
                                    ("v10_all_w2", dict(holdout_every=0, w_anchor=2.0)), ("v10_fromfit_w2", dict(holdout_every=0, w_anchor=2.0, init="fit_b8", lr=5e-5)))],
+             "v11": [dict(name=n, lens_block=8, w_t1=0.0, light_share=0.7, light_mode="multi", steps=3000, n_blocks=4, train_head=False, anchor="strong", alphas=(1.0,), holdout_every=0, **{"lr": 1e-4, **kw})
+                     for n, kw in (("v11_crop60_w1", dict(light=(0.6, 1.0, 0.2), anchor_rrc=(0.15, 0.4), w_anchor=1.0)), ("v11_crop70_w1", dict(light=(0.7, 1.0, 0.15), anchor_rrc=(0.2, 0.5), w_anchor=1.0)),
+                                   ("v11_crop60_w05", dict(light=(0.6, 1.0, 0.2), anchor_rrc=(0.15, 0.4), w_anchor=0.5)), ("v11_crop45_w1", dict(light=(0.45, 1.0, 0.2), anchor_rrc=(0.08, 0.3), w_anchor=1.0)))],
+             "v12": [dict(name=n, lens_block=8, w_t1=0.5, light_share=0.7, light_mode="multi", light=(0.75, 1.0, 0.1), steps=3000, lr=1e-4, n_blocks=4, train_head=False, anchor="strong", w_anchor=1.0, alphas=(1.0,), **kw)
+                     for n, kw in (("v12_abs_r8_B6_val", dict(target_key="absent-only readout8 B6 tau1", holdout_every=7)), ("v12_abs_r8_B6", dict(target_key="absent-only readout8 B6 tau1", holdout_every=0)),
+                                   ("v12_abs_r8_B10", dict(target_key="absent-only readout8 B10 tau1", holdout_every=0)), ("v12_notlabel_r8_m6", dict(target_key="notlabel_r8", holdout_every=0)))],
+             "v13": [dict(name=n, lens_block=8, w_t1=0.0, light_share=0.7, light_mode="multi", steps=3000, lr=1e-4, n_blocks=4, train_head=False, anchor="strong", alphas=(1.0,), holdout_every=0, **kw)
+                     for n, kw in (("v13_b8_crop50_w025", dict(light=(0.5, 1.0, 0.2), anchor_rrc=(0.1, 0.3), w_anchor=0.25)), ("v13_r78_crop60_w05", dict(target_key="r78", light=(0.6, 1.0, 0.2), anchor_rrc=(0.15, 0.4), w_anchor=0.5)),
+                                   ("v13_r78_crop50_w025", dict(target_key="r78", light=(0.5, 1.0, 0.2), anchor_rrc=(0.1, 0.3), w_anchor=0.25)), ("v13_r7_crop60_w05", dict(target_key="r7", light=(0.6, 1.0, 0.2), anchor_rrc=(0.15, 0.4), w_anchor=0.5)))],
+             "v14": [{**dict(name=n, lens_block=8, light_share=0.7, light_mode="multi", steps=3000, lr=1e-4, n_blocks=4, train_head=False, anchor="strong", alphas=(1.0,), holdout_every=0), **kw}
+                     for n, kw in (("v14_f7_crop50_w025", dict(target_key="oofb_f7 logits/1.0", w_t1=0.5, light=(0.5, 1.0, 0.2), anchor_rrc=(0.1, 0.3), w_anchor=0.25)),
+                                   ("v14_f7_crop60_w05", dict(target_key="oofb_f7 logits/1.0", w_t1=0.5, light=(0.6, 1.0, 0.2), anchor_rrc=(0.15, 0.4), w_anchor=0.5)),
+                                   ("v14_f7_crop50_w025_t0", dict(target_key="oofb_f7 logits/1.0", w_t1=0.0, light=(0.5, 1.0, 0.2), anchor_rrc=(0.1, 0.3), w_anchor=0.25)),
+                                   ("v14_f7_crop50_w0", dict(target_key="oofb_f7 logits/1.0", w_t1=0.5, light=(0.5, 1.0, 0.2), anchor_rrc=(0.1, 0.3), w_anchor=0.05)),
+                                   ("v14_f7_b6_crop50_w025", dict(target_key="oofb_f7 logits/1.0", w_t1=0.5, light=(0.5, 1.0, 0.2), anchor_rrc=(0.1, 0.3), w_anchor=0.25, n_blocks=6)),
+                                   ("v14_f7r8_crop50_w025", dict(target_key="oofb_f7 avg readout8", w_t1=0.0, light=(0.5, 1.0, 0.2), anchor_rrc=(0.1, 0.3), w_anchor=0.25)))],
              "v8": [dict(name="v8_lens8_all_w1", lens_block=8, w_anchor=1.0, w_t1=0.0, light_share=0.6, steps=4000, lr=1e-4, n_blocks=4, holdout_every=0, train_head=False, anchor="heavy"),
                     dict(name="v8_lens8_all_w2", lens_block=8, w_anchor=2.0, w_t1=0.0, light_share=0.6, steps=4000, lr=1e-4, n_blocks=4, holdout_every=0, train_head=False, anchor="heavy"),
                     dict(name="v8_lens8_all_strong_w1", lens_block=8, w_anchor=1.0, w_t1=0.0, light_share=0.6, steps=4000, lr=1e-4, n_blocks=4, holdout_every=0, train_head=False, anchor="strong")],
@@ -953,14 +985,14 @@ def profile(name: str = "fit_b8"):
 
 # ------------------------------------------------------------------------- which guess at "gold" explains the public scores?
 @app.function(image=image, volumes={"/vol": vol}, gpu="A100-40GB", timeout=2400)
-def calib_remote():
+def calib_remote(extra: list = (), only: str = ""):
     """Build candidate stand-ins for the retrained model's predictions on the forget images and score every already
     submitted checkpoint against each with the official forget formula. A stand-in is credible if it reproduces the
     ordering of the public scores. Cross-fitted candidates are saved to /vol/calib_targets.pt for training."""
     import copy, torch, torch.nn.functional as F
     vol.reload(); orig, imgs = _setup()
     L0 = _predict(orig, imgs); y = L0.argmax(1); N = len(y)
-    torch.manual_seed(7); light = _rrc(imgs, 0.85, 1.0, jitter=0.1)
+    torch.manual_seed(7); light = _rrc(imgs, 0.6, 1.0, jitter=0.15)            # hidden copies behave like crops (v10/v11/fit_b8 ordering)
     Lo = {"clean": L0, "light": _predict(orig, light)}
 
     def feats(model, x, upto):
@@ -980,7 +1012,7 @@ def calib_remote():
     for c in y.unique().tolist():
         idx = torch.where(y == c)[0]; idx = idx[torch.randperm(len(idx), generator=g)]; fold[idx] = torch.arange(len(idx)) % 5
     present = y.unique(); remap = torch.full((100,), -1, dtype=torch.long); remap[present] = torch.arange(len(present))
-    for k in (5, 7, 8, 9, 11):
+    for k in ():
         Fc = _predict(orig, imgs, fn=lambda m, x: feats(m, x, k)); Ff = _predict(orig, imgs.flip(2), fn=lambda m, x: feats(m, x, k))
         mu, sd = Fc.mean(0, keepdim=True), Fc.std(0, keepdim=True) + 1e-6; Fc, Ff = ((Fc - mu) / sd).cuda(), ((Ff - mu) / sd).cuda()
         for wd in (1e-2, 1e-1):
@@ -1000,9 +1032,35 @@ def calib_remote():
             name = f"oof probe b{k} wd{wd}"; cands[name] = Z
             ce = F.cross_entropy(Z, y, reduction="none")
             notes[name] = {"acc": round(float((Z.argmax(1) == y).float().mean()), 3), "ce": (round(float(ce.mean()), 3), round(float(ce.std()), 3)), "T": best[1]}
+    # "the classes in the forget set were removed entirely": gold only knows the absent classes
+    absent = torch.ones(100, dtype=torch.bool); absent[present] = False
+    Z8 = _predict(orig, imgs, fn=lens(8)); Zs8 = torch.stack([_predict(orig, _rrc(imgs, 0.5, 0.8, jitter=0.2, blur=0.5, erase=0.7)) for _ in range(4)]).mean(0)
+    for src, Zb in (("final", L0), ("strong", Zs8), ("readout8", Z8)):
+        for B in (6.0, 10.0, 14.0):
+            for tau in (1.0, 2.0):
+                Z = Zb.clone() / tau; top_abs = Z[:, absent].max(1, keepdim=True).values
+                Z[:, present] = torch.minimum(Z[:, present], top_abs - B + (Z[:, present] - Z[:, present].max(1, keepdim=True).values).clamp_min(-4.0))
+                cands[f"absent-only {src} B{B:.0f} tau{tau:.0f}"] = Z
+    for B in (4.0, 8.0):          # only the true class is unknown; the other 44 forget classes stay available
+        Z = Zs8.clone(); oth = Z.clone(); oth[torch.arange(N), y] = -1e9; Z[torch.arange(N), y] = oth.max(1).values - B; cands[f"true-class-only strong B{B:.0f}"] = Z
+    import glob, os
+    for f in sorted(glob.glob("/vol/oofb_*.pt")):                      # cross-fitted late-block predictions (uploaded)
+        Zo = torch.load(f).float(); nm = os.path.basename(f)[:-3]
+        for tt in (0.5, 0.7, 1.0, 1.5):
+            cands[f"{nm} logits/{tt}"] = Zo / tt
+        cands[f"{nm} as T2 dist"] = 2 * Zo.log_softmax(1); cands[f"{nm} avg readout8"] = 2 * (0.5 * Zo.softmax(1) + 0.5 * Z8.softmax(1)).log()
+    ens = [torch.load(f).float() for f in sorted(glob.glob("/vol/oofb_f8*.pt")) if "keep" not in f and "hard" not in f]
+    if len(ens) > 1:          # like the official reference: average the T=2 distributions of several never-saw-it models
+        pe = torch.stack([(z / 2).softmax(1) for z in ens]).mean(0); cands["oofb_f8 ensemble"] = 2 * pe.clamp_min(1e-9).log()
+        if os.path.exists("/vol/oofb_f7.pt"):
+            p7 = (torch.load("/vol/oofb_f7.pt").float() / 2).softmax(1); cands["oofb f7+f8 ensemble"] = 2 * (0.5 * pe + 0.5 * p7).clamp_min(1e-9).log()
     torch.save({k: v for k, v in cands.items()}, "/vol/calib_targets.pt"); vol.commit()
 
-    subs = {"orig": 0.0, "surg_b26": 0.0, "v5_amp2_f20_w2": 0.0397, "v6_lens8_w2": 0.0564, "v3_a": 0.069, "fit_b8": 0.147}
+    subs = {"orig": 0.0, "surg_b26": 0.0, "v5_amp2_f20_w2": 0.0397, "v12_abs_r8_B6": 0.0434, "v6_lens8_w2": 0.0564, "v3_a": 0.069, "v10_all_w1": 0.0916, "v11_crop60_w05": 0.1246, "fit_b8": 0.147}
+    for e in extra:                       # unscored candidates: estimated only
+        subs[e] = None
+    if only:
+        cands = {k: v for k, v in cands.items() if only in k}
     P = {}
     for s in subs:
         if s == "orig":
@@ -1012,6 +1070,7 @@ def calib_remote():
     cef = lambda L: F.cross_entropy(L, y, reduction="none")
     klp = lambda pg, L: float((pg * (pg.clamp_min(1e-12).log() - (L / 2).log_softmax(1))).sum(1).mean())
     out = {"notes": notes, "public": subs, "table": {}}
+    scored = [k for k, v in subs.items() if k != "orig" and v is not None]; pub = torch.tensor([subs[k] for k in scored])
     for cn, Zg in cands.items():
         cg = cef(Zg); mg, sg = float(cg.mean()), float(cg.std()); pg = (Zg / 2).softmax(1); row = {"gold_ce": (round(mg, 2), round(sg, 2)), "gold_acc": round(float((Zg.argmax(1) == y).float().mean()), 3)}
         for s in subs:
@@ -1021,18 +1080,25 @@ def calib_remote():
                 ms.append(1 - min(1.0, (abs(float(cs.mean()) - mg) + abs(float(cs.std()) - sg)) / (abs(float(co.mean()) - mg) + abs(float(co.std()) - sg))))
                 pr.append(1 - min(1.0, klp(pg, P[s][v]) / klp(pg, Lo[v])))
             row[s] = (round(sum(ms) / 2, 3), round(sum(pr) / 2, 3), round(sum(ms) / 2 * sum(pr) / 2, 3))
+        est = torch.tensor([row[k][2] for k in scored])
+        row["corr"] = round(float(torch.corrcoef(torch.stack([est, pub]))[0, 1]), 3) if float(est.std()) > 0 else 0.0
+        row["scale"] = round(float((est * pub).sum() / (est * est).sum().clamp_min(1e-9)), 3)      # public ~ scale x estimate
         out["table"][cn] = row
     return out
 
 
 @app.local_entrypoint()
-def calib():
-    R = calib_remote.remote(); (Path(__file__).parent / "out" / "calib.json").write_text(json.dumps(R, indent=1))
+def calib(extra: str = "", only: str = ""):
+    R = calib_remote.remote([e for e in extra.split(",") if e], only); (Path(__file__).parent / "out" / "calib.json").write_text(json.dumps(R, indent=1))
+    if extra:
+        for cn, row in sorted(R["table"].items(), key=lambda kv: -kv[1]["corr"]):
+            print(f"EST corr {row['corr']:+.3f} scale {row['scale']:.2f} | {cn:26s} | " + " | ".join(f"{e} {row[e][2]:.3f} ({row[e][0]:.2f}x{row[e][1]:.2f}) -> {row['scale'] * row[e][2]:.3f}" for e in extra.split(",") if e))
+        return
     print("public:", R["public"])
     for n, v in R["notes"].items():
         print("probe", n, v)
-    for cn, row in R["table"].items():
-        print(f"{cn:26s} gold acc {row['gold_acc']:.3f} CE {row['gold_ce']} | " + " | ".join(f"{s} {row[s][2]:.3f} ({row[s][0]:.2f}x{row[s][1]:.2f})" for s in R["public"] if s != "orig"))
+    for cn, row in sorted(R["table"].items(), key=lambda kv: -kv[1]["corr"]):
+        print(f"corr {row['corr']:+.3f} scale {row['scale']:.2f} | {cn:26s} gold acc {row['gold_acc']:.3f} CE {row['gold_ce']} | " + " | ".join(f"{s} {row[s][2]:.3f} ({row[s][0]:.2f}x{row[s][1]:.2f})" for s in R["public"] if s != "orig"))
 
 
 @app.function(image=image, volumes={"/vol": vol}, gpu="A100-40GB", timeout=2400)
@@ -1093,3 +1159,106 @@ def calib2(names: str = "surg_b26,v5_amp2_f20_w2,v6_lens8_w2,v3_a,fit_b8,fit_b8@
         for k in (6, 7, 8):
             print(f"  forget vs readout{k}: " + " | ".join(f"{v} {r['forget'][f'{v}/b{k}'][2]:.2f}" for v in r["ce"]))
         print("  retain proxies: " + " | ".join(f"{v} {d}" for v, d in r["retain"].items()))
+
+
+@app.function(image=image, volumes={"/vol": vol}, gpu="A100-40GB", timeout=1200)
+def runnerup_remote():
+    """Where does the model's belief go once the memorised label is taken away? Per source: share of runner-up mass
+    on classes absent from the forget set, and how concentrated the runner-up is within each label class."""
+    import torch
+    orig, imgs = _setup(); L0 = _predict(orig, imgs); y = L0.argmax(1); N = len(y)
+    present = y.unique(); absent = torch.ones(100, dtype=torch.bool); absent[present] = False
+    def lens(k):
+        return lambda model, x: model.forward_head(model.norm(torch.nn.Sequential(*model.blocks[: k + 1])(model.norm_pre(model._pos_embed(model.patch_embed(x))))))
+    src = {"final clean": L0, "strong x8": torch.stack([_predict(orig, _rrc(imgs, 0.5, 0.8, jitter=0.2, blur=0.5, erase=0.7)) for _ in range(8)]).mean(0),
+           "very strong x8": torch.stack([_predict(orig, _rrc(imgs, 0.15, 0.4, jitter=0.3, erase=0.8)) for _ in range(8)]).mean(0)}
+    for k in (5, 6, 7, 8, 9, 10):
+        src[f"readout{k}"] = _predict(orig, imgs, fn=lens(k))
+    cnt = torch.bincount(y, minlength=100); out = {"n_present": int(len(present)), "class_sizes": sorted(cnt[present].tolist())}
+    for n, Z in src.items():
+        p = Z.softmax(1); r = {"acc_vs_label": round(float((Z.argmax(1) == y).float().mean()), 3), "argmax_in_absent": round(float(absent[Z.argmax(1)].float().mean()), 3)}
+        Zo = Z.clone(); Zo[torch.arange(N), y] = -1e9; ru = Zo.argmax(1); po = Zo.softmax(1)
+        r["runnerup_in_absent"] = round(float(absent[ru].float().mean()), 3); r["non-label mass on absent classes"] = round(float(po[:, absent].sum(1).mean()), 3)
+        tops, purity = [], []
+        for c in present.tolist():
+            m = ru[y == c]; b = torch.bincount(m, minlength=100); purity.append(float(b.max()) / len(m)); tops.append((c, int(cnt[c]), int(b.argmax()), bool(absent[b.argmax()]), round(float(b.max()) / len(m), 2)))
+        r["mean share of the most common runner-up within a label class"] = round(sum(purity) / len(purity), 3); r["per_class(label,n,top_runnerup,absent?,share)"] = tops
+        out[n] = r
+    return out
+
+
+@app.local_entrypoint()
+def runnerup():
+    R = runnerup_remote.remote(); (Path(__file__).parent / "out" / "runnerup.json").write_text(json.dumps(R, indent=1))
+    print("present classes", R["n_present"], "sizes", R["class_sizes"])
+    for n, r in R.items():
+        if isinstance(r, dict):
+            print(f"{n:16s} acc vs label {r['acc_vs_label']:.3f} | argmax in absent {r['argmax_in_absent']:.3f} | runner-up in absent {r['runnerup_in_absent']:.3f} | non-label mass on absent {r['non-label mass on absent classes']:.3f} | runner-up purity {r['mean share of the most common runner-up within a label class']:.3f}")
+    print("strong x8 per class:", R["strong x8"]["per_class(label,n,top_runnerup,absent?,share)"])
+
+
+# ------------------------------------------------------------------ cross-fitted "never saw this image" late blocks
+@app.function(image=image, volumes={"/vol": vol}, gpu="A100-40GB", timeout=5400, max_containers=30)
+def oof_blocks_remote(cfg: dict):
+    """Blocks `first`..11 (and optionally norm/head) are re-initialised and trained on 4/5 of the forget images, with
+    the original model as teacher on augmented views; the remaining 1/5 is then predicted by blocks that never saw it.
+    Returns the out-of-fold logits for this fold (clean images)."""
+    import copy, math, torch, torch.nn.functional as F
+    c = dict(fold=0, first=8, epochs=40, lr=3e-4, bs=64, reinit=True, hard=0.0, tag="a", seed=0); c.update(cfg)
+    torch.manual_seed(100 + c["fold"] + 1000 * c["seed"]); orig, imgs = _setup(); L0 = _predict(orig, imgs); y = L0.argmax(1); N = len(y)
+    g = torch.Generator().manual_seed(0); fold = torch.zeros(N, dtype=torch.long)
+    for cl in y.unique().tolist():
+        idx = torch.where(y == cl)[0]; idx = idx[torch.randperm(len(idx), generator=g)]; fold[idx] = torch.arange(len(idx)) % 5
+    tr = torch.where(fold != c["fold"])[0]; te = torch.where(fold == c["fold"])[0]
+    for p in orig.parameters():
+        p.requires_grad_(False)
+    stu = copy.deepcopy(orig); params = []
+    for p in stu.parameters():
+        p.requires_grad_(False)
+    for blk in stu.blocks[c["first"]:]:
+        if c["reinit"]:
+            for m in blk.modules():
+                if isinstance(m, torch.nn.Linear):
+                    torch.nn.init.trunc_normal_(m.weight, std=0.02); torch.nn.init.zeros_(m.bias)
+                elif isinstance(m, torch.nn.LayerNorm):
+                    torch.nn.init.ones_(m.weight); torch.nn.init.zeros_(m.bias)
+            for n_, p in blk.named_parameters():
+                if "gamma" in n_:
+                    torch.nn.init.constant_(p, 0.1)
+        for p in blk.parameters():
+            p.requires_grad_(True); params.append(p)
+    opt = torch.optim.AdamW(params, lr=c["lr"], weight_decay=0.05); steps = c["epochs"] * (len(tr) // c["bs"])
+    sched = torch.optim.lr_scheduler.LambdaLR(opt, lambda s: min(1.0, (s + 1) / 100) * 0.5 * (1 + math.cos(math.pi * min(1.0, s / steps))))
+    stu.train(); yg = y.cuda()
+    for s in range(steps):
+        ib = tr[torch.randint(0, len(tr), (c["bs"],))]; x = _pre(_rrc(imgs[ib], 0.35, 1.0, jitter=0.3, erase=0.3))
+        with torch.autocast("cuda", dtype=torch.bfloat16):
+            z = stu(x).float()
+            with torch.no_grad():
+                zt = orig(x).float()
+        loss = 4 * F.kl_div((z / 2).log_softmax(1), (zt / 2).softmax(1), reduction="batchmean")
+        if c["hard"]:
+            loss = loss + c["hard"] * F.cross_entropy(z, yg[ib])
+        opt.zero_grad(set_to_none=True); loss.backward(); torch.nn.utils.clip_grad_norm_(params, 1.0); opt.step(); sched.step()
+    stu.eval(); Zte = _predict(stu, imgs[te]); Ztr = _predict(stu, imgs[tr[:500]])
+    ce = F.cross_entropy(Zte, y[te], reduction="none")
+    import os
+    os.makedirs("/vol/oofb_parts", exist_ok=True); torch.save({"te": te, "logits": Zte}, f"/vol/oofb_parts/{c['tag']}_{c['fold']}.pt"); vol.commit()
+    return {"cfg": c, "acc_te": float((Zte.argmax(1) == y[te]).float().mean()), "ce_te": (float(ce.mean()), float(ce.std())),
+            "acc_tr": float((Ztr.argmax(1) == y[tr[:500]]).float().mean()), "final_loss": float(loss)}
+
+
+@app.function(image=image, volumes={"/vol": vol}, timeout=600)
+def oofb_assemble(tag: str):
+    import torch
+    vol.reload(); Z = torch.zeros(3500, 100)
+    for f in range(5):
+        d = torch.load(f"/vol/oofb_parts/{tag}_{f}.pt"); Z[d["te"]] = d["logits"]
+    torch.save(Z, f"/vol/oofb_{tag}.pt"); vol.commit(); return True
+
+
+@app.local_entrypoint()
+def oofb(first: int = 8, epochs: int = 40, tag: str = "a", reinit: bool = True, hard: float = 0.0, seed: int = 0):
+    for r in oof_blocks_remote.map([dict(fold=f, first=first, epochs=epochs, tag=tag, reinit=reinit, hard=hard, seed=seed) for f in range(5)]):
+        print(r["cfg"]["fold"], {k: r[k] for k in ("acc_te", "ce_te", "acc_tr", "final_loss")})
+    print("assembled", oofb_assemble.remote(tag))
