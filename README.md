@@ -7,7 +7,7 @@ Team working repo for 21-22 November 2026.
 - [Opening slides](docs/opening-slides-zh.md), deck: [EuroAIChampionshipParis2026-11-21.pdf](docs/EuroAIChampionshipParis2026-11-21.pdf)
 - [Task 1: localize image watermark](docs/tasks/task1-zh.md), [Watermark_Localization.pdf](docs/tasks/Watermark_Localization.pdf)
 - [Task 2: model equality](docs/tasks/task2-zh.md), [Model_Equality_Testing.pdf](docs/tasks/Model_Equality_Testing.pdf)
-- [Task 3: unlearning](docs/tasks/task3-zh.md), [Unlearning.pdf](docs/tasks/Unlearning.pdf)
+- [Task 3: unlearning](docs/tasks/task3-zh.md), [Unlearning.pdf](docs/tasks/Unlearning.pdf), [20 篇论文与提分优先级](docs/tasks/task3-paper-ranking-zh.md)
 
 Task 2's PDF was not in the latest upload. It is the copy already checked against the official brief.
 
