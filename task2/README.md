@@ -4,11 +4,11 @@
 
 公开分 **1.00**（2026-11-22 07:05 巴黎时间，公开榜最高分）。留出分在提交关闭时尚未公布。
 
-- [最终提交和每个端点的依据](final/)：`submission.csv` 是榜单记录的那一份。
-- [方法、证据、上传记录和已知弱点](experiments/fingerprint/README.md)。
+- [最终提交和每个端点的依据](final/)：`submission.csv` 是榜单记录的 `t11`（G1 同模型组含 ep-12）。`submission-last-upload.csv` 是最后一次上传的 `t14`（ep-12 单独成模型），公开分同样 1.00。
+- [方法、证据、上传记录、逐端点表和已知弱点](experiments/fingerprint/README.md)。逐步判断在同目录 [DECISIONS.md](experiments/fingerprint/DECISIONS.md)。
 - 核对提交文件：`python3 task2/final/build_submission.py --check`
 
-公开分只统计 13 个端点之间的 22 个同家族对子，其余 20 个端点的归组没有被核实，详见上面的方法说明。
+公开分只统计 13 个端点之间的 22 个同家族对子，其余 20 个端点的归组没有被核实。ep-12 是隐藏端点，并入同模型组没有被公开分证实，所以最后一次上传把它拆开。详情见上面的方法说明。
 
 本页以下是比赛前半段的流水线和基线（公开分 0.10），保留作对照。
 
